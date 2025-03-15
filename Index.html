@@ -91,3 +91,23 @@
   </script>
 </body>
 </html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Browser</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Optional: Link to your CSS file -->
+</head>
+<body>
+  <div class="browser">
+    <header>
+      <button onclick="goBack()">←</button>
+      <button onclick="goForward()">→</button>
+      <input id="url-bar" type="text" placeholder="Enter URL" />
+      <button onclick="loadPage()">Go</button>
+    </header>
+    <iframe id="webview" src="https://www.bing.com"></iframe>
+  </div>
+
+  <script src="script.js"></script> <!-- Optional: Link to your JavaScript file -->
+</body>
+</html>
