@@ -69,6 +69,7 @@
       background: white;
       border: 1px solid #ccc;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      display: none; /* Initially hidden */
     }
     .browser header {
       display: flex;
@@ -101,6 +102,11 @@
     <div class="icon" style="top: 20px; left: 100px;">
       <img src="path/to/recycle-bin-icon.png" alt="Recycle Bin">
       <div>Recycle Bin</div>
+    </div>
+    <!-- Browser Icon -->
+    <div class="icon" style="top: 20px; left: 180px;" id="browserIcon">
+      <img src="path/to/browser-icon.png" alt="Browser">
+      <div>Browser</div>
     </div>
     <div class="taskbar">
       <div class="start-menu" aria-label="Start Menu">Start</div>
@@ -152,6 +158,11 @@
     function closeBrowser() {
       document.getElementById('browser').style.display = 'none';
     }
+
+    // Reopen browser when browser icon is clicked
+    document.getElementById('browserIcon').addEventListener('click', function() {
+      document.getElementById('browser').style.display = 'block';
+    });
   </script>
 </body>
 </html>
