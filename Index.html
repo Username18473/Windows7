@@ -7,6 +7,7 @@
   <meta name="keywords" content="Windows 7, desktop simulation">
   <meta name="author" content="Username18473">
   <title>Custom OS</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Optional: Link to your CSS file -->
   <style>
     :root {
       --background-image: url('path/to/your-background-image.jpeg'); /* Update the path to your image */
@@ -59,6 +60,28 @@
       max-width: 100%;
       max-height: 100%;
     }
+    .browser {
+      position: absolute;
+      top: 100px; /* Adjust as needed */
+      left: 50px; /* Adjust as needed */
+      width: 80%;
+      height: 80%;
+      background: white;
+      border: 1px solid #ccc;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    .browser header {
+      display: flex;
+      align-items: center;
+      padding: 5px;
+      background: #f1f1f1;
+      border-bottom: 1px solid #ccc;
+    }
+    .browser iframe {
+      width: 100%;
+      height: calc(100% - 40px); /* Adjust height based on header */
+      border: none;
+    }
   </style>
 </head>
 <body>
@@ -75,6 +98,15 @@
       <div class="start-menu" aria-label="Start Menu">Start</div>
       <div class="time" id="time">23:17</div>
     </div>
+    <div class="browser">
+      <header>
+        <button onclick="goBack()">←</button>
+        <button onclick="goForward()">→</button>
+        <input id="url-bar" type="text" placeholder="Enter URL" />
+        <button onclick="loadPage()">Go</button>
+      </header>
+      <iframe id="webview" src="https://www.bing.com"></iframe>
+    </div>
   </div>
 
   <script>
@@ -88,26 +120,19 @@
 
     setInterval(updateTime, 1000);
     updateTime();
-  </script>
-</body>
-</html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Custom Browser</title>
-  <link rel="stylesheet" href="styles.css"> <!-- Optional: Link to your CSS file -->
-</head>
-<body>
-  <div class="browser">
-    <header>
-      <button onclick="goBack()">←</button>
-      <button onclick="goForward()">→</button>
-      <input id="url-bar" type="text" placeholder="Enter URL" />
-      <button onclick="loadPage()">Go</button>
-    </header>
-    <iframe id="webview" src="https://www.bing.com"></iframe>
-  </div>
 
-  <script src="script.js"></script> <!-- Optional: Link to your JavaScript file -->
+    function goBack() {
+      document.getElementById('webview').contentWindow.history.back();
+    }
+
+    function goForward() {
+      document.getElementById('webview').contentWindow.history.forward();
+    }
+
+    function loadPage() {
+      const url = document.getElementById('url-bar').value;
+      document.getElementById('webview').src = url;
+    }
+  </script>
 </body>
 </html>
