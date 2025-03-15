@@ -17,7 +17,7 @@
 }
 body {
   margin: 0;
-  background: url('images/your-image.png') no-repeat center center;
+  background: url('chess.jpeg') no-repeat center center;
   background-size: cover; /* Ensures the image covers the whole screen */
   font-family: Arial, sans-serif;
   color: white;
