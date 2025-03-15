@@ -12,8 +12,6 @@
       --background-color: #FFFF00;
       --taskbar-color: #222;
       --start-menu-color: #008000;
-      --icon-bg-color: white;
-      --icon-hover-bg-color: #ddd;
     }
     body {
       margin: 0;
@@ -54,20 +52,11 @@
       position: absolute;
       width: 50px;
       height: 50px;
-      background: var(--icon-bg-color);
-      color: black;
-      text-align: center;
-      line-height: 50px;
-      border-radius: 10%;
       cursor: pointer;
     }
     .icon img {
       max-width: 100%;
       max-height: 100%;
-      border-radius: 10%;
-    }
-    .icon:hover {
-      background: var(--icon-hover-bg-color);
     }
   </style>
 </head>
@@ -83,8 +72,21 @@
     </div>
     <div class="taskbar">
       <div class="start-menu" aria-label="Start Menu">Start</div>
-      <div class="time">23:17</div>
+      <div class="time" id="time">23:17</div>
     </div>
   </div>
+
+  <script>
+    function updateTime() {
+      const timeElement = document.getElementById('time');
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      timeElement.textContent = `${hours}:${minutes}`;
+    }
+
+    setInterval(updateTime, 1000);
+    updateTime();
+  </script>
 </body>
 </html>
