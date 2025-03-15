@@ -9,13 +9,14 @@
   <title>Custom OS</title>
   <style>
     :root {
-      --background-color: #FFFF00;
+      --background-image: url('path/to/your-background-image.jpg'); /* Update the path to your image */
       --taskbar-color: #222;
       --start-menu-color: #008000;
     }
     body {
       margin: 0;
-      background: var(--background-color); /* Classic blue wallpaper */
+      background: var(--background-image) no-repeat center center fixed; /* Set the background image */
+      background-size: cover; /* Ensure the image covers the entire background */
       color: white;
       font-family: Arial, sans-serif;
     }
