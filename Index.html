@@ -164,5 +164,16 @@
       document.getElementById('browser').style.display = 'block';
     });
   </script>
+  <script>
+  document.getElementById("fullscreen-btn").addEventListener("click", () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      }
+    }
+  });
+</script>
 </body>
 </html>
