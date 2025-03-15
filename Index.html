@@ -82,6 +82,14 @@
       height: calc(100% - 40px); /* Adjust height based on header */
       border: none;
     }
+    .close-button {
+      margin-left: auto;
+      background: red;
+      color: white;
+      border: none;
+      padding: 5px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -98,12 +106,13 @@
       <div class="start-menu" aria-label="Start Menu">Start</div>
       <div class="time" id="time">23:17</div>
     </div>
-    <div class="browser">
+    <div class="browser" id="browser">
       <header>
         <button onclick="goBack()">←</button>
         <button onclick="goForward()">→</button>
         <input id="url-bar" type="text" placeholder="Enter URL" />
         <button onclick="loadPage()">Go</button>
+        <button class="close-button" onclick="closeBrowser()">X</button>
       </header>
       <iframe id="webview" src="https://www.bing.com"></iframe>
     </div>
@@ -133,6 +142,10 @@
     function loadPage() {
       const url = document.getElementById('url-bar').value;
       document.getElementById('webview').src = url;
+    }
+
+    function closeBrowser() {
+      document.getElementById('browser').style.display = 'none';
     }
   </script>
 </body>
