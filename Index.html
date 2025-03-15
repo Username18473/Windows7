@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Windows 7 Inspired Desktop</title>
+  <style>
+    body {
+      margin: 0;
+      background: #0066cc; /* Classic blue wallpaper */
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    .desktop {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+    }
+    .taskbar {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 50px;
+      background: #222;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+    }
+    .start-menu {
+      width: 70px;
+      height: 100%;
+      background: #008000;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    .time {
+      margin-left: auto;
+      padding-right: 10px;
+    }
+    .icon {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: white;
+      color: black;
+      text-align: center;
+      line-height: 50px;
+      border-radius: 10%;
+      cursor: pointer;
+    }
+    .icon:hover {
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div class="desktop">
+    <div class="icon" style="top: 20px; left: 20px;">My PC</div>
+    <div class="icon" style="top: 20px; left: 100px;">Recycle Bin</div>
+    <div class="taskbar">
+      <div class="start-menu">Start</div>
+      <div class="time">23:17</div>
+    </div>
+  </div>
+</body>
+</html>
