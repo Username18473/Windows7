@@ -3,11 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A simulation of Windows 7 desktop experience.">
+  <meta name="keywords" content="Windows 7, desktop simulation">
+  <meta name="author" content="Username18473">
   <title>Windows 7 Inspired Desktop</title>
   <style>
+    :root {
+      --background-color: #FFFF00;
+      --taskbar-color: #222;
+      --start-menu-color: #008000;
+      --icon-bg-color: white;
+      --icon-hover-bg-color: #ddd;
+    }
     body {
       margin: 0;
-      background: #FFFF00; /* Classic blue wallpaper */
+      background: var(--background-color); /* Classic blue wallpaper */
       color: white;
       font-family: Arial, sans-serif;
     }
@@ -21,7 +31,7 @@
       bottom: 0;
       width: 100%;
       height: 50px;
-      background: #222;
+      background: var(--taskbar-color);
       display: flex;
       align-items: center;
       padding: 0 10px;
@@ -29,7 +39,7 @@
     .start-menu {
       width: 70px;
       height: 100%;
-      background: #008000;
+      background: var(--start-menu-color);
       color: white;
       display: flex;
       justify-content: center;
@@ -44,24 +54,35 @@
       position: absolute;
       width: 50px;
       height: 50px;
-      background: white;
+      background: var(--icon-bg-color);
       color: black;
       text-align: center;
       line-height: 50px;
       border-radius: 10%;
       cursor: pointer;
     }
+    .icon img {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 10%;
+    }
     .icon:hover {
-      background: #ddd;
+      background: var(--icon-hover-bg-color);
     }
   </style>
 </head>
 <body>
   <div class="desktop">
-    <div class="my-pc">My PC</div>
-    <div class="icon" style="top: 20px; left: 100px;">Recycle Bin</div>
+    <div class="icon" style="top: 20px; left: 20px;">
+      <img src="path/to/my-pc-icon.png" alt="My PC">
+      <div>My PC</div>
+    </div>
+    <div class="icon" style="top: 20px; left: 100px;">
+      <img src="path/to/recycle-bin-icon.png" alt="Recycle Bin">
+      <div>Recycle Bin</div>
+    </div>
     <div class="taskbar">
-      <div class="start-menu">Start</div>
+      <div class="start-menu" aria-label="Start Menu">Start</div>
       <div class="time">23:17</div>
     </div>
   </div>
