@@ -18,3 +18,9 @@
 .my-pc:hover {
   background-color: #f0f0f0; /* Highlight effect */
 }
+.my-pc {
+  background: url('images/my-pc.png') no-repeat center;
+  background-size: cover;
+  width: 80px;
+  height: 80px;
+}
