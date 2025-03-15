@@ -50,3 +50,15 @@ body {
   height: calc(100% - 40px); /* Adjust height based on header */
   border: none;
 }
+<style>
+  #draggable-browser {
+    width: 800px;
+    height: 600px;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: move;
+  }
+</style>
