@@ -49,3 +49,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Cross-Origin Restrictions
 // Be mindful of loading content from different origins and ensure you have the appropriate permissions.
+
+// Toggle start menu visibility
+function toggleStartMenu() {
+  const startMenu = document.getElementById('start-menu');
+  if (startMenu.style.display === 'none' || startMenu.style.display === '') {
+    startMenu.style.display = 'block';
+  } else {
+    startMenu.style.display = 'none';
+  }
+}
