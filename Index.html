@@ -46,6 +46,32 @@
       align-items: center;
       cursor: pointer;
     }
+    .start-menu-content {
+      display: none;
+      position: absolute;
+      bottom: 50px;
+      left: 10px;
+      width: 200px;
+      background-color: #f1f1f1;
+      border: 1px solid #ccc;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .start-menu-content ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .start-menu-content li {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+    .start-menu-content li a {
+      text-decoration: none;
+      color: #333;
+    }
+    .start-menu-content li a:hover {
+      background-color: #ddd;
+    }
     .time {
       margin-left: auto;
       padding-right: 10px;
@@ -109,7 +135,15 @@
       <div>Browser</div>
     </div>
     <div class="taskbar">
-      <div class="start-menu" aria-label="Start Menu">Start</div>
+      <div class="start-menu" aria-label="Start Menu" onclick="toggleStartMenu()">Start</div>
+      <div class="start-menu-content" id="start-menu">
+        <ul>
+          <li><a href="#">Program 1</a></li>
+          <li><a href="#">Program 2</a></li>
+          <li><a href="#">Program 3</a></li>
+          <!-- Add more programs as needed -->
+        </ul>
+      </div>
       <div class="time" id="time">23:17</div>
     </div>
     <div class="browser" id="browser">
@@ -163,17 +197,27 @@
     document.getElementById('browserIcon').addEventListener('click', function() {
       document.getElementById('browser').style.display = 'block';
     });
-  </script>
-  <script>
-  document.getElementById("fullscreen-btn").addEventListener("click", () => {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen();
-    } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
+
+    // Toggle start menu visibility
+    function toggleStartMenu() {
+      const startMenu = document.getElementById('start-menu');
+      if (startMenu.style.display === 'none' || startMenu.style.display === '') {
+        startMenu.style.display = 'block';
+      } else {
+        startMenu.style.display = 'none';
       }
     }
-  });
-</script>
+  </script>
+  <script>
+    document.getElementById("fullscreen-btn").addEventListener("click", () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    });
+  </script>
 </body>
 </html>
