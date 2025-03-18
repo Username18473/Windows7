@@ -1,223 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A simulation of Windows 7 desktop experience.">
-  <meta name="keywords" content="Windows 7, desktop simulation">
-  <meta name="author" content="Username18473">
-  <title>Custom OS</title>
-  <link rel="stylesheet" href="styles.css"> <!-- Optional: Link to your CSS file -->
-  <style>
-    :root {
-      --background-image: url('path/to/your-background-image.jpeg'); /* Update the path to your image */
-      --taskbar-color: #222;
-      --start-menu-color: #008000;
-    }
-    body {
-      margin: 0;
-      background: var(--background-image) no-repeat center center fixed; /* Set the background image */
-      background-size: cover; /* Ensure the image covers the entire background */
-      color: white;
-      font-family: Arial, sans-serif;
-    }
-    .desktop {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-    }
-    .taskbar {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      height: 50px;
-      background: rgba(34, 34, 34, 0.5); /* Adjusted to be slightly transparent */
-      display: flex;
-      align-items: center;
-      padding: 0 10px;
-    }
-    .start-menu {
-      width: 70px;
-      height: 100%;
-      background: var(--start-menu-color);
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-    }
-    .start-menu-content {
-      display: none;
-      position: absolute;
-      bottom: 50px;
-      left: 10px;
-      width: 200px;
-      background-color: #f1f1f1;
-      border: 1px solid #ccc;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    .start-menu-content ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .start-menu-content li {
-      padding: 10px;
-      border-bottom: 1px solid #ccc;
-    }
-    .start-menu-content li a {
-      text-decoration: none;
-      color: #333;
-    }
-    .start-menu-content li a:hover {
-      background-color: #ddd;
-    }
-    .time {
-      margin-left: auto;
-      padding-right: 10px;
-    }
-    .icon {
-      position: absolute;
-      width: 50px;
-      height: 50px;
-      cursor: pointer;
-    }
-    .icon img {
-      max-width: 100%;
-      max-height: 100%;
-    }
-    .browser {
-      position: absolute;
-      top: 100px; /* Adjust as needed */
-      left: 50px; /* Adjust as needed */
-      width: 80%;
-      height: 80%;
-      background: white;
-      border: 1px solid #ccc;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-      display: none; /* Initially hidden */
-    }
-    .browser header {
-      display: flex;
-      align-items: center;
-      padding: 5px;
-      background: #f1f1f1;
-      border-bottom: 1px solid #ccc;
-    }
-    .browser iframe {
-      width: 100%;
-      height: calc(100% - 40px); /* Adjust height based on header */
-      border: none;
-    }
-    .close-button {
-      margin-left: auto;
-      background: red;
-      color: white;
-      border: none;
-      padding: 5px;
-      cursor: pointer;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A simulation of Windows 7 desktop experience.">
+    <meta name="keywords" content="Windows 7, desktop simulation">
+    <meta name="author" content="Username18473">
+    <title>Custom OS</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Optional: Link to your CSS file -->
+    <style>
+        :root {
+            --background-image: url('path/to/your-background-image.jpeg'); /* Update the path to your image */
+            --taskbar-color: #222;
+            --start-menu-color: #008000;
+        }
+        body {
+            margin: 0;
+            background: var(--background-image) no-repeat center center fixed; /* Set the background image */
+            background-size: cover; /* Ensure the image covers the entire background */
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .desktop {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+        .taskbar {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 50px;
+            background: rgba(34, 34, 34, 0.5); /* Adjusted to be slightly transparent */
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+        }
+        .start-menu {
+            width: 70px;
+            height: 100%;
+            background: var(--start-menu-color);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .start-menu-content {
+            display: none;
+            position: absolute;
+            bottom: 50px;
+            left: 10px;
+            width: 200px;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .start-menu-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .start-menu-content li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .start-menu-content li a {
+            text-decoration: none;
+            color: #333;
+        }
+        .start-menu-content li a:hover {
+            background-color: #ddd;
+        }
+        .time {
+            margin-left: auto;
+            padding-right: 10px;
+        }
+        .icon {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+        }
+        .icon img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .browser {
+            position: absolute;
+            top: 100px; /* Adjust as needed */
+            left: 50px; /* Adjust as needed */
+            width: 80%;
+            height: 80%;
+            background: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: none; /* Initially hidden */
+        }
+        .browser header {
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            background: #f1f1f1;
+            border-bottom: 1px solid #ccc;
+        }
+        .browser iframe {
+            width: 100%;
+            height: calc(100% - 40px); /* Adjust height based on header */
+            border: none;
+        }
+        .close-button {
+            margin-left: auto;
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-  <div class="desktop">
-    <div class="icon" style="top: 20px; left: 20px;">
-      <img src="path/to/my-pc-icon.png" alt="My PC">
-      <div>My PC</div>
+    <div class="desktop">
+        <div class="icon" style="top: 20px; left: 20px;">
+            <img src="path/to/my-pc-icon.png" alt="My PC">
+            <div>My PC</div>
+        </div>
+        <div class="icon" style="top: 20px; left: 100px;">
+            <img src="path/to/recycle-bin-icon.png" alt="Recycle Bin">
+            <div>Recycle Bin</div>
+        </div>
+        <!-- Browser Icon -->
+        <div class="icon" style="top: 20px; left: 180px;" id="browserIcon">
+            <img src="path/to/browser-icon.png" alt="Browser">
+            <div>Browser</div>
+        </div>
+        <div class="taskbar">
+            <div class="start-menu" aria-label="Start Menu" onclick="toggleStartMenu()">Start</div>
+            <div class="start-menu-content" id="start-menu">
+                <ul>
+                    <li><a href="#" id="startMenuBrowserLink">Browser</a></li>
+                    <li><a href="#">Program 2</a></li>
+                    <li><a href="#">Program 3</a></li>
+                    <!-- Add more programs as needed -->
+                </ul>
+            </div>
+            <div class="time" id="time">23:17</div>
+        </div>
+        <div class="browser" id="browser">
+            <header>
+                <button onclick="goBack()">←</button>
+                <button onclick="goForward()">→</button>
+                <input id="url-bar" type="text" placeholder="Enter URL" />
+                <button onclick="loadPage()">Go</button>
+                <button class="close-button" onclick="closeBrowser()">X</button>
+            </header>
+            <iframe id="webview" src="https://bing.com/"></iframe>
+        </div>
     </div>
-    <div class="icon" style="top: 20px; left: 100px;">
-      <img src="path/to/recycle-bin-icon.png" alt="Recycle Bin">
-      <div>Recycle Bin</div>
-    </div>
-    <!-- Browser Icon -->
-    <div class="icon" style="top: 20px; left: 180px;" id="browserIcon">
-      <img src="path/to/browser-icon.png" alt="Browser">
-      <div>Browser</div>
-    </div>
-    <div class="taskbar">
-      <div class="start-menu" aria-label="Start Menu" onclick="toggleStartMenu()">Start</div>
-      <div class="start-menu-content" id="start-menu">
-        <ul>
-          <li><a href="#">Browser</a></li>
-          <li><a href="#">Program 2</a></li>
-          <li><a href="#">Program 3</a></li>
-          <!-- Add more programs as needed -->
-        </ul>
-      </div>
-      <div class="time" id="time">23:17</div>
-    </div>
-    <div class="browser" id="browser">
-      <header>
-        <button onclick="goBack()">←</button>
-        <button onclick="goForward()">→</button>
-        <input id="url-bar" type="text" placeholder="Enter URL" />
-        <button onclick="loadPage()">Go</button>
-        <button class="close-button" onclick="closeBrowser()">X</button>
-      </header>
-      <iframe id="webview" src="https://bing.com/"></iframe>
-    </div>
-  </div>
 
-  <script src="Script.js"></script> <!-- Add this line to include the Script.js file -->
-  <script>
-    function updateTime() {
-      const timeElement = document.getElementById('time');
-      const now = new Date();
-      const hours = now.getHours().toString().padStart(2, '0');
-      const minutes = now.getMinutes().toString().padStart(2, '0');
-      timeElement.textContent = `${hours}:${minutes}`;
-    }
-
-    setInterval(updateTime, 1000);
-    updateTime();
-
-    function goBack() {
-      document.getElementById('webview').contentWindow.history.back();
-    }
-
-    function goForward() {
-      document.getElementById('webview').contentWindow.history.forward();
-    }
-
-    function loadPage() {
-      const urlBar = document.getElementById('url-bar');
-      const webview = document.getElementById('webview');
-      let url = urlBar.value;
-      if (!url.startsWith('http')) {
-        url = 'https://' + url; // Add https if missing
-      }
-      webview.src = url;
-    }
-
-    function closeBrowser() {
-      document.getElementById('browser').style.display = 'none';
-    }
-
-    // Reopen browser when browser icon is clicked
-    document.getElementById('browserIcon').addEventListener('click', function() {
-      document.getElementById('browser').style.display = 'block';
-    });
-
-    // Toggle start menu visibility
-    function toggleStartMenu() {
-      const startMenu = document.getElementById('start-menu');
-      if (startMenu.style.display === 'none' || startMenu.style.display === '') {
-        startMenu.style.display = 'block';
-      } else {
-        startMenu.style.display = 'none';
-      }
-    }
-  </script>
-  <script>
-    document.getElementById("fullscreen-btn").addEventListener("click", () => {
-      if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen();
-      } else {
-        if (document.exitFullscreen) {
-          document.exitFullscreen();
+    <script src="Script.js"></script> <!-- Add this line to include the Script.js file -->
+    <script>
+        function updateTime() {
+            const timeElement = document.getElementById('time');
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            timeElement.textContent = `${hours}:${minutes}`;
         }
-      }
-    });
-  </script>
+
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        function goBack() {
+            document.getElementById('webview').contentWindow.history.back();
+        }
+
+        function goForward() {
+            document.getElementById('webview').contentWindow.history.forward();
+        }
+
+        function loadPage() {
+            const urlBar = document.getElementById('url-bar');
+            const webview = document.getElementById('webview');
+            let url = urlBar.value;
+            if (!url.startsWith('http')) {
+                url = 'https://' + url; // Add https if missing
+            }
+            webview.src = url;
+        }
+
+        function closeBrowser() {
+            document.getElementById('browser').style.display = 'none';
+        }
+
+        // Reopen browser when browser icon is clicked
+        document.getElementById('browserIcon').addEventListener('click', function() {
+            document.getElementById('browser').style.display = 'block';
+        });
+
+        // Toggle start menu visibility
+        function toggleStartMenu() {
+            const startMenu = document.getElementById('start-menu');
+            if (startMenu.style.display === 'none' || startMenu.style.display === '') {
+                startMenu.style.display = 'block';
+            } else {
+                startMenu.style.display = 'none';
+            }
+        }
+
+        // Reopen browser when "Browser" link in start menu is clicked
+        document.getElementById('startMenuBrowserLink').addEventListener('click', function() {
+            document.getElementById('browser').style.display = 'block';
+        });
+    </script>
+    <script>
+        document.getElementById("fullscreen-btn").addEventListener("click", () => {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        });
+    </script>
 </body>
 </html>
