@@ -1,61 +1,62 @@
-function loadPage() {
-  const urlBar = document.getElementById('url-bar');
-  const webview = document.getElementById('webview');
-  let url = urlBar.value;
-  
-  // Validate URL
-  try {
-    new URL(url);
-  } catch (_) {
-    alert('Invalid URL');
-    return;
-  }
-
-  if (!url.startsWith('http')) {
-    url = 'https://' + url; // Add https if missing
-  }
-  
-  webview.src = url;
-  
-  // Handle iframe loading errors
-  webview.onerror = function() {
-    alert('Failed to load the page. Please check the URL or your internet connection.');
-  };
+function updateTime() {
+    const timeElement = document.getElementById('time');
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    timeElement.textContent = `${hours}:${minutes}`;
 }
 
+setInterval(updateTime, 1000);
+updateTime();
+
 function goBack() {
-  const webview = document.getElementById('webview');
-  if (webview.contentWindow.history.length > 0) {
-    webview.contentWindow.history.back();
-  } else {
-    alert('No previous page in history.');
-  }
+    document.getElementById('webview').contentWindow.history.back();
 }
 
 function goForward() {
-  const webview = document.getElementById('webview');
-  if (webview.contentWindow.history.length > 0) {
-    webview.contentWindow.history.forward();
-  } else {
-    alert('No next page in history.');
-  }
+    document.getElementById('webview').contentWindow.history.forward();
 }
 
-// Ensure iframe is properly embedded and loaded
-document.addEventListener('DOMContentLoaded', function() {
-  const webview = document.getElementById('webview');
-  webview.src = 'https://bing.com/';
-});
+function loadPage() {
+    const urlBar = document.getElementById('url-bar');
+    const webview = document.getElementById('webview');
+    let url = urlBar.value;
+    if (!url.startsWith('http')) {
+        url = 'https://' + url; // Add https if missing
+    }
+    webview.src = url;
+}
 
-// Cross-Origin Restrictions
-// Be mindful of loading content from different origins and ensure you have the appropriate permissions.
+function closeBrowser() {
+    document.getElementById('browser').style.display = 'none';
+}
+
+// Reopen browser when browser icon is clicked
+document.getElementById('browserIcon').addEventListener('click', function() {
+    document.getElementById('browser').style.display = 'block';
+});
 
 // Toggle start menu visibility
 function toggleStartMenu() {
-  const startMenu = document.getElementById('start-menu');
-  if (startMenu.style.display === 'none' || startMenu.style.display === '') {
-    startMenu.style.display = 'block';
-  } else {
-    startMenu.style.display = 'none';
-  }
+    const startMenu = document.getElementById('start-menu');
+    if (startMenu.style.display === 'none' || startMenu.style.display === '') {
+        startMenu.style.display = 'block';
+    } else {
+        startMenu.style.display = 'none';
+    }
 }
+
+// Reopen browser when "Browser" link in start menu is clicked
+document.getElementById('startMenuBrowserLink').addEventListener('click', function() {
+    document.getElementById('browser').style.display = 'block';
+});
+
+document.getElementById("fullscreen-btn").addEventListener("click", () => {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        }
+    }
+});
