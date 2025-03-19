@@ -76,6 +76,9 @@
             margin-left: auto;
             padding-right: 10px;
         }
+        .date {
+            padding-right: 10px;
+        }
         .icon {
             position: absolute;
             width: 50px;
@@ -144,6 +147,7 @@
                     <!-- Add more programs as needed -->
                 </ul>
             </div>
+            <div class="date" id="date"></div>
             <div class="time" id="time">23:17</div>
         </div>
         <div class="browser" id="browser">
@@ -168,8 +172,18 @@
             timeElement.textContent = `${hours}:${minutes}`;
         }
 
+        function updateDate() {
+            const dateElement = document.getElementById('date');
+            const now = new Date();
+            const month = (now.getMonth() + 1).toString().padStart(2, '0');
+            const day = now.getDate().toString().padStart(2, '0');
+            const year = now.getFullYear().toString().slice(-2);
+            dateElement.textContent = `${month}/${day}/${year}`;
+        }
+
         setInterval(updateTime, 1000);
         updateTime();
+        updateDate();
 
         function goBack() {
             document.getElementById('webview').contentWindow.history.back();
@@ -223,6 +237,6 @@
                 }
             }
         });
-        <script src="Script.js"></script> <!-- This line should be included if not already present -->
+    </script>
 </body>
 </html>
