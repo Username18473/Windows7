@@ -1,9 +1,20 @@
 function updateTime() {
     const timeElement = document.getElementById('time');
+    const dateElement = document.getElementById('date');
     const now = new Date();
+
     const hours = now.getHours().toString().padStart(2, '0');
     const minutes = now.getMinutes().toString().padStart(2, '0');
+    const month = (now.getMonth() + 1).toString().padStart(2, '0');
+    const day = now.getDate().toString().padStart(2, '0');
+    const year = now.getFullYear().toString().substr(-2); // Get last two digits of the year
+
     timeElement.textContent = `${hours}:${minutes}`;
+    dateElement.textContent = `${month}/${day}/${year}`;
+}
+
+setInterval(updateTime, 1000);
+updateTime();
 }
 
 function updateDate() {
