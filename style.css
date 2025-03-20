@@ -51,18 +51,17 @@ body {
   border: none;
 }
 
-<style>
-  #draggable-browser {
-    width: 800px;
-    height: 600px;
-    position: absolute;
-    top: 50px;
-    left: 50px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    cursor: move;
-  }
-</style>
+/* Styles for draggable browser */
+#draggable-browser {
+  width: 800px;
+  height: 600px;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: move;
+}
 
 /* Styles for Start Menu */
 .start-menu {
@@ -96,6 +95,7 @@ body {
 .start-menu ul li:hover {
   background: rgba(255, 255, 255, 0.1);
 }
+
 .taskbar {
   position: absolute;
   bottom: 0;
@@ -106,24 +106,6 @@ body {
   align-items: center;
   padding: 0 10px;
 }
+
 .time-container {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    background: rgba(34, 34, 34, 0.5); /* Optional: background color */
-    padding: 5px; /* Optional: padding */
-    border-radius: 5px; /* Optional: rounded corners */
-    color: white;
-    font-family: Arial, sans-serif;
-}
-
-.time {
-    margin-bottom: 5px;
-}
-
-.date {
-    font-size: 0.8em;
-}
+  position:* ▋
