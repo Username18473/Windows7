@@ -15,21 +15,6 @@ function updateTime() {
 
 setInterval(updateTime, 1000);
 updateTime();
-}
-
-function updateDate() {
-    const dateElement = document.getElementById('date');
-    const now = new Date();
-    const month = (now.getMonth() + 1).toString().padStart(2, '0');
-    const day = now.getDate().toString().padStart(2, '0');
-    const year = now.getFullYear().toString().slice(-2);
-    dateElement.textContent = `${month}/${day}/${year}`;
-}
-
-setInterval(updateTime, 1000);
-setInterval(updateDate, 1000);  // Update the date every second
-updateTime();
-updateDate();
 
 function goBack() {
     document.getElementById('webview').contentWindow.history.back();
