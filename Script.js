@@ -68,32 +68,74 @@ document.getElementById("fullscreen-btn").addEventListener("click", () => {
     }
 });
 
-// Drag-and-drop functionality for the browser
-document.addEventListener('DOMContentLoaded', (event) => {
-    const browser = document.getElementById('browser');
-    const header = browser.querySelector('header');
+// Function to enable dragging of the browser window
+function enableDrag(element, header) {
+    let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
 
-    let isDragging = false;
-    let offsetX, offsetY;
-
-    header.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        offsetX = e.clientX - browser.offsetLeft;
-        offsetY = e.clientY - browser.offsetTop;
-        document.addEventListener('mousemove', onMouseMove);
-        document.addEventListener('mouseup', onMouseUp);
-    });
-
-    function onMouseMove(e) {
-        if (isDragging) {
-            browser.style.left = `${e.clientX - offsetX}px`;
-            browser.style.top = `${e.clientY - offsetY}px`;
-        }
+    if (header) {
+        header.onmousedown = dragMouseDown;
+    } else {
+        element.onmousedown = dragMouseDown;
     }
 
-    function onMouseUp() {
-        isDragging = false;
-        document.removeEventListener('mousemove', onMouseMove);
-        document.removeEventListener('mouseup', onMouseUp);
+    function dragMouseDown(e) {
+        e = e || window.event;
+        e.preventDefault();
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        document.onmouseup = closeDragElement;
+        document.onmousemove = elementDrag;
     }
+
+    function elementDrag(e) {
+        e = e || window.event;
+        e.preventDefault();
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        element.style.top = (element.offsetTop - pos2) + "px";
+        element.style.left = (element.offsetLeft - pos1) + "px";
+    }
+
+    function closeDragElement() {
+        document.onmouseup = null;
+        document.onmousemove = null;
+    }
+}
+
+// Enable dragging for the browser window
+const browser = document.getElementById("browser");
+const header = browser.querySelector("header");
+enableDrag(browser, header);
+
+// Other existing JavaScript code for your project
+function toggleStartMenu() {
+    const startMenu = document.getElementById("start-menu");
+    startMenu.style.display = startMenu.style.display === "block" ? "none" : "block";
+}
+
+function closeBrowser() {
+    document.getElementById("browser").style.display = "none";
+}
+
+function loadPage() {
+    const urlBar = document.getElementById("url-bar");
+    const webview = document.getElementById("webview");
+    webview.src = urlBar.value;
+}
+
+function goBack() {
+    const webview = document.getElementById("webview");
+    webview.contentWindow.history.back();
+}
+
+function goForward() {
+    const webview = document.getElementById("webview");
+    webview.contentWindow.history.forward();
+}
+
+// Event listener for opening the browser
+document.getElementById("browserIcon").addEventListener("click", () => {
+    document.getElementById("browser").style.display = "block";
 });
