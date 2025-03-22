@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="desktop">
-        <div class="icon" style="top: 20px; left: 20px;">
+    <div class="desktop" id="desktop">
+        <div class="icon" style="top: 20px; left: 20px;" id="myPcIcon">
             <img src="path/to/my-pc-icon.png" alt="My PC">
             <div>My PC</div>
         </div>
-        <div class="icon" style="top: 20px; left: 100px;">
+        <div class="icon" style="top: 20px; left: 100px;" id="recycleBinIcon">
             <img src="path/to/recycle-bin-icon.png" alt="Recycle Bin">
             <div>Recycle Bin</div>
         </div>
@@ -47,7 +47,7 @@
         </div>
     </div>
 
-    <div class="login-container">
+    <div class="login-container" id="loginContainer">
         <h2>Login</h2>
         <div class="profile-picture">
             <img src="path/to/default-profile-picture.png" alt="Profile Picture" id="profilePicture">
@@ -84,6 +84,23 @@
             console.log('Password:', password);
 
             // Add your form submission logic here
+        });
+
+        // Hide recycle bin and other icons during login
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginContainer = document.getElementById('loginContainer');
+            const desktop = document.getElementById('desktop');
+
+            if (loginContainer.style.display !== 'none') {
+                desktop.style.display = 'none';
+            }
+
+            // Assuming you show the desktop after login
+            // Add event listener to show desktop after login
+            document.getElementById('loginForm').addEventListener('submit', function() {
+                desktop.style.display = 'block';
+                loginContainer.style.display = 'none';
+            });
         });
     </script>
 </body>
