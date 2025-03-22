@@ -79,4 +79,18 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     console.log('Password:', password);
 
     // Add your form submission logic here
+
+    // Show the desktop after login
+    document.getElementById('desktop').style.display = 'block';
+    document.getElementById('loginContainer').style.display = 'none';
+});
+
+// Hide the desktop icons during login
+document.addEventListener('DOMContentLoaded', function() {
+    const loginContainer = document.getElementById('loginContainer');
+    const desktop = document.getElementById('desktop');
+
+    if (loginContainer.style.display !== 'none') {
+        desktop.style.display = 'none';
+    }
 });
