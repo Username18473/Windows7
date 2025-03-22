@@ -67,3 +67,16 @@ document.getElementById("fullscreen-btn").addEventListener("click", () => {
         }
     }
 });
+
+// Handling the form submission
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // For demonstration purposes, log the username and password
+    console.log('Username:', username);
+    console.log('Password:', password);
+
+    // Add your form submission logic here
+});
