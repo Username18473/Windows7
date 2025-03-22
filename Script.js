@@ -67,3 +67,33 @@ document.getElementById("fullscreen-btn").addEventListener("click", () => {
         }
     }
 });
+
+// Drag-and-drop functionality for the browser
+document.addEventListener('DOMContentLoaded', (event) => {
+    const browser = document.getElementById('browser');
+    const header = browser.querySelector('header');
+
+    let isDragging = false;
+    let offsetX, offsetY;
+
+    header.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        offsetX = e.clientX - browser.offsetLeft;
+        offsetY = e.clientY - browser.offsetTop;
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+    });
+
+    function onMouseMove(e) {
+        if (isDragging) {
+            browser.style.left = `${e.clientX - offsetX}px`;
+            browser.style.top = `${e.clientY - offsetY}px`;
+        }
+    }
+
+    function onMouseUp() {
+        isDragging = false;
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+    }
+});
