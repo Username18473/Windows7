@@ -94,3 +94,33 @@ document.addEventListener('DOMContentLoaded', function() {
         desktop.style.display = 'none';
     }
 });
+
+// Add JavaScript to make the browser window draggable
+function makeElementDraggable(element) {
+    let isDragging = false;
+    let offsetX, offsetY;
+
+    element.addEventListener('mousedown', function(e) {
+        isDragging = true;
+        offsetX = e.clientX - element.getBoundingClientRect().left;
+        offsetY = e.clientY - element.getBoundingClientRect().top;
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+    });
+
+    function onMouseMove(e) {
+        if (isDragging) {
+            element.style.left = `${e.clientX - offsetX}px`;
+            element.style.top = `${e.clientY - offsetY}px`;
+        }
+    }
+
+    function onMouseUp() {
+        isDragging = false;
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+    }
+}
+
+// Make the browser element draggable
+makeElementDraggable(document.getElementById('browser'));
