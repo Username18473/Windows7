@@ -18,18 +18,19 @@
         body {
             margin: 0;
             background: var(--background-image) no-repeat center center fixed;
-            /* Set the background image */
             background-size: cover;
-            /* Ensure the image covers the entire background */
             color: white;
             font-family: Arial, sans-serif;
         }
 
         .header {
-            background-color: #333;
+            background: rgba(34, 34, 34, 0.5); /* Semi-transparent background */
             color: white;
-            padding: 1em;
-            text-align: center;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+            cursor: move; /* Add cursor move style for drag effect */
         }
 
         .header a {
@@ -54,7 +55,6 @@
             width: 100%;
             height: 50px;
             background: rgba(34, 34, 34, 0.5);
-            /* Adjusted to be slightly transparent */
             display: flex;
             align-items: center;
             padding: 0 10px;
@@ -126,35 +126,28 @@
         .browser {
             position: absolute;
             top: 100px;
-            /* Adjust as needed */
             left: 50px;
-            /* Adjust as needed */
             width: 80%;
             height: 80%;
             background: white;
             border: 1px solid #ccc;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             display: none;
-            /* Initially hidden */
-            cursor: move;
-            /* Add cursor move style for drag effect */
+            cursor: move; /* Add cursor move style for drag effect */
         }
 
         .browser header {
             display: flex;
             align-items: center;
             padding: 5px;
-            background: rgba(34, 34, 34, 0.5);
-            /* Semi-transparent background */
+            background: rgba(34, 34, 34, 0.5); /* Semi-transparent background */
             border-bottom: 1px solid #ccc;
-            cursor: move;
-            /* Add cursor move style for drag effect */
+            cursor: move; /* Add cursor move style for drag effect */
         }
 
         .browser iframe {
             width: 100%;
             height: calc(100% - 40px);
-            /* Adjust height based on header */
             border: none;
         }
 
@@ -177,14 +170,6 @@
 </head>
 
 <body>
-    <header class="header">
-        <h1>My PC</h1>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-        </nav>
-    </header>
     <div class="desktop">
         <div class="icon" style="top: 20px; left: 20px;" onclick="openMyPC()">
             <img src="path/to/my-pc-icon.png" alt="My PC">
@@ -290,5 +275,4 @@
         }
     </script>
 </body>
-
 </html>
