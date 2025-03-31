@@ -11,6 +11,13 @@
             background-repeat: no-repeat;
             background-position: center center;
         }
+        .login-image {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%; /* You can adjust the width percentage as needed */
+            height: auto;
+        }
     </style>
     <script>
         function redirectToIndex(event) {
@@ -22,7 +29,7 @@
 <body>
     <div class="login-container">
         <h2>Login</h2>
-        <img src="path/to/image.jpg" alt="Login Image" style="width:100%; height:auto;"> <!-- Path to your image -->
+        <img src="path/to/image.jpg" alt="Login Image" class="login-image"> <!-- Path to your image -->
         <form onsubmit="redirectToIndex(event)">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required><br><br>
