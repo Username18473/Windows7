@@ -101,6 +101,7 @@ function makeElementDraggable(element) {
     let offsetX, offsetY;
 
     element.addEventListener('mousedown', function(e) {
+        console.log('Mouse down on element');
         isDragging = true;
         offsetX = e.clientX - element.getBoundingClientRect().left;
         offsetY = e.clientY - element.getBoundingClientRect().top;
@@ -110,12 +111,14 @@ function makeElementDraggable(element) {
 
     function onMouseMove(e) {
         if (isDragging) {
+            console.log('Dragging element');
             element.style.left = `${e.clientX - offsetX}px`;
             element.style.top = `${e.clientY - offsetY}px`;
         }
     }
 
     function onMouseUp() {
+        console.log('Mouse up, stop dragging');
         isDragging = false;
         document.removeEventListener('mousemove', onMouseMove);
         document.removeEventListener('mouseup', onMouseUp);
