@@ -127,3 +127,23 @@ function makeElementDraggable(element) {
 
 // Make the browser element draggable
 makeElementDraggable(document.getElementById('browser'));
+function openMyPC() {
+    document.getElementById('myPCPopup').style.display = 'block';
+}
+
+function closeMyPC() {
+    document.getElementById('myPCPopup').style.display = 'none';
+}
+
+// Make the My PC popup draggable
+makeElementDraggable(document.getElementById('myPCPopup'));
+function openMyPC() {
+    document.getElementById('myPCPopup').style.display = 'block';
+}
+
+function closeMyPC() {
+    document.getElementById('myPCPopup').style.display = 'none';
+}
+
+// Make the My PC popup draggable
+makeElementDraggable(document.getElementById('myPCPopup'));
