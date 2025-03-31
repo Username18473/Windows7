@@ -14,28 +14,52 @@
             --taskbar-color: #222;
             --start-menu-color: #008000;
         }
+
         body {
             margin: 0;
-            background: var(--background-image) no-repeat center center fixed; /* Set the background image */
-            background-size: cover; /* Ensure the image covers the entire background */
+            background: var(--background-image) no-repeat center center fixed;
+            /* Set the background image */
+            background-size: cover;
+            /* Ensure the image covers the entire background */
             color: white;
             font-family: Arial, sans-serif;
         }
+
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+
+        .header a {
+            color: white;
+            margin: 0 1em;
+            text-decoration: none;
+        }
+
+        .header a:hover {
+            text-decoration: underline;
+        }
+
         .desktop {
             position: relative;
             width: 100%;
             height: 100vh;
         }
+
         .taskbar {
             position: absolute;
             bottom: 0;
             width: 100%;
             height: 50px;
-            background: rgba(34, 34, 34, 0.5); /* Adjusted to be slightly transparent */
+            background: rgba(34, 34, 34, 0.5);
+            /* Adjusted to be slightly transparent */
             display: flex;
             align-items: center;
             padding: 0 10px;
         }
+
         .start-menu {
             width: 70px;
             height: 100%;
@@ -46,6 +70,7 @@
             align-items: center;
             cursor: pointer;
         }
+
         .start-menu-content {
             display: none;
             position: absolute;
@@ -56,64 +81,83 @@
             border: 1px solid #ccc;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         .start-menu-content ul {
             list-style: none;
             padding: 0;
             margin: 0;
         }
+
         .start-menu-content li {
             padding: 10px;
             border-bottom: 1px solid #ccc;
         }
+
         .start-menu-content li a {
             text-decoration: none;
             color: #333;
         }
+
         .start-menu-content li a:hover {
             background-color: #ddd;
         }
+
         .time {
             margin-left: auto;
             padding-right: 10px;
         }
+
         .date {
             padding-right: 10px;
         }
+
         .icon {
             position: absolute;
             width: 50px;
             height: 50px;
             cursor: pointer;
         }
+
         .icon img {
             max-width: 100%;
             max-height: 100%;
         }
+
         .browser {
             position: absolute;
-            top: 100px; /* Adjust as needed */
-            left: 50px; /* Adjust as needed */
+            top: 100px;
+            /* Adjust as needed */
+            left: 50px;
+            /* Adjust as needed */
             width: 80%;
             height: 80%;
             background: white;
             border: 1px solid #ccc;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            display: none; /* Initially hidden */
-            cursor: move; /* Add cursor move style for drag effect */
+            display: none;
+            /* Initially hidden */
+            cursor: move;
+            /* Add cursor move style for drag effect */
         }
+
         .browser header {
             display: flex;
             align-items: center;
             padding: 5px;
-            background: rgba(34, 34, 34, 0.5); /* Semi-transparent background */
+            background: rgba(34, 34, 34, 0.5);
+            /* Semi-transparent background */
             border-bottom: 1px solid #ccc;
-            cursor: move; /* Add cursor move style for drag effect */
+            cursor: move;
+            /* Add cursor move style for drag effect */
         }
+
         .browser iframe {
             width: 100%;
-            height: calc(100% - 40px); /* Adjust height based on header */
+            height: calc(100% - 40px);
+            /* Adjust height based on header */
             border: none;
         }
+
         .close-button {
             margin-left: auto;
             background: red;
@@ -122,6 +166,7 @@
             padding: 5px;
             cursor: pointer;
         }
+
         .time-container {
             position: absolute;
             bottom: 10px;
@@ -130,22 +175,31 @@
         }
     </style>
 </head>
+
 <body>
+    <header class="header">
+        <h1>My PC</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
     <div class="desktop">
         <div class="icon" style="top: 20px; left: 20px;">
             <img src="path/to/my-pc-icon.png" alt="My PC">
             <div>My PC</div>
         </div>
         <div class="my-pc-popup" id="myPCPopup">
-    <header>
-        <button class="close-button" onclick="closeMyPC()">X</button>
-        <h2>My PC</h2>
-    </header>
-    <div class="content">
-        <!-- Add content for My PC here -->
-        <p>Welcome to My PC!</p>
-    </div>
-</div>
+            <header>
+                <button class="close-button" onclick="closeMyPC()">X</button>
+                <h2>My PC</h2>
+            </header>
+            <div class="content">
+                <!-- Add content for My PC here -->
+                <p>Welcome to My PC!</p>
+            </div>
+        </div>
         <div class="icon" style="top: 20px; left: 100px;">
             <img src="path/to/recycle-bin-icon.png" alt="Recycle Bin">
             <div>Recycle Bin</div>
@@ -226,4 +280,5 @@
         makeElementDraggable(document.getElementById('browser'));
     </script>
 </body>
+
 </html>
