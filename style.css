@@ -169,3 +169,9 @@ form button {
     border-radius: 3px;
     cursor: pointer;
 }
+body {
+    background-image: url('path/to/your/background-image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
