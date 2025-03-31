@@ -5,12 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file if you have one -->
+    <script>
+        function redirectToIndex(event) {
+            event.preventDefault(); // Prevents the default form submission
+            window.location.href = 'index.html'; // Redirects to index.html
+        }
+    </script>
 </head>
 <body>
     <div class="login-container">
         <h2>Login</h2>
         <img src="path/to/image.jpg" alt="Login Image" style="width:100%; height:auto;"> <!-- Path to your image -->
-        <form action="/login" method="post">
+        <form onsubmit="redirectToIndex(event)">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required><br><br>
             <label for="password">Password:</label>
