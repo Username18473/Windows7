@@ -182,6 +182,6 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 12.5%; /* You can adjust the width percentage as needed */
-    height: 12.5%;
+    width: 10%; /* You can adjust the width percentage as needed */
+    height: 10%;
 }
