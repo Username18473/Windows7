@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
     <style>
         body {
-            display: flex;
+            display: flex; /* Flexbox is used here */
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -18,12 +17,28 @@
             padding: 20px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             border-radius: 8px;
+            text-align: center;
+        }
+        .login-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
         }
     </style>
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            // Add logic to validate login credentials here
+            // If successful, redirect to index.html
+            window.location.href = "index.html";
+        }
+    </script>
 </head>
 <body>
     <div class="login-container">
-        <form action="/login" method="POST">
+        <img src="path/to/forest.jpg" alt="Forest Image">
+        <form id="loginForm" onsubmit="handleLogin(event)">
             <h2>Login</h2>
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" ><br><br>
@@ -34,3 +49,4 @@
     </div>
 </body>
 </html>
+
