@@ -99,13 +99,15 @@
             border: 1px solid #ccc;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             display: none; /* Initially hidden */
+            cursor: move; /* Add cursor move style for drag effect */
         }
-       .browser header {
-        display: flex;
-        align-items: center;
-        padding: 5px;
-        background: transparent; /* Make the header background transparent */
-        border-bottom: 1px solid #ccc;
+        .browser header {
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            background: rgba(34, 34, 34, 0.5); /* Semi-transparent background */
+            border-bottom: 1px solid #ccc;
+            cursor: move; /* Add cursor move style for drag effect */
         }
         .browser iframe {
             width: 100%;
@@ -181,6 +183,36 @@
                 }
             }
         });
+
+        // Add JavaScript to make the browser window draggable
+        function makeElementDraggable(element) {
+            let isDragging = false;
+            let offsetX, offsetY;
+
+            element.addEventListener('mousedown', function(e) {
+                isDragging = true;
+                offsetX = e.clientX - element.getBoundingClientRect().left;
+                offsetY = e.clientY - element.getBoundingClientRect().top;
+                document.addEventListener('mousemove', onMouseMove);
+                document.addEventListener('mouseup', onMouseUp);
+            });
+
+            function onMouseMove(e) {
+                if (isDragging) {
+                    element.style.left = `${e.clientX - offsetX}px`;
+                    element.style.top = `${e.clientY - offsetY}px`;
+                }
+            }
+
+            function onMouseUp() {
+                isDragging = false;
+                document.removeEventListener('mousemove', onMouseMove);
+                document.removeEventListener('mouseup', onMouseUp);
+            }
+        }
+
+        // Make the browser element draggable
+        makeElementDraggable(document.getElementById('browser'));
     </script>
 </body>
 </html>
