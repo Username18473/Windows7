@@ -3,34 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file if you have one -->
+    <title>Login</title>
     <style>
         body {
-            background-image: url('path/to/forest.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
         }
-        .login-image {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 12.5%; /* You can adjust the width percentage as needed */
-            height: 12.5%;
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
         }
     </style>
-    <script>
-        function redirectToIndex(event) {
-            event.preventDefault(); // Prevents the default form submission
-            window.location.href = 'Index.html'; // Redirects to index.html
-        }
-    </script>
 </head>
 <body>
     <div class="login-container">
-        <h2>Login</h2>
-        <img src="path/to/image.jpg" alt="Login Image" class="login-image"> <!-- Path to your image -->
-        <form onsubmit="redirectToIndex(event)">
+        <form action="/login" method="POST">
+            <h2>Login</h2>
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" ><br><br>
             <label for="password">Password:</label>
