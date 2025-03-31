@@ -185,3 +185,33 @@ body {
     width: 10%; /* You can adjust the width percentage as needed */
     height: 10%;
 }
+.my-pc-popup {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    width: 400px;
+    height: 300px;
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: none; /* Initially hidden */
+    cursor: move; /* Add cursor move style for drag effect */
+}
+
+.my-pc-popup header {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    background: rgba(34, 34, 34, 0.5); /* Semi-transparent background */
+    border-bottom: 1px solid #ccc;
+    cursor: move; /* Add cursor move style for drag effect */
+}
+
+.my-pc-popup .close-button {
+    margin-left: auto;
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
