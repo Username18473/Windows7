@@ -186,7 +186,7 @@
         </nav>
     </header>
     <div class="desktop">
-        <div class="icon" style="top: 20px; left: 20px;">
+        <div class="icon" style="top: 20px; left: 20px;" onclick="openMyPC()">
             <img src="path/to/my-pc-icon.png" alt="My PC">
             <div>My PC</div>
         </div>
@@ -278,6 +278,16 @@
 
         // Make the browser element draggable
         makeElementDraggable(document.getElementById('browser'));
+
+        // Function to open My PC popup
+        function openMyPC() {
+            document.getElementById('myPCPopup').style.display = 'block';
+        }
+
+        // Function to close My PC popup
+        function closeMyPC() {
+            document.getElementById('myPCPopup').style.display = 'none';
+        }
     </script>
 </body>
 
