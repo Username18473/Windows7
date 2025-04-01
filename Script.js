@@ -144,6 +144,5 @@ makeElementDraggable(document.getElementById('myPCPopup'));
 function logoff() {
     // Perform logoff actions here
     // For example, redirect to a logoff page or clear session data
-    alert("Logging off...");
     window.location.href = "Logoff.html"; // Redirect to a logoff page
 }
