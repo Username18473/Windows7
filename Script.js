@@ -145,5 +145,5 @@ function logoff() {
     // Perform logoff actions here
     // For example, redirect to a logoff page or clear session data
     alert("Logging off...");
-    window.location.href = "logoff.html"; // Redirect to a logoff page
+    window.location.href = "Logoff.html"; // Redirect to a logoff page
 }
