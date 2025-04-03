@@ -19,6 +19,10 @@
 <div class="cell" id="cell-8" onclick="makeMove(8)"></div>
 <div class="cell" id="cell-9" onclick="makeMove(9)"></div>
   </div>
-  <script src="script.js"></script>
+  <script>
+  function makeMove(cellNumber) {
+    document.getElementById(`cell-${cellNumber}`).textContent = 'X';
+  }
+</script>
 </body>
 </html>
