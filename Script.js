@@ -147,22 +147,20 @@ function logoff() {
     window.location.href = "Logoff.html"; // Redirect to a logoff page
 }
 
-const cells = document.querySelectorAll('.cell');
 let currentPlayer = 'X';
 
-cells.forEach(cell => {
-  cell.addEventListener('click', () => {
-    if (cell.textContent === '') {
-      cell.textContent = currentPlayer;
-      if (checkWin()) {
-        alert(`${currentPlayer} wins!`);
-        resetGame();
-      } else {
-        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-      }
+function makeMove(cellNumber) {
+  const cell = document.getElementById(`cell-${cellNumber}`);
+  if (cell.textContent === '') {
+    cell.textContent = currentPlayer;
+    if (checkWin()) {
+      alert(`${currentPlayer} wins!`);
+      resetGame();
+    } else {
+      currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
     }
-  });
-});
+  }
+}
 
 function checkWin() {
   const winningCombinations = [
@@ -172,14 +170,15 @@ function checkWin() {
   ];
 
   return winningCombinations.some(combination => {
-    return combination.every(index => 
+    return combination.every(index =>
       document.getElementById(`cell-${index}`).textContent === currentPlayer
     );
   });
 }
 
 function resetGame() {
-  cells.forEach(cell => cell.textContent = '');
+  for (let i = 1; i <= 9; i++) {
+    document.getElementById(`cell-${i}`).textContent = '';
+  }
   currentPlayer = 'X';
 }
-
