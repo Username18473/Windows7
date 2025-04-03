@@ -182,3 +182,50 @@ function resetGame() {
   }
   currentPlayer = 'X';
 }
+function makeMove(cellNumber) {
+  const cell = document.getElementById(`cell-${cellNumber}`);
+  if (cell.textContent === '') {
+    // Player's turn
+    cell.textContent = currentPlayer;
+
+    // Check if the player won
+    if (checkWin()) {
+      alert(`${currentPlayer} wins!`);
+      resetGame();
+      return;
+    }
+
+    // Switch to bot's turn
+    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+
+    // Bot's turn
+    botMove();
+  }
+}
+
+function botMove() {
+  // Find the first empty cell
+  let emptyCell = null;
+  for (let i = 1; i <= 9; i++) {
+    const cell = document.getElementById(`cell-${i}`);
+    if (cell.textContent === '') {
+      emptyCell = cell;
+      break;
+    }
+  }
+
+  if (emptyCell) {
+    // Bot places its mark
+    emptyCell.textContent = currentPlayer;
+
+    // Check if the bot won
+    if (checkWin()) {
+      alert(`${currentPlayer} wins!`);
+      resetGame();
+      return;
+    }
+
+    // Switch back to player's turn
+    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+  }
+}
