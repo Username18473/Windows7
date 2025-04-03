@@ -146,3 +146,40 @@ function logoff() {
     // For example, redirect to a logoff page or clear session data
     window.location.href = "Logoff.html"; // Redirect to a logoff page
 }
+
+const cells = document.querySelectorAll('.cell');
+let currentPlayer = 'X';
+
+cells.forEach(cell => {
+  cell.addEventListener('click', () => {
+    if (cell.textContent === '') {
+      cell.textContent = currentPlayer;
+      if (checkWin()) {
+        alert(`${currentPlayer} wins!`);
+        resetGame();
+      } else {
+        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+      }
+    }
+  });
+});
+
+function checkWin() {
+  const winningCombinations = [
+    [1, 2, 3], [4, 5, 6], [7, 8, 9], // Rows
+    [1, 4, 7], [2, 5, 8], [3, 6, 9], // Columns
+    [1, 5, 9], [3, 5, 7]             // Diagonals
+  ];
+
+  return winningCombinations.some(combination => {
+    return combination.every(index => 
+      document.getElementById(`cell-${index}`).textContent === currentPlayer
+    );
+  });
+}
+
+function resetGame() {
+  cells.forEach(cell => cell.textContent = '');
+  currentPlayer = 'X';
+}
+
