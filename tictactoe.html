@@ -3,33 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tic Tac Toe</title>
+  <title>Webcam App</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    #game-board {
-      display: grid;
-      grid-template-columns: repeat(3, 100px);
-      gap: 5px;
+    #webcam-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
     }
-    .cell {
-      width: 100px;
-      height: 100px;
-      background-color: #ccc;
+    #webcam {
       border: 1px solid #000;
     }
   </style>
 </head>
 <body>
-  <h1>Tic Tac Toe</h1>
-  <div id="game-board">
-    <div id="cell-1" class="cell">1</div>
-    <div id="cell-2" class="cell">2</div>
-    <div id="cell-3" class="cell">3</div>
+  <div id="webcam-container">
+    <video id="webcam" autoplay></video>
   </div>
   <script>
-    function makeMove(cellNumber) {
-      document.getElementById(`cell-${cellNumber}`).textContent = 'X';
+    async function startWebcam() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        const videoElement = document.getElementById('webcam');
+        videoElement.srcObject = stream;
+      } catch (error) {
+        console.error('Error accessing webcam:', error);
+      }
     }
+
+    window.onload = startWebcam;
   </script>
 </body>
 </html>
