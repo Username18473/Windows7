@@ -5,33 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tic Tac Toe</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    #game-board {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      gap: 5px;
+    }
+    .cell {
+      width: 100px;
+      height: 100px;
+      background-color: #ccc;
+      border: 1px solid #000;
+    }
+  </style>
 </head>
 <body>
   <h1>Tic Tac Toe</h1>
-<div id="game-board">
-  <div class="cell">1</div>
-  <div class="cell">2</div>
-  <div class="cell">3</div>
-</div>
-<style>
-  #game-board {
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    gap: 5px;
-  }
-  .cell {
-    width: 100px;
-    height: 100px;
-    background-color: #ccc;
-    border: 1px solid #000;
-  }
-</style>
+  <div id="game-board">
+    <div id="cell-1" class="cell">1</div>
+    <div id="cell-2" class="cell">2</div>
+    <div id="cell-3" class="cell">3</div>
   </div>
   <script>
-  function makeMove(cellNumber) {
-    document.getElementById(`cell-${cellNumber}`).textContent = 'X';
-  }
-</script>
+    function makeMove(cellNumber) {
+      document.getElementById(`cell-${cellNumber}`).textContent = 'X';
+    }
+  </script>
 </body>
 </html>
 
