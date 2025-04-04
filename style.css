@@ -296,3 +296,11 @@
      border: none;
      border-radius: 3px;
      cursor: pointer;
+
+
+  .cell {
+  font-size: 24px; /* Make the X and O visible */
+  color: black;    /* Ensure text color contrasts with background */
+  text-align: center;
+  vertical-align: middle;
+}
