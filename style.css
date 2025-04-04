@@ -298,9 +298,21 @@
      cursor: pointer;
 
 
-  .cell {
-  font-size: 24px; /* Make the X and O visible */
-  color: black;    /* Ensure text color contrasts with background */
-  text-align: center;
-  vertical-align: middle;
+  #game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px); /* 3 columns with 100px width each */
+  gap: 5px; /* Spacing between cells */
+  margin: auto;
+  padding: 20px;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  background-color: #fff; /* Visible white background */
+  border: 1px solid #ccc; /* Cell borders */
+  display: flex;
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  font-size: 24px; /* Text size for X and O */
 }
