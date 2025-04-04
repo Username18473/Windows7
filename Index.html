@@ -179,6 +179,18 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             display: none;
         }
+
+        #control-panel {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 20px;
+            width: 300px;
+        }
+
+        #control-panel button {
+            margin: 5px;
+            padding: 10px;
+        }
     </style>
 </head>
 
@@ -196,9 +208,9 @@
             <div class="content">
                 <ul>
                     <li><a href="path/Documents">Documents</a></li>
-            <li><a href="path/Pictures">Pictures</a></li>
-            <li><a href="path/Music">Music</a></li>
-            <li><a href="path/Videos">Videos</a></li>
+                    <li><a href="path/Pictures">Pictures</a></li>
+                    <li><a href="path/Music">Music</a></li>
+                    <li><a href="path/Videos">Videos</a></li>
                 </ul>
             </div>
         </div>
@@ -237,6 +249,13 @@
             </header>
             <iframe id="webview" src="https://bing.com/"></iframe>
         </div>
+    </div>
+
+    <div id="control-panel">
+        <h2>Control Panel</h2>
+        <button onclick="performAction1()">Action 1</button>
+        <button onclick="performAction2()">Action 2</button>
+        <button onclick="performAction3()">Action 3</button>
     </div>
 
     <script src="Script.js"></script> <!-- Add this line to include the Script.js file -->
@@ -289,6 +308,18 @@
         // Function to close My PC popup
         function closeMyPC() {
             document.getElementById('myPCPopup').style.display = 'none';
+        }
+
+        function performAction1() {
+            console.log('Action 1 performed!');
+        }
+
+        function performAction2() {
+            console.log('Action 2 performed!');
+        }
+
+        function performAction3() {
+            console.log('Action 3 performed!');
         }
     </script>
 </body>
