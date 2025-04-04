@@ -185,6 +185,7 @@
             padding: 10px;
             margin: 20px;
             width: 300px;
+            display: none;
         }
 
         #control-panel button {
@@ -223,7 +224,8 @@
             <img src="path/to/browser-icon.png" alt="Browser">
             <div>Browser</div>
         </div> 
-            <div class="icon" style="top: 20px; left: 260px;" onclick="openControlPanel()">
+        <!-- Control Panel Icon -->
+        <div class="icon" style="top: 20px; left: 260px;" onclick="toggleControlPanel()">
             <img src="path/to/control-panel-icon.png" alt="Control Panel">
             <div>Control Panel</div>
         </div>
@@ -312,6 +314,16 @@
         // Function to close My PC popup
         function closeMyPC() {
             document.getElementById('myPCPopup').style.display = 'none';
+        }
+
+        // Function to toggle control panel
+        function toggleControlPanel() {
+            var controlPanel = document.getElementById('control-panel');
+            if (controlPanel.style.display === 'none' || controlPanel.style.display === '') {
+                controlPanel.style.display = 'block';
+            } else {
+                controlPanel.style.display = 'none';
+            }
         }
 
         function performAction1() {
