@@ -150,82 +150,63 @@ function logoff() {
 let currentPlayer = 'X';
 
 function makeMove(cellNumber) {
-  const cell = document.getElementById(`cell-${cellNumber}`);
-  if (cell.textContent === '') {
-    cell.textContent = currentPlayer;
-    if (checkWin()) {
-      alert(`${currentPlayer} wins!`);
-      resetGame();
-    } else {
-      currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    const cell = document.getElementById(`cell-${cellNumber}`);
+    if (cell.textContent === '') {
+        cell.textContent = currentPlayer;
+        if (checkWin()) {
+            alert(`${currentPlayer} wins!`);
+            resetGame();
+        } else {
+            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+            botMove();
+        }
     }
-  }
 }
 
 function checkWin() {
-  const winningCombinations = [
-    [1, 2, 3], [4, 5, 6], [7, 8, 9], // Rows
-    [1, 4, 7], [2, 5, 8], [3, 6, 9], // Columns
-    [1, 5, 9], [3, 5, 7]             // Diagonals
-  ];
+    const winningCombinations = [
+        [1, 2, 3], [4, 5, 6], [7, 8, 9], // Rows
+        [1, 4, 7], [2, 5, 8], [3, 6, 9], // Columns
+        [1, 5, 9], [3, 5, 7]             // Diagonals
+    ];
 
-  return winningCombinations.some(combination => {
-    return combination.every(index =>
-      document.getElementById(`cell-${index}`).textContent === currentPlayer
-    );
-  });
+    return winningCombinations.some(combination => {
+        return combination.every(index =>
+            document.getElementById(`cell-${index}`).textContent === currentPlayer
+        );
+    });
 }
 
 function resetGame() {
-  for (let i = 1; i <= 9; i++) {
-    document.getElementById(`cell-${i}`).textContent = '';
-  }
-  currentPlayer = 'X';
-}
-function makeMove(cellNumber) {
-  const cell = document.getElementById(`cell-${cellNumber}`);
-  if (cell.textContent === '') {
-    // Player's turn
-    cell.textContent = currentPlayer;
-
-    // Check if the player won
-    if (checkWin()) {
-      alert(`${currentPlayer} wins!`);
-      resetGame();
-      return;
+    for (let i = 1; i <= 9; i++) {
+        document.getElementById(`cell-${i}`).textContent = '';
     }
-
-    // Switch to bot's turn
-    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-
-    // Bot's turn
-    botMove();
-  }
+    currentPlayer = 'X';
 }
 
 function botMove() {
-  // Find the first empty cell
-  let emptyCell = null;
-  for (let i = 1; i <= 9; i++) {
-    const cell = document.getElementById(`cell-${i}`);
-    if (cell.textContent === '') {
-      emptyCell = cell;
-      break;
-    }
-  }
-
-  if (emptyCell) {
-    // Bot places its mark
-    emptyCell.textContent = currentPlayer;
-
-    // Check if the bot won
-    if (checkWin()) {
-      alert(`${currentPlayer} wins!`);
-      resetGame();
-      return;
+    // Find the first empty cell
+    let emptyCell = null;
+    for (let i = 1; i <= 9; i++) {
+        const cell = document.getElementById(`cell-${i}`);
+        if (cell.textContent === '') {
+            emptyCell = cell;
+            break;
+        }
     }
 
-    // Switch back to player's turn
-    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-  }
+    if (emptyCell) {
+        // Bot places its mark
+        emptyCell.textContent = currentPlayer;
+
+        // Check if the bot won
+        if (checkWin()) {
+            alert(`${currentPlayer} wins!`);
+            resetGame();
+            return;
+        }
+
+        // Switch back to player's turn
+        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    }
 }
