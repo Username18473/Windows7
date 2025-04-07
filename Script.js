@@ -218,10 +218,8 @@ function toggleControlPanel() {
     } else {
         controlPanel.style.display = 'none';
     }
-}function toggleControlPanel() {
-    var controlPanel = document.getElementById('control-panel');
-    if (controlPanel.style.display === 'none' || controlPanel.style.display === '') {
-        controlPanel.style.display = 'block';
-    } else {
-        controlPanel.style.display = 'none';
-    }
+    
+function performAction1() {
+    const colors = ['#FF5733', '#33FF57', '#3357FF', '#F333FF', '#33FFF5'];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    document.body.style.backgroundColor = randomColor;
