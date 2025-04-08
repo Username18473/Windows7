@@ -250,16 +250,16 @@ function toggleControlPanel() {
 }
 
 function performAction1() {
-    const colors = ['#FF5733', '#33FF57', '#3357FF', '#F333FF', '#33FFF5'];
-    const randomColor = colors[Math.floor(Math.random() * colors.length)];
-    document.body.style.backgroundColor = randomColor;
-}
-
-// Function to perform Action 1
-function performAction1() {
-    const colors = ['#FF5733', '#33FF57', '#3357FF', '#F333FF', '#33FFF5'];
-    const randomColor = colors[Math.floor(Math.random() * colors.length)];
-    document.body.style.backgroundColor = randomColor;
+    const images = [
+        'url("path/to/image1.jpg")',
+        'url("path/to/image2.jpg")',
+        'url("path/to/image3.jpg")',
+        'url("path/to/image4.jpg")',
+        'url("path/to/image5.jpg")'
+    ];
+    const randomImage = images[Math.floor(Math.random() * images.length)];
+    document.body.style.backgroundImage = randomImage;
+    document.body.style.backgroundSize = 'cover'; // Ensure the image covers the entire background
 }
 
 // Adding event listener for Action 1 button
