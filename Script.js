@@ -258,6 +258,7 @@ function performAction1() {
         'url("path/to/image5.jpg")'
     ];
     const randomImage = images[Math.floor(Math.random() * images.length)];
+    console.log('Selected Image:', randomImage); // Add this line to log the selected image
     document.body.style.backgroundImage = randomImage;
     document.body.style.backgroundSize = 'cover'; // Ensure the image covers the entire background
 }
