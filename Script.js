@@ -254,3 +254,13 @@ function performAction1() {
     const randomColor = colors[Math.floor(Math.random() * colors.length)];
     document.body.style.backgroundColor = randomColor;
 }
+
+// Function to perform Action 1
+function performAction1() {
+    const colors = ['#FF5733', '#33FF57', '#3357FF', '#F333FF', '#33FFF5'];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    document.body.style.backgroundColor = randomColor;
+}
+
+// Adding event listener for Action 1 button
+document.getElementById('action1-btn').addEventListener('click', performAction1);
