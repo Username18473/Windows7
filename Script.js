@@ -1,6 +1,7 @@
 function updateTime() {
     const timeElement = document.getElementById('time');
     const dateElement = document.getElementById('date');
+    if (!timeElement || !dateElement) return;
     const now = new Date();
 
     const hours = now.getHours().toString().padStart(2, '0');
@@ -17,45 +18,60 @@ setInterval(updateTime, 1000);
 updateTime();
 
 function goBack() {
-    document.getElementById('webview').contentWindow.history.back();
+    const webview = document.getElementById('webview');
+    if (webview) {
+        webview.contentWindow.history.back();
+    }
 }
 
 function goForward() {
-    document.getElementById('webview').contentWindow.history.forward();
+    const webview = document.getElementById('webview');
+    if (webview) {
+        webview.contentWindow.history.forward();
+    }
 }
 
 function loadPage() {
     const urlBar = document.getElementById('url-bar');
     const webview = document.getElementById('webview');
-    let url = urlBar.value;
-    if (!url.startsWith('http')) {
-        url = 'https://' + url; // Add https if missing
+    if (urlBar && webview) {
+        let url = urlBar.value;
+        if (!url.startsWith('http')) {
+            url = 'https://' + url; // Add https if missing
+        }
+        webview.src = url;
     }
-    webview.src = url;
 }
 
 function closeBrowser() {
-    document.getElementById('browser').style.display = 'none';
+    const browser = document.getElementById('browser');
+    if (browser) {
+        browser.style.display = 'none';
+    }
 }
 
 // Reopen browser when browser icon is clicked
 document.getElementById('browserIcon').addEventListener('click', function() {
-    document.getElementById('browser').style.display = 'block';
+    const browser = document.getElementById('browser');
+    if (browser) {
+        browser.style.display = 'block';
+    }
 });
 
 // Toggle start menu visibility
 function toggleStartMenu() {
     const startMenu = document.getElementById('start-menu');
-    if (startMenu.style.display === 'none' || startMenu.style.display === '') {
-        startMenu.style.display = 'block';
-    } else {
-        startMenu.style.display = 'none';
+    if (startMenu) {
+        startMenu.style.display = (startMenu.style.display === 'none' || startMenu.style.display === '') ? 'block' : 'none';
     }
 }
 
 // Reopen browser when "Browser" link in start menu is clicked
 document.getElementById('startMenuBrowserLink').addEventListener('click', function() {
-    document.getElementById('browser').style.display = 'block';
+    const browser = document.getElementById('browser');
+    if (browser) {
+        browser.style.display = 'block';
+    }
 });
 
 document.getElementById("fullscreen-btn").addEventListener("click", () => {
@@ -81,22 +97,28 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     // Add your form submission logic here
 
     // Show the desktop after login
-    document.getElementById('desktop').style.display = 'block';
-    document.getElementById('loginContainer').style.display = 'none';
+    const desktop = document.getElementById('desktop');
+    const loginContainer = document.getElementById('loginContainer');
+    if (desktop && loginContainer) {
+        desktop.style.display = 'block';
+        loginContainer.style.display = 'none';
+    }
 });
 
 // Hide the desktop icons during login
 document.addEventListener('DOMContentLoaded', function() {
     const loginContainer = document.getElementById('loginContainer');
     const desktop = document.getElementById('desktop');
-
-    if (loginContainer.style.display !== 'none') {
-        desktop.style.display = 'none';
+    if (loginContainer && desktop) {
+        if (loginContainer.style.display !== 'none') {
+            desktop.style.display = 'none';
+        }
     }
 });
 
 // Add JavaScript to make the browser window draggable
 function makeElementDraggable(element) {
+    if (!element) return;
     let isDragging = false;
     let offsetX, offsetY;
 
@@ -130,12 +152,18 @@ makeElementDraggable(document.getElementById('browser'));
 
 // Function to open My PC popup
 function openMyPC() {
-    document.getElementById('myPCPopup').style.display = 'block';
+    const myPCPopup = document.getElementById('myPCPopup');
+    if (myPCPopup) {
+        myPCPopup.style.display = 'block';
+    }
 }
 
 // Function to close My PC popup
 function closeMyPC() {
-    document.getElementById('myPCPopup').style.display = 'none';
+    const myPCPopup = document.getElementById('myPCPopup');
+    if (myPCPopup) {
+        myPCPopup.style.display = 'none';
+    }
 }
 
 // Make the My PC popup draggable
@@ -151,7 +179,7 @@ let currentPlayer = 'X';
 
 function makeMove(cellNumber) {
     const cell = document.getElementById(`cell-${cellNumber}`);
-    if (cell.textContent === '') {
+    if (cell && cell.textContent === '') {
         cell.textContent = currentPlayer;
         if (checkWin()) {
             alert(`${currentPlayer} wins!`);
@@ -179,7 +207,10 @@ function checkWin() {
 
 function resetGame() {
     for (let i = 1; i <= 9; i++) {
-        document.getElementById(`cell-${i}`).textContent = '';
+        const cell = document.getElementById(`cell-${i}`);
+        if (cell) {
+            cell.textContent = '';
+        }
     }
     currentPlayer = 'X';
 }
@@ -189,7 +220,7 @@ function botMove() {
     let emptyCell = null;
     for (let i = 1; i <= 9; i++) {
         const cell = document.getElementById(`cell-${i}`);
-        if (cell.textContent === '') {
+        if (cell && cell.textContent === '') {
             emptyCell = cell;
             break;
         }
@@ -212,14 +243,14 @@ function botMove() {
 }
 
 function toggleControlPanel() {
-    var controlPanel = document.getElementById('control-panel');
-    if (controlPanel.style.display === 'none' || controlPanel.style.display === '') {
-        controlPanel.style.display = 'block';
-    } else {
-        controlPanel.style.display = 'none';
+    const controlPanel = document.getElementById('control-panel');
+    if (controlPanel) {
+        controlPanel.style.display = (controlPanel.style.display === 'none' || controlPanel.style.display === '') ? 'block' : 'none';
     }
-    
+}
+
 function performAction1() {
     const colors = ['#FF5733', '#33FF57', '#3357FF', '#F333FF', '#33FFF5'];
     const randomColor = colors[Math.floor(Math.random() * colors.length)];
     document.body.style.backgroundColor = randomColor;
+}
