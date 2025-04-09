@@ -3,32 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        :root {
-            --background-image: url('path/to/Login.png'); /* Update the path to your image */
-        }
-        body {
-            display: flex; /* Flexbox is used here */
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-        }
-        .login-container {
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            text-align: center;
-        }
-        .login-container img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-    </style>
+   <style>
+    :root {
+        --background-image: url('Login.png'); /* Updated to your desired image */
+    }
+    body {
+        display: flex; /* Flexbox is used here */
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+        background-image: var(--background-image); /* Apply the background image */
+        background-size: cover; /* Ensure the image covers the entire background */
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat; /* Avoid repeating the image */
+    }
+    .login-container {
+        background-color: rgba(255, 255, 255, 0.8); /* Add slight transparency */
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        text-align: center;
+    }
+    .login-container img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+</style>
     <script>
         function handleLogin(event) {
             event.preventDefault();
