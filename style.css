@@ -200,3 +200,19 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: none;
 
+    /* CSS for switching icons */
+.start-menu img.default {
+    display: block;
+}
+
+.start-menu img.hover, .start-menu img.clicked {
+    display: none;
+}
+
+.start-menu:hover img.default {
+    display: none;
+}
+
+.start-menu:hover img.hover {
+    display: block;
+}
