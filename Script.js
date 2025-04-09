@@ -265,3 +265,11 @@ function performAction1() {
 
 // Adding event listener for Action 1 button
 document.getElementById('action1-btn').addEventListener('click', performAction1);
+
+// JavaScript for handling the click event
+document.querySelector('.start-menu').addEventListener('click', function() {
+    const defaultImg = this.querySelector('img.default');
+    const clickedImg = this.querySelector('img.clicked');
+    defaultImg.style.display = 'none';
+    clickedImg.style.display = 'block';
+});
