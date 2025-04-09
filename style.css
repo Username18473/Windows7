@@ -216,3 +216,9 @@ body {
 .start-menu:hover img.hover {
     display: block;
 }
+
+.icon:hover {
+    background-color: rgba(0, 0, 255, 0.2); /* Transparent blue */
+    border: 2px solid rgba(0, 0, 255, 0.5); /* Slightly more opaque blue border */
+    border-radius: 5px; /* Optional: round corners */
+}
