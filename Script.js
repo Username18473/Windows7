@@ -273,3 +273,7 @@ document.querySelector('.start-menu').addEventListener('click', function() {
     defaultImg.style.display = 'none';
     clickedImg.style.display = 'block';
 });
+// Function to open Webcam App
+function openWebcamApp() {
+    window.location.href = 'webcam.html';
+}
