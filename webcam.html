@@ -46,9 +46,29 @@
             border: 2px solid #ffffff;
             display: none;
         }
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            line-height: 30px;
+        }
+        .close-button:hover {
+            background-color: darkred;
+        }
     </style>
 </head>
 <body>
+    <button class="close-button" onclick="redirectToHome()">X</button>
     <div id="webcam-container">
         <video id="webcam" autoplay></video>
     </div>
@@ -84,6 +104,10 @@
             context.clearRect(0, 0, canvas.width, canvas.height);
             canvas.style.display = 'none';
             document.getElementById('remove-screenshot-button').style.display = 'none';
+        }
+
+        function redirectToHome() {
+            window.location.href = "index.html";
         }
 
         document.getElementById('screenshot-button').addEventListener('click', takeScreenshot);
