@@ -282,3 +282,8 @@ function closePopup() {
     const popup = document.getElementById('control-panel-popup');
     popup.style.display = 'none';
 }
+
+document.getElementById("action2-btn").addEventListener("click", function () {
+  // Update the content within the menu
+  document.getElementById("menu-content").textContent = "Clock & Language Menu Content";
+});
