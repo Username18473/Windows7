@@ -224,24 +224,6 @@
             border: 2px solid rgba(0, 0, 255, 0.5); /* Slightly more opaque blue border */
             border-radius: 5px; /* Optional: round corners */
         }
-
-        .control-panel {
-      width: 400px;
-      padding: 20px;
-      background: white;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      border-radius: 8px; /* Optional rounded corners */
-      text-align: center; /* Center text inside */
-    }
-
-    .control-panel h1 {
-      margin-bottom: 20px;
-    }
-
-    .control-panel button {
-      margin: 10px 0;
-      padding: 10px 20px;
-      font-size: 16px;
     </style>
 </head>
 <body>  
@@ -313,10 +295,10 @@
             </header>
             <iframe id="webview" src="https://www.google.com/?igu=1"></iframe>
         </div>
-    <<div id="control-panel-popup" class="popup">
-     <button class="close-btn" onclick="closePopup()">X</button>
-     <h2>Control Panel</h2>
- </div>
+    </div>
+
+    <div id="control-panel">
+        <h2>Control Panel</h2>
         <div id="action1-container" style="text-align: center;">
     <img src="Personalization.png" alt="Icon" style="width: 60px; height: 60px;">
     <button id="action1-btn">Change Desktop Background</button>
