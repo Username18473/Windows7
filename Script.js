@@ -287,3 +287,32 @@ document.getElementById("action2-btn").addEventListener("click", function () {
   // Update the content within the menu
   document.getElementById("menu-content").textContent = "Clock & Language Menu Content";
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  const actionButton = document.getElementById('action1-btn');
+  const popup = document.getElementById('popup');
+  const closeButton = document.getElementById('close-popup');
+  const wallpapers = document.querySelectorAll('.wallpaper');
+  const body = document.body;
+
+  // Open popup when button is clicked
+  actionButton.addEventListener('click', function() {
+    popup.style.display = 'flex';
+  });
+
+  // Close popup when close button is clicked
+  closeButton.addEventListener('click', function() {
+    popup.style.display = 'none';
+  });
+
+  // Change wallpaper when an image is clicked
+  wallpapers.forEach(image => {
+    image.addEventListener('click', function() {
+      const wallpaperUrl = image.getAttribute('data-wallpaper');
+      body.style.backgroundImage = `url(${wallpaperUrl})`;
+      body.style.backgroundSize = 'cover';
+      body.style.backgroundPosition = 'center';
+      popup.style.display = 'none'; // Close popup
+    });
+  });
+});
