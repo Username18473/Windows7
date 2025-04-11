@@ -277,3 +277,8 @@ document.querySelector('.start-menu').addEventListener('click', function() {
 function openWebcamApp() {
     window.location.href = 'webcam.html';
 }
+
+function closePopup() {
+    const popup = document.getElementById('control-panel-popup');
+    popup.style.display = 'none';
+}
