@@ -226,3 +226,20 @@ body {
     .button {
     border-radius: 0; /* Ensures the button is a rectangle */
 }
+
+.control-panel-header {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  background: rgba(34, 34, 34, 0.5); /* Semi-transparent background */
+  border-bottom: 1px solid #ccc; /* Bottom border */
+  cursor: move; /* Add cursor move style for drag effect */
+  color: white; /* White text color */
+  font-size: 16px; /* Adjust font size */
+}
+
+.control-panel-header .header-content {
+  flex: 1; /* Ensure content spans across the header */
+  text-align: center; /* Center the title text */
+  font-weight: bold; /* Make the title bold */
+}
