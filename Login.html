@@ -3,30 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <style>
-    :root {
-        --background-image: url('path/to/Login.png'); /* Updated to your desired image */
-    }
-    body {
-        display: flex; /* Flexbox is used here */
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        background-image: var(--background-image);
-        background-size: cover; /* Ensure the image covers the entire background */
-        background-position: center; /* Center the image */
-        background-repeat: no-repeat; /* Avoid repeating the image */
-    }
-    .login-container {
-        text-align: center;
-</style>
+    <style>
+        :root {
+            --background-image: url('path/to/Login.png'); /* Update with the correct image path */
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: var(--background-image);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .login-container {
+            text-align: center;
+        }
+    </style>
     <script>
         function handleLogin(event) {
             event.preventDefault();
             // Add logic to validate login credentials here
-            // If successful, redirect to index.html
-            window.location.href = "Index.html";
+            const password = document.getElementById('password').value;
+            if (password === 'your_password') { // Replace 'your_password' with the actual password logic
+                window.location.href = "Index.html";
+            } else {
+                alert('Incorrect password. Please try again.');
+            }
         }
     </script>
 </head>
@@ -34,11 +39,9 @@
     <div class="login-container">
         <img src="path/to/Profile.png" alt="Profile" style="width: 100px; height: 100px;">
         <form id="loginForm" onsubmit="handleLogin(event)">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="password><br><br>
+            <input type="password" id="password" name="password" placeholder="password"><br><br>
             <input type="image" src="path/to/Button.png" alt="Login" width="40" height="40">
         </form>
     </div>
 </body>
 </html>
-
