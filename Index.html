@@ -406,6 +406,11 @@
         function performAction3() {
             console.log('Action 3 performed!');
         }
+        
+        function setWallpaper(wallpaper) {
+            document.documentElement.style.setProperty('--background-image', `url('${wallpaper}')`);
+            alert(`Wallpaper changed to ${wallpaper}`);
+        }
     </script>
 </body>
 </html>
