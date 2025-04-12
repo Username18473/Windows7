@@ -193,12 +193,14 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400px;
+    width: 500px; /* Increase width for a more rectangular shape */
+    height: 300px; /* Add height to enhance the rectangle */
     padding: 20px;
     background-color: white;
     border: 1px solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: none;
+}
 
     /* CSS for switching icons */
 .start-menu img.default {
