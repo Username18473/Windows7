@@ -175,12 +175,96 @@ function logoff() {
     window.location.href = "Logoff.html"; // Redirect to a logoff page
 }
 
+let currentPlayer = 'X';
+
+function makeMove(cellNumber) {
+    const cell = document.getElementById(`cell-${cellNumber}`);
+    if (cell && cell.textContent === '') {
+        cell.textContent = currentPlayer;
+        if (checkWin()) {
+            alert(`${currentPlayer} wins!`);
+            resetGame();
+        } else {
+            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+            botMove();
+        }
+    }
+}
+
+function checkWin() {
+    const winningCombinations = [
+        [1, 2, 3], [4, 5, 6], [7, 8, 9], // Rows
+        [1, 4, 7], [2, 5, 8], [3, 6, 9], // Columns
+        [1, 5, 9], [3, 5, 7]             // Diagonals
+    ];
+
+    return winningCombinations.some(combination => {
+        return combination.every(index =>
+            document.getElementById(`cell-${index}`).textContent === currentPlayer
+        );
+    });
+}
+
+function resetGame() {
+    for (let i = 1; i <= 9; i++) {
+        const cell = document.getElementById(`cell-${i}`);
+        if (cell) {
+            cell.textContent = '';
+        }
+    }
+    currentPlayer = 'X';
+}
+
+function botMove() {
+    // Find the first empty cell
+    let emptyCell = null;
+    for (let i = 1; i <= 9; i++) {
+        const cell = document.getElementById(`cell-${i}`);
+        if (cell && cell.textContent === '') {
+            emptyCell = cell;
+            break;
+        }
+    }
+
+    if (emptyCell) {
+        // Bot places its mark
+        emptyCell.textContent = currentPlayer;
+
+        // Check if the bot won
+        if (checkWin()) {
+            alert(`${currentPlayer} wins!`);
+            resetGame();
+            return;
+        }
+
+        // Switch back to player's turn
+        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    }
+}
 
 function toggleControlPanel() {
     const controlPanel = document.getElementById('control-panel');
     if (controlPanel) {
         controlPanel.style.display = (controlPanel.style.display === 'none' || controlPanel.style.display === '') ? 'block' : 'none';
     }
+}
+
+function performAction1() {
+    const images = [
+        'url("path/to/image1.jpg")',
+        'url("path/to/image2.jpg")',
+        'url("path/to/image3.jpg")',
+        'url("path/to/image4.jpg")',
+        'url("path/to/image5.jpg")'
+    ];
+    const randomImage = images[Math.floor(Math.random() * images.length)];
+    console.log('Selected Image:', randomImage); // Add this line to log the selected image
+    document.body.style.backgroundImage = randomImage;
+    document.body.style.backgroundSize = 'cover'; // Ensure the image covers the entire background
+}
+
+// Adding event listener for Action 1 button
+document.getElementById('action1-btn').addEventListener('click', performAction1);
 
 // JavaScript for handling the click event
 document.querySelector('.start-menu').addEventListener('click', function() {
