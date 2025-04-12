@@ -260,6 +260,27 @@
     padding: 5px;
     cursor: pointer;
 }
+        .recycle-bin-popup .content ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    text-align: left; /* Align links to the left */
+}
+
+.recycle-bin-popup .content ul li {
+    font-size: 12px; /* Make the font smaller */
+    margin-bottom: 5px; /* Add some spacing between links */
+}
+
+.recycle-bin-popup .content ul li a {
+    text-decoration: none; /* Remove underline from links */
+    color: black; /* Set link color */
+}
+
+.recycle-bin-popup .content ul li a:hover {
+    text-decoration: underline; /* Add underline on hover */
+    color: blue; /* Change color on hover */
+}
     </style>
 </head>
 <body>  
@@ -293,7 +314,13 @@
         <h2>Recycle Bin</h2>
     </header>
     <div class="content">
-        <!-- Add content for the Recycle Bin here -->
+        <!-- Added the <ul> element to wrap the <li> items -->
+        <ul>
+            <li><a href="/Documents/">Documents</a></li>
+            <li><a href="/Pictures/">Pictures</a></li>
+            <li><a href="/Music/">Music</a></li>
+            <li><a href="/Videos/">Videos</a></li>
+        </ul>
         <p>Your Recycle Bin is empty.</p>
     </div>
 </div>
