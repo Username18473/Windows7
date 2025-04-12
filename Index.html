@@ -229,6 +229,37 @@
     width: 70%; 
     height: auto; 
         }
+       
+        .recycle-bin-popup {
+    position: absolute;
+    top: 150px;
+    left: 150px;
+    width: 400px;
+    height: 300px;
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: none; /* Initially hidden */
+    cursor: move; /* Add cursor move style for drag effect */
+}
+
+.recycle-bin-popup header {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    background: rgba(34, 34, 34, 0.5); /* Semi-transparent background */
+    border-bottom: 1px solid #ccc;
+    cursor: move; /* Add cursor move style for drag effect */
+}
+
+.recycle-bin-popup .close-button {
+    margin-left: auto;
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
     </style>
 </head>
 <body>  
@@ -255,6 +286,17 @@
             <img src="path/to/recycle-bin-icon.png" alt="Recycle Bin">
             <div>Recycle Bin</div>
         </div>
+
+        <div class="recycle-bin-popup" id="recycleBinPopup">
+    <header>
+        <button class="close-button" onclick="closeRecycleBin()">X</button>
+        <h2>Recycle Bin</h2>
+    </header>
+    <div class="content">
+        <!-- Add content for the Recycle Bin here -->
+        <p>Your Recycle Bin is empty.</p>
+    </div>
+</div>
         <!-- Browser Icon -->
         <div class="icon" style="top: 20px; left: 180px;" id="browserIcon">
             <img src="path/to/browser-icon.png" alt="Browser">
@@ -458,6 +500,16 @@
         function setWallpaper(wallpaper) {
             document.documentElement.style.setProperty('--background-image', `url('${wallpaper}')`);
         }
+        function openRecycleBin() {
+    document.getElementById('recycleBinPopup').style.display = 'block';
+}
+
+function closeRecycleBin() {
+    document.getElementById('recycleBinPopup').style.display = 'none';
+}
+
+// Make the Recycle Bin popup draggable
+makeElementDraggable(document.getElementById('recycleBinPopup'));
     </script>
 </body>
 </html>
