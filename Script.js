@@ -336,3 +336,12 @@ document.getElementById('save-language-timezone').addEventListener('click', func
     alert(`Language: ${language}, Time Zone: ${timezone}`);
     document.getElementById('language-timezone-popup').style.display = 'none';
 });
+
+document.getElementById('hide-program-btn').addEventListener('click', () => {
+    const selectedProgram = document.getElementById('programs-dropdown').value;
+    const programElement = document.getElementById(selectedProgram);
+
+    if (programElement) {
+        programElement.style.display = 'none'; // Hide the selected program
+    }
+});
