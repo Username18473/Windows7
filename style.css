@@ -386,14 +386,17 @@ form button:hover {
 }
 
 .header-container {
-  display: flex;
-  align-items: center; /* Aligns the header and image vertically */
-}
+      display: flex;
+      align-items: center;
+      gap: 20px; /* Space between header and image */
+    }
 
-.header-image {
-  margin-right: 10px; /* Adds spacing between the image and header */
-}
+    .header-text {
+      font-size: 24px;
+      font-weight: bold;
+    }
 
-.header-text {
-  font-size: 24px; /* Adjust the font size as needed */
-}
+    .header-image {
+      width: 150px;
+      height: auto; /* Maintain aspect ratio */
+    }
