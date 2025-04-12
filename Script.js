@@ -316,3 +316,23 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+// Open the language and timezone popup
+function openLanguageTimezonePopup() {
+    document.getElementById('language-timezone-popup').style.display = 'flex';
+}
+
+// Close the language and timezone popup
+document.getElementById('close-language-timezone-popup').addEventListener('click', function() {
+    document.getElementById('language-timezone-popup').style.display = 'none';
+});
+
+// Save language and timezone selection
+document.getElementById('save-language-timezone').addEventListener('click', function() {
+    const language = document.getElementById('language').value;
+    const timezone = document.getElementById('timezone').value;
+
+    // Save the selections (you can send them to the server or store them locally)
+    alert(`Language: ${language}, Time Zone: ${timezone}`);
+    document.getElementById('language-timezone-popup').style.display = 'none';
+});
