@@ -11,17 +11,26 @@
             align-items: center;
             height: 100vh;
             font-family: Arial, sans-serif;
-            background-image: url('path/to/Login.png');
+            background-image: url('path/to/Login.png'); /* Replace with your background image */
             background-size: cover;
             color: white; /* Change font color to white */
         }
-        .message {
+        .message-container {
+            display: flex;
+            align-items: center;
             text-align: center;
+        }
+        .message-container img {
+            margin-right: 10px; /* Space between GIF and header */
+        }
+        .message h1 {
+            margin: 0; /* Removes unnecessary margins */
         }
     </style>
 </head>
 <body>
-    <div class="message">
+    <div class="message-container">
+        <img src="path/to/Busy.gif" alt="Loading Animation" width="50" height="50">
         <h1 style="margin-top: -20px;">Logging Off</h1>
     </div>
     <script>
