@@ -14,19 +14,20 @@
             background-image: url('path/to/Login.png'); /* Replace with your background image */
             background-size: cover;
             color: white; /* Change font color to white */
-        }
-        .message-container {
-            display: flex;
-            align-items: center;
-            text-align: center;
-        }
-        .message-container img {
-            margin-right: 10px; /* Space between GIF and header */
-        }
-        .message h1 {
-            margin: 0; /* Removes unnecessary margins */
-        }
-    </style>
+    .message-container {
+        display: flex;
+        align-items: center; /* Aligns items vertically */
+        text-align: center;
+    }
+    .message-container img {
+        margin-right: 10px; /* Space between GIF and header */
+        vertical-align: middle; /* Ensures alignment with text */
+    }
+    .message-container h1 {
+        margin: 0; /* Removes unnecessary margins */
+    }
+</style>
+
 </head>
 <body>
     <div class="message-container">
@@ -41,3 +42,4 @@
     </script>
 </body>
 </html>
+
