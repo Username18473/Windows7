@@ -345,3 +345,32 @@ document.getElementById('hide-program-btn').addEventListener('click', () => {
         programElement.style.display = 'none'; // Hide the selected program
     }
 });
+
+document.getElementById('hide-program-btn').addEventListener('click', () => {
+    const selectedProgram = document.getElementById('programs-dropdown').value;
+
+    // Map the dropdown values to corresponding elements on the desktop and start menu
+    const programElements = {
+        "ie": {
+            desktop: document.getElementById('browserIcon'), // Internet Explorer Desktop Icon
+            startMenu: document.getElementById('startMenuBrowserLink') // Start Menu Link for Internet Explorer
+        },
+        "webcam": {
+            desktop: document.querySelector('[onclick="openWebcamApp()"]'), // Webcam Desktop Icon
+            startMenu: document.getElementById('startMenuWebcamLink') // Start Menu Link for Webcam
+        }
+    };
+
+    // Check if the selected program exists in the map
+    if (programElements[selectedProgram]) {
+        // Hide the desktop icon
+        if (programElements[selectedProgram].desktop) {
+            programElements[selectedProgram].desktop.style.display = 'none';
+        }
+
+        // Hide the start menu link
+        if (programElements[selectedProgram].startMenu) {
+            programElements[selectedProgram].startMenu.style.display = 'none';
+        }
+    }
+});
