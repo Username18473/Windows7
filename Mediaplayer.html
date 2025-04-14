@@ -37,9 +37,29 @@
         .controls button:hover {
             background-color: #0056b3;
         }
+         .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .video-container {
+    width: 90vw; /* 90% of the viewport width */
+    height: auto; /* Automatically adjust height to maintain aspect ratio */
+    margin: 0 auto; /* Center horizontally */
+    display: block; /* Ensure it's a block element */
+}
     </style>
 </head>
 <body>
+     <button class="close-button" onclick="redirectToIndex()">X</button>
    <div class="media-player">
     <video id="media" controls>
         <source id="videoSource" src="/path/Videos/Clouds.mp4" type="video/mp4">
@@ -104,6 +124,9 @@
             media.load(); // Reload the video element with the new source
         }
     }
+    function redirectToIndex() {
+            window.location.href = "Index.html";
+        }
 </script>
 </body>
 </html>
