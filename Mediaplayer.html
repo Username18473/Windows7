@@ -51,6 +51,8 @@
             <button onclick="playMedia()">Play</button>
             <button onclick="pauseMedia()">Pause</button>
             <button onclick="stopMedia()">Stop</button>
+            <button onclick="backMedia()">Back 10s</button>
+            <button onclick="forwardMedia()">Forward 10s</button>
         </div>
     </div>
 
@@ -68,6 +70,14 @@
         function stopMedia() {
             media.pause();
             media.currentTime = 0; // Reset to the beginning
+        }
+
+        function backMedia() {
+            media.currentTime = Math.max(0, media.currentTime - 10); // Go back 10 seconds, but not less than 0
+        }
+
+        function forwardMedia() {
+            media.currentTime = Math.min(media.duration, media.currentTime + 10); // Go forward 10 seconds, but not more than the duration
         }
     </script>
 </body>
