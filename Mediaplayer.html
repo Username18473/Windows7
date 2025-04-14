@@ -40,45 +40,60 @@
     </style>
 </head>
 <body>
-    <div class="media-player">
-        <video id="media" controls>
-            <source src="/path/Videos/Clouds.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <!-- For audio, replace <video> with <audio> and provide an audio source -->
-        
-        <div class="controls">
-            <button onclick="playMedia()">Play</button>
-            <button onclick="pauseMedia()">Pause</button>
-            <button onclick="stopMedia()">Stop</button>
-            <button onclick="backMedia()">Back 10s</button>
-            <button onclick="forwardMedia()">Forward 10s</button>
-        </div>
+   <div class="media-player">
+    <video id="media" controls>
+        <source id="videoSource" src="/path/Videos/Clouds.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="controls">
+        <button onclick="playMedia()">Play</button>
+        <button onclick="pauseMedia()">Pause</button>
+        <button onclick="stopMedia()">Stop</button>
+        <button onclick="backMedia()">Back 10s</button>
+        <button onclick="forwardMedia()">Forward 10s</button>
     </div>
 
-    <script>
-        const media = document.getElementById('media');
+    <!-- Upload Option -->
+    <div>
+        <label for="videoUpload">Upload Video: </label>
+        <input type="file" id="videoUpload" accept="video/*" onchange="uploadVideo(event)">
+    </div>
+</div>
 
-        function playMedia() {
-            media.play();
-        }
+<script>
+    const media = document.getElementById('media');
+    const videoSource = document.getElementById('videoSource');
 
-        function pauseMedia() {
-            media.pause();
-        }
+    function playMedia() {
+        media.play();
+    }
 
-        function stopMedia() {
-            media.pause();
-            media.currentTime = 0; // Reset to the beginning
-        }
+    function pauseMedia() {
+        media.pause();
+    }
 
-        function backMedia() {
-            media.currentTime = Math.max(0, media.currentTime - 10); // Go back 10 seconds, but not less than 0
-        }
+    function stopMedia() {
+        media.pause();
+        media.currentTime = 0; // Reset to the beginning
+    }
 
-        function forwardMedia() {
-            media.currentTime = Math.min(media.duration, media.currentTime + 10); // Go forward 10 seconds, but not more than the duration
+    function backMedia() {
+        media.currentTime = Math.max(0, media.currentTime - 10); // Go back 10 seconds, but not less than 0
+    }
+
+    function forwardMedia() {
+        media.currentTime = Math.min(media.duration, media.currentTime + 10); // Go forward 10 seconds, but not more than the duration
+    }
+
+    function uploadVideo(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const fileURL = URL.createObjectURL(file);
+            videoSource.src = fileURL;
+            media.load(); // Reload the video element with the new source
         }
-    </script>
+    }
+</script>
 </body>
 </html>
