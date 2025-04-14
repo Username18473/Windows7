@@ -380,3 +380,7 @@ makeElementDraggable(document.getElementById('control-panel'), document.querySel
 function closeControlPanel() {
     document.getElementById('control-panel').style.display = 'none';
 }
+
+function openMediaPlayerApp() {
+    window.location.href = 'Mediaplayer.html';
+}
