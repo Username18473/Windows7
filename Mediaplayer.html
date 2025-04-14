@@ -70,11 +70,8 @@
         <button onclick="stopMedia()" style="border: none; background: none; padding: 0; cursor: pointer;">
     <img src="stop-icon.png" alt="stop" style="width: 50px; height: 50px;">
 </button>
-        <button onclick="backMedia()" style="border: none; background: none; padding: 0; cursor: pointer;">
-    <img src="back-icon.png" alt="back" style="width: 50px; height: 50px;">
-</button>
-        <button onclick="playMedia()" style="border: none; background: none; padding: 0; cursor: pointer;">
-    <img src="play-icon.png" alt="Play" style="width: 50px; height: 50px;">
+<button id="playPauseButton" onclick="PlayPause()" style="border: none; background: none; padding: 0; cursor: pointer;">
+    <img id="playPauseIcon" src="play-icon.png" alt="Play" style="width: 50px; height: 50px;">
 </button>
         <button onclick="pauseMedia()" style="border: none; background: none; padding: 0; cursor: pointer;">
     <img src="pause-icon.png" alt="Pause" style="width: 50px; height: 50px;">
@@ -95,13 +92,19 @@
     const media = document.getElementById('media');
     const videoSource = document.getElementById('videoSource');
 
-    function playMedia() {
+    function togglePlayPause() {
+    const playPauseIcon = document.getElementById('playPauseIcon');
+    
+    if (media.paused) {
         media.play();
-    }
-
-    function pauseMedia() {
+        playPauseIcon.src = "pause-icon.png"; // Change to pause icon
+        playPauseIcon.alt = "Pause";
+    } else {
         media.pause();
+        playPauseIcon.src = "play-icon.png"; // Change to play icon
+        playPauseIcon.alt = "Play";
     }
+}
 
     function stopMedia() {
         media.pause();
