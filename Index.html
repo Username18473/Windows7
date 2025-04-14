@@ -211,6 +211,7 @@
             border: 1px solid #ccc;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             display: none;
+            overflow: hidden;
         }
 
         #control-panel button {
@@ -280,6 +281,38 @@
 .recycle-bin-popup .content ul li a:hover {
     text-decoration: underline; /* Add underline on hover */
     color: blue; /* Change color on hover */
+
+}
+
+.control-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(34, 34, 34, 0.7); /* Semi-transparent background */
+    color: white;
+    padding: 10px;
+    cursor: move; /* Enable dragging */
+    border-bottom: 1px solid #ccc;
+}
+
+.close-button {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 3px;
+}
+
+.close-button:hover {
+    background: darkred;
+}
+
+.control-panel-content {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: black;
 }
     </style>
 </head>
