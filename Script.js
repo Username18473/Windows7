@@ -374,3 +374,5 @@ document.getElementById('hide-program-btn').addEventListener('click', () => {
         }
     }
 });
+
+makeElementDraggable(document.getElementById('control-panel'));
