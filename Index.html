@@ -314,6 +314,17 @@
     font-family: Arial, sans-serif;
     color: black;
 }
+
+.network-status {
+    display: flex;
+    align-items: center;
+    margin-right: 10px; /* Adjust spacing */
+}
+
+.network-status img {
+    width: 20px;
+    height: 20px;
+}
     </style>
 </head>
 <body>  
@@ -382,6 +393,12 @@
                  <img src="path/to/start-button-hover-icon.png" alt="Start Menu" class="hover">
                  <img src="path/to/start-button-clicked-icon.png" alt="Start Menu" class="clicked">
              </div>
+           <div class="network-button" onclick="openNetwork()">
+           <img src="path/to/network-icon.png" alt="Network">
+            </div>
+          <div class="network-status">
+    <img src="path/to/signal-full.png" alt="Network Signal" id="network-icon">
+</div>
              <div class="start-menu-content" id="start-menu">
                  <ul>
                      <li><a href="#" id="startMenuBrowserLink">Internet Explorer</a></li>
@@ -572,8 +589,37 @@ function closeRecycleBin() {
     document.getElementById('recycleBinPopup').style.display = 'none';
 }
 
+        function openNetwork() {
+    document.getElementById('networkPopup').style.display = 'block';
+}
+
+function closeNetwork() {
+    document.getElementById('networkPopup').style.display = 'none';
+}
 // Make the Recycle Bin popup draggable
 makeElementDraggable(document.getElementById('recycleBinPopup'));
+
+function updateNetworkIcon() {
+    const strength = Math.floor(Math.random() * 101); // Simulate strength (0-100%)
+    const icon = document.getElementById('network-icon');
+
+    // Update icon based on signal strength
+    if (strength > 75) {
+        icon.src = 'path/to/signal-full.png'; // Full signal
+    } else if (strength > 50) {
+        icon.src = 'path/to/signal-medium.png'; // Medium signal
+    } else if (strength > 25) {
+        icon.src = 'path/to/signal-low.png'; // Low signal
+    } else {
+        icon.src = 'path/to/signal-none.png'; // No signal
+    }
+}
+
+// Update the network icon every 5 seconds
+setInterval(updateNetworkIcon, 5000);
+
+// Initial call to set the icon when the page loads
+updateNetworkIcon();
     </script>
 </body>
 </html>
