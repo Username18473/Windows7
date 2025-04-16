@@ -604,11 +604,15 @@ function updateNetworkIcon() {
     const icon = document.getElementById('network-icon');
 
     // Update icon based on signal strength
-    if (strength > 75) {
-        icon.src = 'path/to/signal-full.png'; // Full signal
-    } else if (strength > 50) {
+           if (strength > 90) {
+        icon.src = 'path/to/signal-full.png';
+    } else if (strength > 80) {
+        icon.src = 'path/to/signal-excellent.png';
+    } else if (strength > 60) {
+        icon.src = 'path/to/signal-average.png'; // Full signal
+    } else if (strength > 40) {
         icon.src = 'path/to/signal-medium.png'; // Medium signal
-    } else if (strength > 25) {
+    } else if (strength > 20) {
         icon.src = 'path/to/signal-low.png'; // Low signal
     } else {
         icon.src = 'path/to/signal-none.png'; // No signal
