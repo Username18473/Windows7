@@ -51,7 +51,7 @@
         .taskbar {
             position: absolute;
             bottom: 0;
-            width: 100%;
+            width: 90%;
             height: 50px;
             background: rgba(34, 34, 34, 0.5);
             display: flex;
@@ -124,11 +124,11 @@
 
         .time {
             margin-left: auto;
-            padding-right: 10px;
+            padding-right: 0px;
         }
 
         .date {
-            padding-right: -15px;
+            padding-right: -25px;
         }
 
         .icon {
@@ -396,23 +396,23 @@
            <div class="network-button" style="width: 30px; height: 30px" onclick="openNetwork()">
            <img src="path/to/network-icon.png" alt="Network">
             </div>
-          <div class="network-status" style="width: 30px; height: 30px" >
+          <div class="network-status">
     <img src="path/to/signal-full.png" alt="Network Signal" id="network-icon">
 </div>
              <div class="start-menu-content" id="start-menu">
                  <ul>
+                     <li><a href="#" id="startMenuControlPanelLink" onclick="toggleControlPanel()">Control Panel</a></li>
                      <li><a href="#" id="startMenuBrowserLink">Internet Explorer</a></li>
-                     <li><a href="#" id="startMenuLogoffLink" onclick="logoff()">Logoff ⏼</a></li>
+                     <li><a href="#" id="startMediaPlayerLink" onclick="openMediaPlayerApp()">Media Player</a></li>
                      <li><a href="#" id="startMenuWebcamLink" onclick="openWebcamApp()">Webcam</a></li>
+                     <li><a href="#" id="startMenuLogoffLink" onclick="logoff()">Logoff ⏼</a></li>
                  </ul>
              </div>
              <div class="time-container">
                  <div class="time" id="time">23:17</div>
                  <div class="date" id="date">03/19/25</div>
              </div>
-             <!-- Fullscreen Button -->
-             <button id="fullscreen-btn">[]</button>
-        </div>
+        </div>c
         <div class="browser" id="browser">
             <header>
                 <button onclick="goBack()">←</button>
@@ -456,7 +456,7 @@
   </div>
         <div id="header-container">
     <img src="Clock.png" alt="Header Image" class="header-image" style="width: 60px; height: 60px;">
-    <h3 style="color: black; font-family: Arial, sans-serif; id="header-text">Clock & Language</h3>
+    <h3 style="color: black; font-family: Arial, sans-serif;" id="header-text">Clock & Language</h3>
             <div id="language-timezone-popup" class="popup">
     <div class="popup-content">
         <span id="close-language-timezone-popup" class="close-btn">&times;</span>
@@ -488,27 +488,17 @@
 </div>
   </div>
         <div class="dropdown-container">
-    <label for="programs-dropdown" style="color: white;">Choose a Program:</label>
-    <select id="programs-dropdown">
+    <label for="programs-dropdown" style="color: black;">Choose a Program:</label>
+    <select id="programs-dropdown">re
         <option value="ie">Internet Explorer</option>
-        <option value="webcam">Webcam App</option>
+        <option value="webcam">Webcam</option>
     </select>
     <button id="hide-program-btn">OK</button>
 </div>
         
-    <script src="Script.js"></script> <!-- Add this line to include the Script.js file -->
+    <script src="Script.js"></script> 
     <script>
-        document.getElementById("fullscreen-btn").addEventListener("click", () => {
-            if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen();
-            } else {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                }
-            }
-        });
 
-        // Add JavaScript to change the image on click
         document.querySelector('.start-menu').addEventListener('click', function() {
             const defaultImg = this.querySelector('img.default');
             const clickedImg = this.querySelector('img.clicked');
@@ -516,7 +506,7 @@
             clickedImg.style.display = 'block';
         });
 
-        // Add JavaScript to make the browser window draggable
+        
         function makeElementDraggable(element) {
             let isDragging = false;
             let offsetX, offsetY;
@@ -543,20 +533,20 @@
             }
         }
 
-        // Make the browser element draggable
+    
         makeElementDraggable(document.getElementById('browser'));
 
-        // Function to open My PC popup
+    
         function openMyPC() {
             document.getElementById('myPCPopup').style.display = 'block';
         }
 
-        // Function to close My PC popup
+        
         function closeMyPC() {
             document.getElementById('myPCPopup').style.display = 'none';
         }
 
-        // Function to toggle control panel
+     
         function toggleControlPanel() {
             var controlPanel = document.getElementById('control-panel');
             if (controlPanel.style.display === 'none' || controlPanel.style.display === '') {
@@ -566,18 +556,6 @@
             }
         }
 
-        function performAction1() {
-            console.log('Action 1 performed!');
-        }
-
-        function performAction2() {
-            console.log('Action 2 performed!');
-        }
-
-        function performAction3() {
-            console.log('Action 3 performed!');
-        }
-        
         function setWallpaper(wallpaper) {
             document.documentElement.style.setProperty('--background-image', `url('${wallpaper}')`);
         }
@@ -596,34 +574,54 @@ function closeRecycleBin() {
 function closeNetwork() {
     document.getElementById('networkPopup').style.display = 'none';
 }
-// Make the Recycle Bin popup draggable
+    
 makeElementDraggable(document.getElementById('recycleBinPopup'));
 
 function updateNetworkIcon() {
-    const strength = Math.floor(Math.random() * 101); // Simulate strength (0-100%)
+    const strength = Math.floor(Math.random() * 101); 
     const icon = document.getElementById('network-icon');
 
-    // Update icon based on signal strength
+
            if (strength > 90) {
         icon.src = 'path/to/signal-full.png';
     } else if (strength > 80) {
         icon.src = 'path/to/signal-excellent.png';
     } else if (strength > 60) {
-        icon.src = 'path/to/signal-average.png'; // Full signal
+        icon.src = 'path/to/signal-average.png'; 
     } else if (strength > 40) {
-        icon.src = 'path/to/signal-medium.png'; // Medium signal
+        icon.src = 'path/to/signal-medium.png'; 
     } else if (strength > 20) {
-        icon.src = 'path/to/signal-low.png'; // Low signal
+        icon.src = 'path/to/signal-low.png'; 
     } else {
-        icon.src = 'path/to/signal-none.png'; // No signal
+        icon.src = 'path/to/signal-none.png'; 
     }
 }
 
-// Update the network icon every 5 seconds
 setInterval(updateNetworkIcon, 5000);
 
-// Initial call to set the icon when the page loads
 updateNetworkIcon();
+
+// Function to set the wallpaper
+function setWallpaper(wallpaper) {
+    // Apply the wallpaper
+    document.documentElement.style.setProperty('--background-image', `url('${wallpaper}')`);
+    // Save the wallpaper to localStorage
+    localStorage.setItem('selectedWallpaper', wallpaper);
+}
+
+// Function to load the wallpaper on page load
+function loadWallpaper() {
+    // Get the saved wallpaper from localStorage
+    const savedWallpaper = localStorage.getItem('selectedWallpaper');
+    if (savedWallpaper) {
+        // Apply the saved wallpaper
+        document.documentElement.style.setProperty('--background-image', `url('${savedWallpaper}')`);
+    }
+}
+
+// Run the loadWallpaper function when the page loads
+window.addEventListener('DOMContentLoaded', loadWallpaper);
     </script>
 </body>
 </html>
+
