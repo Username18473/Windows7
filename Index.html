@@ -387,6 +387,10 @@
     <img src="path/to/media-icon.png" alt="Media Player">
     <div>Media Player</div>
 </div>
+<div class="icon" style="top: 100px; left: 260px;" onclick="openNotepadApp()">
+    <img src="path/to/note-icon.png" alt="Notepad">
+    <div>Notepad</div>
+</div>
       <div class="taskbar">
              <div class="start-menu" aria-label="Start Menu" onclick="toggleStartMenu()">
                  <img src="path/to/start-button-icon.png" alt="Start Menu" class="default">
@@ -621,7 +625,10 @@ function loadWallpaper() {
 
 // Run the loadWallpaper function when the page loads
 window.addEventListener('DOMContentLoaded', loadWallpaper);
+
+function openNotepadApp() {
+            window.location.href = "Notepad.html";
+        }
     </script>
 </body>
 </html>
-
