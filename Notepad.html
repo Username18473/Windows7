@@ -1,1 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notepad</title>
+    <style>
+        #notepad {
+            width: 100%;
+            height: 300px;
+            font-size: 16px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        #controls {
+            margin-top: 10px;
+        }
+        button {
+            padding: 8px 12px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Notepad</h1>
+    <textarea id="notepad" placeholder="Start typing here..."></textarea>
+    <div id="controls">
+        <button onclick="saveNote()">Save</button>
+        <button onclick="loadNote()">Load</button>
+        <button onclick="clearNote()">Clear</button>
+    </div>
 
+    <script>
+        function saveNote() {
+            const noteContent = document.getElementById('notepad').value;
+            localStorage.setItem('savedNote', noteContent);
+            alert('Note saved!');
+        }
+
+        function loadNote() {
+            const savedNote = localStorage.getItem('savedNote');
+            if (savedNote !== null) {
+                document.getElementById('notepad').value = savedNote;
+                alert('Note loaded!');
+            } else {
+                alert('No saved note found.');
+            }
+        }
+
+        function clearNote() {
+            if (confirm('Are you sure you want to clear the notepad?')) {
+                document.getElementById('notepad').value = '';
+            }
+        }
+    </script>
+</body>
+</html>
