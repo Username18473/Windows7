@@ -391,6 +391,10 @@
     <img src="path/to/note-icon.png" alt="Notepad">
     <div>Notepad</div>
 </div>
+<div class="icon" style="top: 100px; left: 20px;" onclick="openPaintApp()">
+    <img src="path/to/paint-icon.png" alt="Paint">
+    <div>Paint</div>
+</div>
       <div class="taskbar">
              <div class="start-menu" aria-label="Start Menu" onclick="toggleStartMenu()">
                  <img src="path/to/start-button-icon.png" alt="Start Menu" class="default">
@@ -409,6 +413,7 @@
                      <li><a href="#" id="startMenuBrowserLink">Internet Explorer</a></li>
                      <li><a href="#" id="startMediaPlayerLink" onclick="openMediaPlayerApp()">Media Player</a></li>
                      <li><a href="#" id="startMenuNotepadLink" onclick="openNotepadApp()">Notepad</a></li>
+                     <li><a href="#" id="startMenuPaintLink" onclick="openPaintApp()">Paint</a></li>
                      <li><a href="#" id="startMenuWebcamLink" onclick="openWebcamApp()">Webcam</a></li>
                      <li><a href="#" id="startMenuLogoffLink" onclick="logoff()">Logoff ⏼</a></li>
                  </ul>
@@ -629,6 +634,10 @@ window.addEventListener('DOMContentLoaded', loadWallpaper);
 
 function openNotepadApp() {
             window.location.href = "Notepad.html";
+        }
+
+function openPaintapp() {
+            window.location.href = "Paint.html";
         }
     </script>
 </body>
