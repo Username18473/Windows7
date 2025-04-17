@@ -385,6 +385,6 @@ function openMediaPlayerApp() {
     window.location.href = 'Mediaplayer.html';
 }
 
-function openPaintapp() {
+function openPaintApp() {
             window.location.href = "Paint.html";
         }
