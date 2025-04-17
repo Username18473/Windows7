@@ -40,9 +40,29 @@
       border: 1px solid #000;
       background-color: white;
     }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 0%;
+            width: 50px;
+            height: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            line-height: 10px;
+        }
+        .close-button:hover {
+            background-color: darkred;
   </style>
 </head>
 <body>
+  <button class="close-button" onclick="redirectToHome()">X</button>
   <div id="toolbar">
     <div class="button" onclick="changeTool('brush')">Brush</div>
     <div class="button" onclick="changeTool('rectangle')">Rectangle</div>
@@ -114,6 +134,10 @@
       colorSquare.onclick = () => changeColor(c);
       colorPalette.appendChild(colorSquare);
     });
+
+    function redirectToHome() {
+            window.location.href = "Index.html";
+        }
   </script>
 </body>
 </html>
