@@ -67,9 +67,6 @@
     </video>
 
     <div class="controls">
-        <button onclick="stopMedia()" style="border: none; background: none; padding: 0; cursor: pointer;">
-    <img src="stop-icon.png" alt="stop" style="width: 50px; height: 50px;">
-</button>
         <button onclick="backMedia()" style="border: none; background: none; padding: 0; cursor: pointer;">
     <img src="back-icon.png" alt="Back" style="width: 50px; height: 50px;">
 </button>
@@ -97,19 +94,14 @@
     
     if (media.paused) {
         media.play();
-        playPauseIcon.src = "pause-icon.png"; // Change to pause icon
-        playPauseIcon.alt = "Pause";
+        playPauseIcon.src = "stop-icon.png"; // Change to pause icon
+        playPauseIcon.alt = "stop";
     } else {
         media.pause();
         playPauseIcon.src = "play-icon.png"; // Change to play icon
         playPauseIcon.alt = "Play";
     }
 }
-
-    function stopMedia() {
-        media.pause();
-        media.currentTime = 0; // Reset to the beginning
-    }
 
     function backMedia() {
         media.currentTime = Math.max(0, media.currentTime - 10); // Go back 10 seconds, but not less than 0
