@@ -401,9 +401,6 @@
                  <img src="path/to/start-button-hover-icon.png" alt="Start Menu" class="hover">
                  <img src="path/to/start-button-clicked-icon.png" alt="Start Menu" class="clicked">
              </div>
-           <div class="network-button" style="width: 30px; height: 30px" onclick="openNetwork()">
-           <img src="path/to/network-icon.png" alt="Network">
-            </div>
           <div class="network-status" style="width: 30px; height: 30px" >
     <img src="path/to/signal-full.png" alt="Network Signal" id="network-icon">
 </div>
@@ -575,14 +572,6 @@
 
 function closeRecycleBin() {
     document.getElementById('recycleBinPopup').style.display = 'none';
-}
-
-        function openNetwork() {
-    document.getElementById('networkPopup').style.display = 'block';
-}
-
-function closeNetwork() {
-    document.getElementById('networkPopup').style.display = 'none';
 }
     
 makeElementDraggable(document.getElementById('recycleBinPopup'));
