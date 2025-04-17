@@ -10,7 +10,7 @@
             height: 300px;
             font-size: 16px;
             padding: 10px;
-            border: 1px solid #ccc;
+            border: 0px solid #ccc;
             box-sizing: border-box;
         }
         #controls {
@@ -21,12 +21,31 @@
             font-size: 14px;
             cursor: pointer;
         }
+
+         .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 0%;
+            width: 50px;
+            height: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            line-height: 10px;
+        }
+        .close-button:hover {
+            background-color: darkred;
     </style>
 </head>
 <body>
-    <h1>Simple Notepad</h1>
     <textarea id="notepad" placeholder="Start typing here..."></textarea>
     <div id="controls">
+        <button class="close-button" onclick="redirectToHome()">X</button>
         <button onclick="saveNote()">Save</button>
         <button onclick="loadNote()">Load</button>
         <button onclick="clearNote()">Clear</button>
