@@ -384,3 +384,7 @@ function closeControlPanel() {
 function openMediaPlayerApp() {
     window.location.href = 'Mediaplayer.html';
 }
+
+function openPaintapp() {
+            window.location.href = "Paint.html";
+        }
