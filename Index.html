@@ -574,28 +574,33 @@ function closeRecycleBin() {
 makeElementDraggable(document.getElementById('recycleBinPopup'));
 
 function updateNetworkIcon() {
-    const strength = Math.floor(Math.random() * 101); 
     const icon = document.getElementById('network-icon');
+    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
 
+    if (connection) {
+        const speed = connection.downlink; // Network speed in Mbps
 
-           if (strength > 90) {
-        icon.src = 'path/to/signal-full.png';
-    } else if (strength > 80) {
-        icon.src = 'path/to/signal-excellent.png';
-    } else if (strength > 60) {
-        icon.src = 'path/to/signal-average.png'; 
-    } else if (strength > 40) {
-        icon.src = 'path/to/signal-medium.png'; 
-    } else if (strength > 20) {
-        icon.src = 'path/to/signal-low.png'; 
+        if (speed > 10) {
+            icon.src = 'path/to/signal-full.png';
+        } else if (speed > 5) {
+            icon.src = 'path/to/signal-excellent.png';
+        } else if (speed > 2) {
+            icon.src = 'path/to/signal-average.png';
+        } else if (speed > 1) {
+            icon.src = 'path/to/signal-medium.png';
+        } else if (speed > 0.5) {
+            icon.src = 'path/to/signal-low.png';
+        } else {
+            icon.src = 'path/to/signal-none.png';
+        }
     } else {
-        icon.src = 'path/to/signal-none.png'; 
+        console.log('Network Information API is not supported in your browser.');
     }
 }
 
 setInterval(updateNetworkIcon, 5000);
-
 updateNetworkIcon();
+
 
 // Function to set the wallpaper
 function setWallpaper(wallpaper) {
