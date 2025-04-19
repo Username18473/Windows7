@@ -186,3 +186,48 @@ function openMediaPlayerApp() {
 function openPaintApp() {
     window.location.href = "Paint.html";
 }
+
+// Define translations for different languages
+const translations = {
+    en: {
+        languageLabel: "Language:",
+        timezoneLabel: "Timezone:",
+        saveButton: "Save",
+    },
+    es: {
+        languageLabel: "Idioma:",
+        timezoneLabel: "Zona horaria:",
+        saveButton: "Guardar",
+    },
+    fr: {
+        languageLabel: "Langue:",
+        timezoneLabel: "Fuseau horaire:",
+        saveButton: "Sauvegarder",
+    },
+    de: {
+        languageLabel: "Sprache:",
+        timezoneLabel: "Zeitzone:",
+        saveButton: "Speichern",
+    },
+    zh: {
+        languageLabel: "语言:",
+        timezoneLabel: "时区:",
+        saveButton: "保存",
+    },
+};
+
+// Elements to update
+const languageLabel = document.querySelector('label[for="language"]');
+const timezoneLabel = document.querySelector('label[for="timezone"]');
+const saveButton = document.getElementById('save-language-timezone');
+
+// Event listener for language selection
+document.getElementById('language').addEventListener('change', (event) => {
+    const selectedLanguage = event.target.value;
+    
+    // Update text content based on the selected language
+    languageLabel.textContent = translations[selectedLanguage].languageLabel;
+    timezoneLabel.textContent = translations[selectedLanguage].timezoneLabel;
+    saveButton.textContent = translations[selectedLanguage].saveButton;
+});
+
