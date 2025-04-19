@@ -1,9 +1,13 @@
+// Update Time and Date
 function updateTime() {
     const timeElement = document.getElementById('time');
     const dateElement = document.getElementById('date');
-    if (!timeElement || !dateElement) return;
-    const now = new Date();
+    if (!timeElement || !dateElement) {
+        console.error('Time or Date element not found!');
+        return;
+    }
 
+    const now = new Date();
     const hours = now.getHours().toString().padStart(2, '0');
     const minutes = now.getMinutes().toString().padStart(2, '0');
     const month = (now.getMonth() + 1).toString().padStart(2, '0');
@@ -13,113 +17,99 @@ function updateTime() {
     timeElement.textContent = `${hours}:${minutes}`;
     dateElement.textContent = `${month}/${day}/${year}`;
 }
-
 setInterval(updateTime, 1000);
 updateTime();
 
+// Browser Navigation Fixes
 function goBack() {
     const webview = document.getElementById('webview');
     if (!webview) {
-        console.warn('Webview element not found.');
+        console.error('Webview element not found!');
         return;
     }
-    webview.contentWindow.history.back();
+    try {
+        webview.contentWindow.history.back();
+    } catch (error) {
+        console.error('Failed to navigate back:', error);
+    }
 }
 
 function goForward() {
     const webview = document.getElementById('webview');
     if (!webview) {
-        console.warn('Webview element not found.');
+        console.error('Webview element not found!');
         return;
     }
-    webview.contentWindow.history.forward();
+    try {
+        webview.contentWindow.history.forward();
+    } catch (error) {
+        console.error('Failed to navigate forward:', error);
+    }
 }
 
 function loadPage() {
     const urlBar = document.getElementById('url-bar');
     const webview = document.getElementById('webview');
     if (!urlBar || !webview) {
-        console.warn('URL bar or Webview element not found.');
+        console.error('URL bar or Webview element not found!');
         return;
     }
-    let url = urlBar.value;
+    let url = urlBar.value.trim();
     if (!url.startsWith('http')) {
-        url = 'https://' + url; // Add https if missing
+        url = 'https://' + url;
     }
     webview.src = url;
 }
 
-function closeBrowser() {
-    const browser = document.getElementById('browser');
-    if (browser) {
-        browser.style.display = 'none';
-    }
-}
-
-document.getElementById('browserIcon').addEventListener('click', function() {
-    const browser = document.getElementById('browser');
-    if (browser) {
-        browser.style.display = 'block';
-    }
-});
-
+// Toggle Start Menu
 function toggleStartMenu() {
     const startMenu = document.getElementById('start-menu');
-    if (startMenu) {
-        startMenu.style.display = (startMenu.style.display === 'none' || startMenu.style.display === '') ? 'block' : 'none';
+    if (!startMenu) {
+        console.error('Start Menu element not found!');
+        return;
     }
+    startMenu.style.display = (startMenu.style.display === 'none' || !startMenu.style.display) ? 'block' : 'none';
 }
 
-document.getElementById('startMenuBrowserLink').addEventListener('click', function() {
-    const browser = document.getElementById('browser');
-    if (browser) {
-        browser.style.display = 'block';
-    }
-});
-
-document.getElementById("fullscreen-btn").addEventListener("click", () => {
+// Fullscreen Toggle
+document.getElementById('fullscreen-btn')?.addEventListener('click', () => {
     if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen();
+        document.documentElement.requestFullscreen().catch((error) => console.error('Failed to enable fullscreen:', error));
     } else {
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
-        }
+        document.exitFullscreen().catch((error) => console.error('Failed to exit fullscreen:', error));
     }
 });
 
-document.getElementById('loginForm').addEventListener('submit', function(event) {
+// Login Form Handling
+document.getElementById('loginForm')?.addEventListener('submit', (event) => {
     event.preventDefault();
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    console.log('Username:', username);
-    console.log('Password:', password);
+    const username = document.getElementById('username')?.value.trim();
+    const password = document.getElementById('password')?.value.trim();
+    
+    console.log('Username:', username || 'No username entered');
+    console.log('Password:', password || 'No password entered');
 
     const desktop = document.getElementById('desktop');
     const loginContainer = document.getElementById('loginContainer');
     if (desktop && loginContainer) {
         desktop.style.display = 'block';
         loginContainer.style.display = 'none';
+    } else {
+        console.error('Desktop or Login Container element not found!');
     }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const loginContainer = document.getElementById('loginContainer');
-    const desktop = document.getElementById('desktop');
-    if (loginContainer && desktop) {
-        if (loginContainer.style.display !== 'none') {
-            desktop.style.display = 'none';
-        }
-    }
-});
-
+// Drag-and-Drop Functionality
 function makeElementDraggable(element) {
-    if (!element) return;
+    if (!element) {
+        console.error('Draggable element not found!');
+        return;
+    }
     let isDragging = false;
     let offsetX, offsetY;
 
-    element.addEventListener('mousedown', function(e) {
-        if (e.button !== 0) return;
+    element.addEventListener('mousedown', function (e) {
+        if (e.button !== 0) return; // Left mouse button only
         isDragging = true;
         offsetX = e.clientX - element.getBoundingClientRect().left;
         offsetY = e.clientY - element.getBoundingClientRect().top;
@@ -141,92 +131,38 @@ function makeElementDraggable(element) {
     }
 }
 
+// Apply draggable functionality to elements
 makeElementDraggable(document.getElementById('browser'));
-
-function openMyPC() {
-    const myPCPopup = document.getElementById('myPCPopup');
-    if (myPCPopup) {
-        myPCPopup.style.display = 'block';
-    }
-}
-
-function closeMyPC() {
-    const myPCPopup = document.getElementById('myPCPopup');
-    if (myPCPopup) {
-        myPCPopup.style.display = 'none';
-    }
-}
-
 makeElementDraggable(document.getElementById('myPCPopup'));
-
-function logoff() {
-    window.location.href = "Logoff.html";
-}
-
-function toggleControlPanel() {
-    const controlPanel = document.getElementById('control-panel');
-    if (controlPanel) {
-        controlPanel.style.display = (controlPanel.style.display === 'none' || controlPanel.style.display === '') ? 'block' : 'none';
-    }
-}
-
 makeElementDraggable(document.getElementById('control-panel'));
 
-function closeControlPanel() {
-    const controlPanel = document.getElementById('control-panel');
-    if (controlPanel) {
-        controlPanel.style.display = 'none';
-    }
-}
-
-function openMediaPlayerApp() {
-    window.location.href = 'Mediaplayer.html';
-}
-
-function openPaintApp() {
-    window.location.href = "Paint.html";
-}
-
+// Translations Handling
 const translations = {
-    en: {
-        languageLabel: "Language:",
-        timezoneLabel: "Timezone:",
-        saveButton: "Save",
-    },
-    es: {
-        languageLabel: "Idioma:",
-        timezoneLabel: "Zona horaria:",
-        saveButton: "Guardar",
-    },
-    fr: {
-        languageLabel: "Langue:",
-        timezoneLabel: "Fuseau horaire:",
-        saveButton: "Sauvegarder",
-    },
-    de: {
-        languageLabel: "Sprache:",
-        timezoneLabel: "Zeitzone:",
-        saveButton: "Speichern",
-    },
-    zh: {
-        languageLabel: "语言:",
-        timezoneLabel: "时区:",
-        saveButton: "保存",
-    },
+    en: { languageLabel: "Language:", timezoneLabel: "Timezone:", saveButton: "Save" },
+    es: { languageLabel: "Idioma:", timezoneLabel: "Zona horaria:", saveButton: "Guardar" },
+    fr: { languageLabel: "Langue:", timezoneLabel: "Fuseau horaire:", saveButton: "Sauvegarder" },
+    de: { languageLabel: "Sprache:", timezoneLabel: "Zeitzone:", saveButton: "Speichern" },
+    zh: { languageLabel: "语言:", timezoneLabel: "时区:", saveButton: "保存" },
 };
 
-// Elements to update
-const languageLabel = document.querySelector('label[for="language"]');
-const timezoneLabel = document.querySelector('label[for="timezone"]');
-const saveButton = document.getElementById('save-language-timezone');
+// Update Labels Dynamically
+function updateLanguage(selectedLanguage) {
+    if (!translations[selectedLanguage]) {
+        console.error(`No translations available for language: ${selectedLanguage}`);
+        return;
+    }
+    document.querySelector('label[for="language"]')?.textContent = translations[selectedLanguage].languageLabel;
+    document.querySelector('label[for="timezone"]')?.textContent = translations[selectedLanguage].timezoneLabel;
+    document.getElementById('save-language-timezone')?.textContent = translations[selectedLanguage].saveButton;
+}
 
-// Event listener for language selection
-document.getElementById('language').addEventListener('change', (event) => {
+document.getElementById('language')?.addEventListener('change', (event) => {
     const selectedLanguage = event.target.value;
-    
-    // Update text content based on the selected language
-    languageLabel.textContent = translations[selectedLanguage].languageLabel;
-    timezoneLabel.textContent = translations[selectedLanguage].timezoneLabel;
-    saveButton.textContent = translations[selectedLanguage].saveButton;
+    updateLanguage(selectedLanguage);
 });
 
+function openMediaPlayerApp() 
+      { window.location.href = 'Mediaplayer.html'; } 
+
+function openPaintApp() 
+      { window.location.href = "Paint.html"; }
