@@ -654,6 +654,39 @@ function openMazeApp() {
         } 
 
 makeElementDraggable(document.getElementById('control-panel'));
+
+// Select the form elements
+const form = document.getElementById('language-timezone-form');
+const languageSelect = document.getElementById('language');
+const timezoneSelect = document.getElementById('timezone');
+const saveButton = document.getElementById('save-language-timezone');
+
+// Event listener for the Save button
+saveButton.addEventListener('click', () => {
+    // Get the selected values
+    const selectedLanguage = languageSelect.value;
+    const selectedTimezone = timezoneSelect.value;
+
+    // Display the selected values in a message
+    alert(`Your preferences are:\nLanguage: ${selectedLanguage}\nTimezone: ${selectedTimezone}`);
+
+    // Optional: Save the values to localStorage (for persistence)
+    localStorage.setItem('preferredLanguage', selectedLanguage);
+    localStorage.setItem('preferredTimezone', selectedTimezone);
+
+    console.log('Preferences saved successfully!');
+});
+
+// Optional: Load saved preferences from localStorage (if any)
+window.addEventListener('load', () => {
+    const savedLanguage = localStorage.getItem('preferredLanguage');
+    const savedTimezone = localStorage.getItem('preferredTimezone');
+
+    if (savedLanguage) languageSelect.value = savedLanguage;
+    if (savedTimezone) timezoneSelect.value = savedTimezone;
+
+    console.log('Preferences loaded:', { savedLanguage, savedTimezone });
+});
     </script>
 </body>
 </html>
