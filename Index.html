@@ -206,24 +206,24 @@
             left: 50%;
             transform: translate(-50%, -50%);
             width: 400px;
-            padding: 20px;
+            padding: 10px;
             background-color: white;
             border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             display: none;
             overflow: hidden;
         }
 
         #control-panel button {
             margin: 5px;
-            padding: 10px;
+            padding: 5px;
         }
 
         /* New CSS for hover effect */
         .icon:hover {
-            background-color: rgba(0, 0, 255, 0.2); /* Transparent blue */
-            border: 2px solid rgba(0, 0, 255, 0.5); /* Slightly more opaque blue border */
-            border-radius: 5px; /* Optional: round corners */
+            background-color: rgba(0, 0, 255, 0.2);
+            border: 2px solid rgba(0, 0, 255, 0.5);
+            border-radius: 5px;
         }
 
         .wallpaper {
@@ -240,8 +240,8 @@
     background: white;
     border: 1px solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    display: none; /* Initially hidden */
-    cursor: move; /* Add cursor move style for drag effect */
+    display: none;
+    cursor: move;
 }
 
 .recycle-bin-popup header {
@@ -420,6 +420,7 @@
                  <ul>
                      <li><a href="#" id="startMenuControlPanelLink" onclick="toggleControlPanel()">Control Panel</a></li>
                      <li><a href="#" id="startMenuBrowserLink">Internet Explorer</a></li>
+                     <li><a href="#" id="startMazeLink" onclick="openMazeApp()">Maze</a></li>
                      <li><a href="#" id="startMediaPlayerLink" onclick="openMediaPlayerApp()">Media Player</a></li>
                      <li><a href="#" id="startMenuNotepadLink" onclick="openNotepadApp()">Notepad</a></li>
                      <li><a href="#" id="startMenuPaintLink" onclick="openPaintApp()">Paint</a></li>
@@ -646,6 +647,10 @@ function openPaintApp() {
         
 function openWebcamApp() {
             window.location.href = "webcam.html";
+        } 
+
+function openMazeApp() {
+            window.location.href = "Maze.html";
         } 
     </script>
 </body>
