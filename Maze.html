@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hard Maze Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+
+        #maze {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin: 20px auto;
+            border: 3px solid black;
+            background: white;
+        }
+
+        #player {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: blue;
+            top:  0px; /* Bottom-left corner */
+            left: 15px;
+        }
+
+        #goal {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: green;
+            top: 260px; /* Top-right corner */
+            left: 75px;
+        }
+
+        .wall {
+            position: absolute;
+            background: black;
+        }
+
+        /* Complex walls */
+        .wall:nth-child(3) {
+            top: 0;
+            left: 50px;
+            width: 20px;
+            height: 350px;
+        }
+
+        .wall:nth-child(4) {
+            top: 30px;
+            left: 100px;
+            width: 150px;
+            height: 20px;
+        }
+
+        .wall:nth-child(5) {
+            top: 100px;
+            left: 100px;
+            width: 20px;
+            height: 200px;
+        }
+
+        .wall:nth-child(6) {
+            top: 280px;
+            left: 50px;
+            width: 150px;
+            height: 20px;
+        }
+
+        .wall:nth-child(7) {
+            top: 200px;
+            left: 200px;
+            width: 20px;
+            height: 170px;
+        }
+
+        .wall:nth-child(8) {
+            top: 300px;
+            left: 220px;
+            width: 120px;
+            height: 20px;
+        }
+
+        .wall:nth-child(9) {
+            top: 50px;
+            left: 300px;
+            width: 20px;
+            height: 250px;
+        }
+
+        .wall:nth-child(10) {
+            top: 80px;
+            left: 320px;
+            width: 50px;
+            height: 20px;
+        }
+        
+        .wall:nth-child(11) {
+            top: 100px;
+            left: 100px;
+            width: 140px;
+            height: 20px;
+        }
+        
+        .wall:nth-child(12) {
+            top: 0;
+            left: 100px;
+            width: 20px;
+            height: 50px;
+        }
+        
+        .wall:nth-child(13) {
+            top: 140px;
+            left: 350px;
+            width: 50px;
+            height: 20px;
+        }
+        
+        .wall:nth-child(14) {
+            top: 250px;
+            left: 350px;
+            width: 50px;
+            height: 20px;
+        }
+        
+        .wall:nth-child(15) {
+            top: 190px;
+            left: 320px;
+            width: 50px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hard Maze Game</h1>
+    <div id="maze">
+        <div id="player"></div>
+        <div id="goal"></div>
+        <div class="wall"></div>
+        <div class="wall"></div>
+        <div class="wall"></div>
+        <div class="wall"></div>
+        <div class="wall"></div>
+        <div class="wall"></div>
+        <div class="wall"></div>
+        <div class="wall"></div>
+        <div class="wall"></div>
+        <div class="wall"></div>
+        <div class="wall"></div>
+        <div class="wall"></div>
+        <div class="wall"></div>
+        <div class="wall"></div>
+    </div>
+    <script>
+        const player = document.getElementById('player');
+        const maze = document.getElementById('maze');
+        const goal = document.getElementById('goal');
+        const walls = document.querySelectorAll('.wall');
+
+        document.addEventListener('keydown', function(event) {
+            const playerRect = player.getBoundingClientRect();
+            const mazeRect = maze.getBoundingClientRect();
+
+            let top = player.offsetTop;
+            let left = player.offsetLeft;
+
+            // Move the player
+            if (event.key === 'ArrowUp' && top > 0) {
+                player.style.top = `${top - 10}px`;
+            }
+            if (event.key === 'ArrowDown' && top + playerRect.height < mazeRect.height) {
+                player.style.top = `${top + 10}px`;
+            }
+            if (event.key === 'ArrowLeft' && left > 0) {
+                player.style.left = `${left - 10}px`;
+            }
+            if (event.key === 'ArrowRight' && left + playerRect.width < mazeRect.width) {
+                player.style.left = `${left + 10}px`;
+            }
+
+            // Check for collisions with walls
+            if (checkCollisions()) {
+                resetPlayer(); // Reset the player's position
+            }
+
+            // Check if the player has reached the goal
+            checkWin();
+        });
+
+        function checkCollisions() {
+            const playerRect = player.getBoundingClientRect();
+            for (let wall of walls) {
+                const wallRect = wall.getBoundingClientRect();
+                if (
+                    playerRect.top < wallRect.bottom &&
+                    playerRect.bottom > wallRect.top &&
+                    playerRect.left < wallRect.right &&
+                    playerRect.right > wallRect.left
+                ) {
+                    return true; // Collision detected
+                }
+            }
+            return false; // No collision
+        }
+
+        function checkWin() {
+            const playerRect = player.getBoundingClientRect();
+            const goalRect = goal.getBoundingClientRect();
+
+            if (
+                playerRect.top < goalRect.bottom &&
+                playerRect.bottom > goalRect.top &&
+                playerRect.left < goalRect.right &&
+                playerRect.right > goalRect.left
+            ) {
+                resetPlayer();
+            }
+        }
+
+        function resetPlayer() {
+            player.style.top = '0px';
+            player.style.left = '15px';
+        }
+    </script>
+</body>
+</html>
