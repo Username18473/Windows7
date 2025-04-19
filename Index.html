@@ -604,23 +604,21 @@ updateNetworkIcon();
 
 // Function to set the wallpaper
 function setWallpaper(wallpaper) {
-    // Apply the wallpaper
     document.documentElement.style.setProperty('--background-image', `url('${wallpaper}')`);
-    // Save the wallpaper to localStorage
     localStorage.setItem('selectedWallpaper', wallpaper);
 }
 
 // Function to load the wallpaper on page load
 function loadWallpaper() {
-    // Get the saved wallpaper from localStorage
+    
     const savedWallpaper = localStorage.getItem('selectedWallpaper');
     if (savedWallpaper) {
-        // Apply the saved wallpaper
+        // saved wallpaper
         document.documentElement.style.setProperty('--background-image', `url('${savedWallpaper}')`);
     }
 }
 
-// Run the loadWallpaper function when the page loads
+// Run the loadWallpaper function
 window.addEventListener('DOMContentLoaded', loadWallpaper);
 
 function openNotepadApp() {
@@ -631,7 +629,7 @@ function openPaintApp() {
             window.location.href = "Paint.html";
         }
         
-function openWebcamApp()
+function openWebcamApp() {
             window.location.href = "webcam.html";
         } 
     </script>
