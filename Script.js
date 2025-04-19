@@ -1,13 +1,9 @@
-// Update Time and Date
 function updateTime() {
     const timeElement = document.getElementById('time');
     const dateElement = document.getElementById('date');
-    if (!timeElement || !dateElement) {
-        console.error('Time or Date element not found!');
-        return;
-    }
-
+    if (!timeElement || !dateElement) return;
     const now = new Date();
+
     const hours = now.getHours().toString().padStart(2, '0');
     const minutes = now.getMinutes().toString().padStart(2, '0');
     const month = (now.getMonth() + 1).toString().padStart(2, '0');
@@ -17,99 +13,113 @@ function updateTime() {
     timeElement.textContent = `${hours}:${minutes}`;
     dateElement.textContent = `${month}/${day}/${year}`;
 }
+
 setInterval(updateTime, 1000);
 updateTime();
 
-// Browser Navigation Fixes
 function goBack() {
     const webview = document.getElementById('webview');
     if (!webview) {
-        console.error('Webview element not found!');
+        console.warn('Webview element not found.');
         return;
     }
-    try {
-        webview.contentWindow.history.back();
-    } catch (error) {
-        console.error('Failed to navigate back:', error);
-    }
+    webview.contentWindow.history.back();
 }
 
 function goForward() {
     const webview = document.getElementById('webview');
     if (!webview) {
-        console.error('Webview element not found!');
+        console.warn('Webview element not found.');
         return;
     }
-    try {
-        webview.contentWindow.history.forward();
-    } catch (error) {
-        console.error('Failed to navigate forward:', error);
-    }
+    webview.contentWindow.history.forward();
 }
 
 function loadPage() {
     const urlBar = document.getElementById('url-bar');
     const webview = document.getElementById('webview');
     if (!urlBar || !webview) {
-        console.error('URL bar or Webview element not found!');
+        console.warn('URL bar or Webview element not found.');
         return;
     }
-    let url = urlBar.value.trim();
+    let url = urlBar.value;
     if (!url.startsWith('http')) {
-        url = 'https://' + url;
+        url = 'https://' + url; // Add https if missing
     }
     webview.src = url;
 }
 
-// Toggle Start Menu
-function toggleStartMenu() {
-    const startMenu = document.getElementById('start-menu');
-    if (!startMenu) {
-        console.error('Start Menu element not found!');
-        return;
+function closeBrowser() {
+    const browser = document.getElementById('browser');
+    if (browser) {
+        browser.style.display = 'none';
     }
-    startMenu.style.display = (startMenu.style.display === 'none' || !startMenu.style.display) ? 'block' : 'none';
 }
 
-// Fullscreen Toggle
-document.getElementById('fullscreen-btn')?.addEventListener('click', () => {
-    if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen().catch((error) => console.error('Failed to enable fullscreen:', error));
-    } else {
-        document.exitFullscreen().catch((error) => console.error('Failed to exit fullscreen:', error));
+document.getElementById('browserIcon').addEventListener('click', function() {
+    const browser = document.getElementById('browser');
+    if (browser) {
+        browser.style.display = 'block';
     }
 });
 
-// Login Form Handling
-document.getElementById('loginForm')?.addEventListener('submit', (event) => {
+function toggleStartMenu() {
+    const startMenu = document.getElementById('start-menu');
+    if (startMenu) {
+        startMenu.style.display = (startMenu.style.display === 'none' || startMenu.style.display === '') ? 'block' : 'none';
+    }
+}
+
+document.getElementById('startMenuBrowserLink').addEventListener('click', function() {
+    const browser = document.getElementById('browser');
+    if (browser) {
+        browser.style.display = 'block';
+    }
+});
+
+document.getElementById("fullscreen-btn").addEventListener("click", () => {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        }
+    }
+});
+
+document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault();
-    const username = document.getElementById('username')?.value.trim();
-    const password = document.getElementById('password')?.value.trim();
-    
-    console.log('Username:', username || 'No username entered');
-    console.log('Password:', password || 'No password entered');
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    console.log('Username:', username);
+    console.log('Password:', password);
 
     const desktop = document.getElementById('desktop');
     const loginContainer = document.getElementById('loginContainer');
     if (desktop && loginContainer) {
         desktop.style.display = 'block';
         loginContainer.style.display = 'none';
-    } else {
-        console.error('Desktop or Login Container element not found!');
     }
 });
 
-// Drag-and-Drop Functionality
-function makeElementDraggable(element) {
-    if (!element) {
-        console.error('Draggable element not found!');
-        return;
+document.addEventListener('DOMContentLoaded', function() {
+    const loginContainer = document.getElementById('loginContainer');
+    const desktop = document.getElementById('desktop');
+    if (loginContainer && desktop) {
+        if (loginContainer.style.display !== 'none') {
+            desktop.style.display = 'none';
+        }
     }
+});
+
+function makeElementDraggable(element) {
+    if (!element) return;
     let isDragging = false;
     let offsetX, offsetY;
 
-    element.addEventListener('mousedown', function (e) {
-        if (e.button !== 0) return; // Left mouse button only
+    element.addEventListener('mousedown', function(e) {
+        if (e.button !== 0) return;
         isDragging = true;
         offsetX = e.clientX - element.getBoundingClientRect().left;
         offsetY = e.clientY - element.getBoundingClientRect().top;
@@ -131,38 +141,48 @@ function makeElementDraggable(element) {
     }
 }
 
-// Apply draggable functionality to elements
 makeElementDraggable(document.getElementById('browser'));
-makeElementDraggable(document.getElementById('myPCPopup'));
-makeElementDraggable(document.getElementById('control-panel'));
 
-// Translations Handling
-const translations = {
-    en: { languageLabel: "Language:", timezoneLabel: "Timezone:", saveButton: "Save" },
-    es: { languageLabel: "Idioma:", timezoneLabel: "Zona horaria:", saveButton: "Guardar" },
-    fr: { languageLabel: "Langue:", timezoneLabel: "Fuseau horaire:", saveButton: "Sauvegarder" },
-    de: { languageLabel: "Sprache:", timezoneLabel: "Zeitzone:", saveButton: "Speichern" },
-    zh: { languageLabel: "语言:", timezoneLabel: "时区:", saveButton: "保存" },
-};
-
-// Update Labels Dynamically
-function updateLanguage(selectedLanguage) {
-    if (!translations[selectedLanguage]) {
-        console.error(`No translations available for language: ${selectedLanguage}`);
-        return;
+function openMyPC() {
+    const myPCPopup = document.getElementById('myPCPopup');
+    if (myPCPopup) {
+        myPCPopup.style.display = 'block';
     }
-    document.querySelector('label[for="language"]')?.textContent = translations[selectedLanguage].languageLabel;
-    document.querySelector('label[for="timezone"]')?.textContent = translations[selectedLanguage].timezoneLabel;
-    document.getElementById('save-language-timezone')?.textContent = translations[selectedLanguage].saveButton;
 }
 
-document.getElementById('language')?.addEventListener('change', (event) => {
-    const selectedLanguage = event.target.value;
-    updateLanguage(selectedLanguage);
-});
+function closeMyPC() {
+    const myPCPopup = document.getElementById('myPCPopup');
+    if (myPCPopup) {
+        myPCPopup.style.display = 'none';
+    }
+}
 
-function openMediaPlayerApp() 
-      { window.location.href = 'Mediaplayer.html'; } 
+makeElementDraggable(document.getElementById('myPCPopup'));
 
-function openPaintApp() 
-      { window.location.href = "Paint.html"; }
+function logoff() {
+    window.location.href = "Logoff.html";
+}
+
+function toggleControlPanel() {
+    const controlPanel = document.getElementById('control-panel');
+    if (controlPanel) {
+        controlPanel.style.display = (controlPanel.style.display === 'none' || controlPanel.style.display === '') ? 'block' : 'none';
+    }
+}
+
+makeElementDraggable(document.getElementById('control-panel'));
+
+function closeControlPanel() {
+    const controlPanel = document.getElementById('control-panel');
+    if (controlPanel) {
+        controlPanel.style.display = 'none';
+    }
+}
+
+function openMediaPlayerApp() {
+    window.location.href = 'Mediaplayer.html';
+}
+
+function openPaintApp() {
+    window.location.href = "Paint.html";
+}
