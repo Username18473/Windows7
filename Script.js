@@ -187,7 +187,6 @@ function openPaintApp() {
     window.location.href = "Paint.html";
 }
 
-// Define translations for different languages
 const translations = {
     en: {
         languageLabel: "Language:",
