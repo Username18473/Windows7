@@ -175,80 +175,83 @@
         <div class="wall"></div>
         <div class="wall"></div>
     </div>
-    <script>
-        const player = document.getElementById('player');
-        const maze = document.getElementById('maze');
-        const goal = document.getElementById('goal');
-        const walls = document.querySelectorAll('.wall');
+   <script>
+    const player = document.getElementById('player');
+    const maze = document.getElementById('maze');
+    const goal = document.getElementById('goal');
+    const walls = document.querySelectorAll('.wall');
 
-        document.addEventListener('keydown', function(event) {
-            const playerRect = player.getBoundingClientRect();
-            const mazeRect = maze.getBoundingClientRect();
+    document.addEventListener('keydown', function(event) {
+        let top = player.offsetTop;
+        let left = player.offsetLeft;
+        let newTop = top;
+        let newLeft = left;
 
-            let top = player.offsetTop;
-            let left = player.offsetLeft;
-
-            // Move the player
-            if (event.key === 'ArrowUp' && top > 0) {
-                player.style.top = `${top - 10}px`;
-            }
-            if (event.key === 'ArrowDown' && top + playerRect.height < mazeRect.height) {
-                player.style.top = `${top + 10}px`;
-            }
-            if (event.key === 'ArrowLeft' && left > 0) {
-                player.style.left = `${left - 10}px`;
-            }
-            if (event.key === 'ArrowRight' && left + playerRect.width < mazeRect.width) {
-                player.style.left = `${left + 10}px`;
-            }
-
-            // Check for collisions with walls
-            if (checkCollisions()) {
-                resetPlayer(); // Reset the player's position
-            }
-
-            // Check if the player has reached the goal
-            checkWin();
-        });
-
-        function checkCollisions() {
-            const playerRect = player.getBoundingClientRect();
-            for (let wall of walls) {
-                const wallRect = wall.getBoundingClientRect();
-                if (
-                    playerRect.top < wallRect.bottom &&
-                    playerRect.bottom > wallRect.top &&
-                    playerRect.left < wallRect.right &&
-                    playerRect.right > wallRect.left
-                ) {
-                    return true; // Collision detected
-                }
-            }
-            return false; // No collision
+        // Determine new position based on key press
+        if (event.key === 'ArrowUp') {
+            newTop = top - 10;
+        } else if (event.key === 'ArrowDown') {
+            newTop = top + 10;
+        } else if (event.key === 'ArrowLeft') {
+            newLeft = left - 10;
+        } else if (event.key === 'ArrowRight') {
+            newLeft = left + 10;
         }
 
-        function checkWin() {
-            const playerRect = player.getBoundingClientRect();
-            const goalRect = goal.getBoundingClientRect();
+        // Check for collisions at the new position
+        if (!checkCollisions(newTop, newLeft)) {
+            player.style.top = `${newTop}px`;
+            player.style.left = `${newLeft}px`;
+        }
 
+        // Check if the player has reached the goal
+        checkWin();
+    });
+
+    function checkCollisions(newTop, newLeft) {
+        const futurePlayerRect = {
+            top: newTop,
+            bottom: newTop + player.offsetHeight,
+            left: newLeft,
+            right: newLeft + player.offsetWidth
+        };
+
+        for (let wall of walls) {
+            const wallRect = wall.getBoundingClientRect();
             if (
-                playerRect.top < goalRect.bottom &&
-                playerRect.bottom > goalRect.top &&
-                playerRect.left < goalRect.right &&
-                playerRect.right > goalRect.left
+                futurePlayerRect.top < wallRect.bottom &&
+                futurePlayerRect.bottom > wallRect.top &&
+                futurePlayerRect.left < wallRect.right &&
+                futurePlayerRect.right > wallRect.left
             ) {
-                resetPlayer();
+                return true; // Collision detected
             }
         }
+        return false; // No collision
+    }
 
-        function resetPlayer() {
-            player.style.top = '0px';
-            player.style.left = '15px';
+    function checkWin() {
+        const playerRect = player.getBoundingClientRect();
+        const goalRect = goal.getBoundingClientRect();
+
+        if (
+            playerRect.top < goalRect.bottom &&
+            playerRect.bottom > goalRect.top &&
+            playerRect.left < goalRect.right &&
+            playerRect.right > goalRect.left
+        ) {
+            alert('You reached the goal!'); // Notify the player
+            resetPlayer();
         }
+    }
 
-        function redirectToIndex() {
+    function resetPlayer() {
+        player.style.top = '0px';
+        player.style.left = '15px';
+    }
+       function redirectToIndex() }
             window.location.href = "Index.html";
-        }
-    </script>
+       }
+</script>
 </body>
 </html>
