@@ -6,27 +6,22 @@
     <title>Media Player</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-        }
-        .media-player {
-            text-align: center;
-            background: #fff;
-            padding: 150px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-        }
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    height: 100vh; /* Full height of the viewport */
+    margin: 0;
+    background-color: #f0f0f0;
+}
         video, audio {
-            width: 100%;
-            max-width: 500px;
+            width: 1000%;
+            max-width: 1000px;
             border-radius: 10px;
         }
         .controls button {
             margin: 10px;
+            text-align: center;
             padding: 10px 20px;
             border: none;
             cursor: pointer;
@@ -37,7 +32,15 @@
         .controls button:hover {
             background-color: #0056b3;
         }
-         .close-button {
+        .media-player {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    flex-direction: column; /* Ensures items stack vertically if needed */
+    height: 100vh; /* Full viewport height */
+        } 
+        
+            .close-button {
             position: absolute;
             top: 10px;
             right: 10px;
@@ -51,10 +54,11 @@
             cursor: pointer;
         }
         .video-container {
-    width: 100vw; /* 90% of the viewport width */
-    height: 100vw; /* Automatically adjust height to maintain aspect ratio */
-    margin: 0 auto; /* Center horizontally */
-    display: block; /* Ensure it's a block element */
+    width: 1000px;
+    text-align: center;
+    height: 1000px; 
+    margin: 0 auto;
+    display: block; 
 }
     </style>
 </head>
