@@ -209,26 +209,34 @@
     });
 
     function checkCollisions(newTop, newLeft) {
-        const futurePlayerRect = {
-            top: newTop,
-            bottom: newTop + player.offsetHeight,
-            left: newLeft,
-            right: newLeft + player.offsetWidth
+    const mazeRect = maze.getBoundingClientRect();
+    const futurePlayerRect = {
+        top: newTop + mazeRect.top,
+        bottom: newTop + player.offsetHeight + mazeRect.top,
+        left: newLeft + mazeRect.left,
+        right: newLeft + player.offsetWidth + mazeRect.left
+    };
+
+    for (let wall of walls) {
+        const wallRect = wall.getBoundingClientRect();
+        const relativeWallRect = {
+            top: wallRect.top - mazeRect.top,
+            bottom: wallRect.bottom - mazeRect.top,
+            left: wallRect.left - mazeRect.left,
+            right: wallRect.right - mazeRect.left
         };
 
-        for (let wall of walls) {
-            const wallRect = wall.getBoundingClientRect();
-            if (
-                futurePlayerRect.top < wallRect.bottom &&
-                futurePlayerRect.bottom > wallRect.top &&
-                futurePlayerRect.left < wallRect.right &&
-                futurePlayerRect.right > wallRect.left
-            ) {
-                return true; // Collision detected
-            }
+        if (
+            futurePlayerRect.top < relativeWallRect.bottom &&
+            futurePlayerRect.bottom > relativeWallRect.top &&
+            futurePlayerRect.left < relativeWallRect.right &&
+            futurePlayerRect.right > relativeWallRect.left
+        ) {
+            return true; // Collision detected
         }
-        return false; // No collision
     }
+    return false; // No collision
+}
 
     function checkWin() {
         const playerRect = player.getBoundingClientRect();
