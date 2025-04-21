@@ -468,7 +468,7 @@
         <img src="wallpaper4.jpg" alt="Wallpaper 4" class="wallpaper" data-wallpaper="wallpaper4.jpg">
     </button>
         <button class="upload-btn" onclick="triggerUpload()">Upload</button>
-         <input type="file" id="upload-image" style="display: none;" accept="image/*" onchange="setWallpaper(event)">
+         <input type="file" id="upload-image" style="display: none;" accept="image/*" onchange="setCustomWallpaper(event)">
 </div>
     </div>
   </div>
@@ -693,7 +693,7 @@ function triggerUpload() {
     document.getElementById('upload-image').click(); // Simulates the click on the hidden file input
 }
 
-function setWallpaper(event) {
+function setCustomWallpaper(event) {
     const file = event.target.files[0];
     if (file) {
         const reader = new FileReader();
