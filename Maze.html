@@ -28,20 +28,20 @@
 
         #player {
             position: absolute;
-            width: 20px;
-            height: 20px;
-            background: blue;
-            top:  0px; /* Bottom-left corner */
+            width: 15px;
+            height: 15px;
+            background: red;
+            top:  0px; 
             left: 15px;
         }
 
         #goal {
             position: absolute;
-            width: 20px;
-            height: 20px;
+            width: 15px;
+            height: 15px;
             background: green;
-            top: 260px; /* Top-right corner */
-            left: 75px;
+            top: 270px; 
+            left: 285px;
         }
 
         .wall {
@@ -50,16 +50,16 @@
         }
 
         .wall:nth-child(3) {
-            top: 0;
+            top: 50px;
             left: 50px;
             width: 20px;
-            height: 350px;
+            height: 60px;
         }
 
         .wall:nth-child(4) {
-            top: 30px;
-            left: 100px;
-            width: 150px;
+            top: 50px;
+            left: 70px;
+            width: 130px;
             height: 20px;
         }
 
@@ -86,8 +86,8 @@
 
         .wall:nth-child(8) {
             top: 300px;
-            left: 220px;
-            width: 120px;
+            left: 210px;
+            width: 150px;
             height: 20px;
         }
 
@@ -107,16 +107,16 @@
         
         .wall:nth-child(11) {
             top: 100px;
-            left: 100px;
-            width: 140px;
+            left: 50px;
+            width: 150px;
             height: 20px;
         }
         
         .wall:nth-child(12) {
-            top: 0;
+            top: 0px;
             left: 100px;
             width: 20px;
-            height: 50px;
+            height: 70px;
         }
         
         .wall:nth-child(13) {
@@ -140,6 +140,96 @@
             height: 20px;
         }
 
+        .wall:nth-child(16) {
+            top: 150px;
+            left: 120px;
+            width: 140px;
+            height: 20px;
+        }
+        
+        .wall:nth-child(17) {
+            top: 340px;
+            left: 120px;
+            width: 20px;
+            height: 60px;
+        }
+        
+        .wall:nth-child(18) {
+            top: 350px;
+            left: 320px;
+            width: 20px;
+            height: 50px;
+        }
+        
+        .wall:nth-child(19) {
+            top: 25px;
+            left: 350px;
+            width: 50px;
+            height: 20px;
+        }
+        
+           .wall:nth-child(20) {
+            top: 210px;
+            left: 50px;
+            width: 20px;
+            height: 70px;
+        }
+        
+        .wall:nth-child(21) {
+            top: 160px;
+            left: 0px;
+            width: 50px;
+            height: 20px;
+        }
+        
+        .wall:nth-child(22) {
+            top: 0px;
+            left: 240px;
+            width: 20px;
+            height: 70px;
+        }
+        
+        .wall:nth-child(23) {
+            top: 100px;
+            left: 250px;
+            width: 50px;
+            height: 20px;
+        }
+        
+        .wall:nth-child(24) {
+            top: 235px;
+            left: 250px;
+            width: 50px;
+            height: 20px;
+        }
+        
+        .wall:nth-child(25) {
+            top: 170px;
+            left: 150px;
+            width: 20px;
+            height: 80px;
+        }
+        
+        .wall:nth-child(26) {
+            top: 340px;
+            left: 0px;
+            width: 90px;
+            height: 20px;
+        }
+        
+        .wall:nth-child(27) {
+            top: 194px;
+            left: 200px;
+            width: 70px;
+            height: 19px;
+        }
+        
+        .wall:nth-child(28) {
+            top: 350px;
+            left: 250px;
+            width: 90px;
+            height: 20px;
+        }
          .close-button {
             position: absolute;
             top: 10px;
@@ -174,7 +264,19 @@
         <div class="wall"></div>
         <div class="wall"></div>
         <div class="wall"></div>
-    </div>
+        <div class="wall"></div>
+        <div class="wall"></div>
+        <div class="wall"></div>
+        <div class="wall"></div>
+        <div class="wall"></div>
+        <div class="wall"></div>
+        <div class="wall"></div>
+        <div class="wall"></div>
+        <div class="wall"></div>
+        <div class="wall"></div>
+        <div class="wall"></div>
+        <div class="wall"></div>
+        </div>
    <script>
     const player = document.getElementById('player');
     const maze = document.getElementById('maze');
@@ -263,4 +365,3 @@
 }
 </script>
 </body>
-</html>
