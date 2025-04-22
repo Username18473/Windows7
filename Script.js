@@ -77,16 +77,6 @@ document.getElementById('startMenuBrowserLink').addEventListener('click', functi
     }
 });
 
-document.getElementById("fullscreen-btn").addEventListener("click", () => {
-    if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen();
-    } else {
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
-        }
-    }
-});
-
 document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault();
     const username = document.getElementById('username').value;
