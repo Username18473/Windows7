@@ -439,6 +439,7 @@
                 <button onclick="goForward()">→</button>
                 <input id="url-bar" type="text" placeholder="Enter URL" />
                 <button onclick="loadPage()">Go</button>
+                <button onclick="IframeFullscreen()">[]</button>
                 <button class="close-button" onclick="closeBrowser()">X</button>
             </header>
             <iframe id="webview" src="https://www.google.com/?igu=1"></iframe>
@@ -703,6 +704,20 @@ function setCustomWallpaper(event) {
         };
         reader.readAsDataURL(file);
         localStorage.setItem('selectedWallpaper', e.target.result);
+    }
+}
+
+function IframeFullscreen() {
+    const iframe = document.getElementById('myIframe'); // Change to your iframe's ID
+
+    if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+    } else if (iframe.webkitRequestFullscreen) { // Safari
+        iframe.webkitRequestFullscreen();
+    } else if (iframe.msRequestFullscreen) { // IE/Edge
+        iframe.msRequestFullscreen();
+    } else {
+        alert("Fullscreen API is not supported in this browser.");
     }
 }
     </script>
