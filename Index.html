@@ -702,6 +702,7 @@ function setCustomWallpaper(event) {
             document.body.style.backgroundSize = 'cover'; // Makes the wallpaper fit the screen
         };
         reader.readAsDataURL(file);
+        localStorage.setItem('selectedWallpaper', e.target.result);
     }
 }
     </script>
