@@ -343,7 +343,7 @@
     <div class="desktop">
         <div class="icon" style="top: 20px; left: 20px;" onclick="openMyPC()">
             <img src="path/to/my-pc-icon.png" alt="Computer">
-            <div>Computer</div>
+            <div id="my-computer-label">Computer</div>
         </div>
         <div class="my-pc-popup" id="myPCPopup">
             <header>
@@ -361,7 +361,7 @@
         </div>
         <div class="icon" style="top: 20px; left: 100px;" onclick="openRecycleBin()">
     <img src="path/to/recycle-bin-icon.png" alt="Recycle Bin">
-    <div>Recycle Bin</div>
+    <div id="recycle-bin-label">Recycle Bin</div>
 </div>
 
         <div class="recycle-bin-popup" id="recycleBinPopup">
@@ -388,7 +388,7 @@
         
         <div class="icon" style="top: 20px; left: 260px;" onclick="toggleControlPanel()">
             <img src="path/to/control-panel-icon.png" alt="Control Panel">
-            <div>Control Panel</div>
+            <div id="control-panel-label">Control Panel</div>
         </div>
         <!-- Webcam App Icon -->
 <div class="icon" style="top: 100px; left: 100px;" onclick="openWebcamApp()">
@@ -412,6 +412,7 @@
                  <img src="path/to/start-button-icon.png" alt="Start Menu" class="default">
                  <img src="path/to/start-button-hover-icon.png" alt="Start Menu" class="hover">
                  <img src="path/to/start-button-clicked-icon.png" alt="Start Menu" class="clicked">
+                 <span class="start-menu-button"></span>
              </div>
           <div class="network-status" style="width: 30px; height: 30px" >
     <img src="path/to/signal-full.png" alt="Network Signal" id="network-icon">
@@ -719,6 +720,76 @@ function IframeFullscreen() {
     } else {
         alert("Fullscreen API is not supported in this browser.");
     }
+}
+
+document.querySelector('.start-menu').addEventListener('click', function () {
+    const defaultImg = this.querySelector('img.default');
+    const clickedImg = this.querySelector('img.clicked');
+    defaultImg.style.display = 'none';
+    clickedImg.style.display = 'block';
+
+    // Optional: Show language/timezone settings when start menu is clicked
+    document.getElementById('language-timezone-form').style.display = 'block';
+});
+
+// Load saved preferences on startup
+window.addEventListener('DOMContentLoaded', () => {
+    const savedLanguage = localStorage.getItem('preferredLanguage');
+    const savedTimezone = localStorage.getItem('preferredTimezone');
+
+    if (savedLanguage) document.getElementById('language').value = savedLanguage;
+    if (savedTimezone) document.getElementById('timezone').value = savedTimezone;
+
+    applyLanguage(savedLanguage); // Apply saved language immediately
+});
+
+// Language & Timezone Form Handling
+document.getElementById('save-language-timezone').addEventListener('click', () => {
+    const selectedLanguage = document.getElementById('language').value;
+    const selectedTimezone = document.getElementById('timezone').value;
+
+    localStorage.setItem('preferredLanguage', selectedLanguage);
+    localStorage.setItem('preferredTimezone', selectedTimezone);
+
+    alert(`Your preferences are:\nLanguage: ${selectedLanguage}\nTimezone: ${selectedTimezone}`);
+    applyLanguage(selectedLanguage);
+});
+
+// Apply UI translations
+function applyLanguage(lang) {
+    const translations = {
+        en: {
+            start: "Start",
+            myComputer: "My Computer",
+            recycleBin: "Recycle Bin",
+            controlPanel: "Control Panel",
+        },
+        fr: {
+            start: "Démarrer",
+            myComputer: "Poste de travail",
+            recycleBin: "Corbeille",
+            controlPanel: "Panneau de configuration",
+        },
+        es: {
+            start: "Inicio",
+            myComputer: "Mi PC",
+            recycleBin: "Papelera",
+            controlPanel: "Panel de control",
+        },
+        zh: {
+            start: "开始",
+            myComputer: "我的电脑",
+            recycleBin: "回收站",
+            controlPanel: "控制面板",
+        }
+    };
+
+    const t = translations[lang] || translations.en;
+
+    document.querySelector('.start-menu-button').textContent = t.start;
+    document.getElementById('my-computer-label').textContent = t.myComputer;
+    document.getElementById('recycle-bin-label').textContent = t.recycleBin;
+    document.getElementById('control-panel-label').textContent = t.controlPanel;
 }
     </script>
 </body>
