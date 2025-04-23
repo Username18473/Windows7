@@ -393,26 +393,25 @@
         <!-- Webcam App Icon -->
 <div class="icon" style="top: 100px; left: 100px;" onclick="openWebcamApp()">
     <img src="path/to/webcam-icon.png" alt="Webcam App">
-    <div>Webcam</div>
+    <div id="webcam-label">Webcam</div>
 </div>
 <div class="icon" style="top: 100px; left: 180px;" onclick="openMediaPlayerApp()">
     <img src="path/to/media-icon.png" alt="Media Player">
-    <div>Media Player</div>
+    <div id="media-player-label">Media Player</div>
 </div>
 <div class="icon" style="top: 100px; left: 260px;" onclick="openNotepadApp()">
     <img src="path/to/note-icon.png" alt="Notepad">
-    <div>Notepad</div>
+    <div id="webcam-label">Notepad</div>
 </div>
 <div class="icon" style="top: 100px; left: 20px;" onclick="openPaintApp()">
     <img src="path/to/paint-icon.png" alt="Paint">
-    <div>Paint</div>
+    <div id="paint-label">Paint</div>
 </div>
       <div class="taskbar">
              <div class="start-menu" aria-label="Start Menu" onclick="toggleStartMenu()">
                  <img src="path/to/start-button-icon.png" alt="Start Menu" class="default">
                  <img src="path/to/start-button-hover-icon.png" alt="Start Menu" class="hover">
                  <img src="path/to/start-button-clicked-icon.png" alt="Start Menu" class="clicked">
-                 <span class="start-menu-button"></span>
              </div>
           <div class="network-status" style="width: 30px; height: 30px" >
     <img src="path/to/signal-full.png" alt="Network Signal" id="network-icon">
@@ -670,10 +669,7 @@ saveButton.addEventListener('click', () => {
     const selectedLanguage = languageSelect.value;
     const selectedTimezone = timezoneSelect.value;
 
-    // Display the selected values in a message
-    alert(`Your preferences are:\nLanguage: ${selectedLanguage}\nTimezone: ${selectedTimezone}`);
-
-    // Optional: Save the values to localStorage (for persistence)
+    
     localStorage.setItem('preferredLanguage', selectedLanguage);
     localStorage.setItem('preferredTimezone', selectedTimezone);
 
@@ -759,37 +755,52 @@ document.getElementById('save-language-timezone').addEventListener('click', () =
 function applyLanguage(lang) {
     const translations = {
         en: {
-            start: "Start",
-            myComputer: "My Computer",
+            myComputer: "Computer",
             recycleBin: "Recycle Bin",
             controlPanel: "Control Panel",
+            webcam: "Webcam",
+            paint: "Paint",
+            Media: "Media Player",
+            Notes: "Notepad",
         },
         fr: {
-            start: "Démarrer",
-            myComputer: "Poste de travail",
+            myComputer: "Ordinateur",
             recycleBin: "Corbeille",
             controlPanel: "Panneau de configuration",
+            webcam: "Webcam",
+            paint: "Peinture",
+            Media: "Lecteur multimédia",
+            Notes: "Bloc-notes",
         },
         es: {
-            start: "Inicio",
-            myComputer: "Mi PC",
+            myComputer: "PC",
             recycleBin: "Papelera",
             controlPanel: "Panel de control",
+            webcam: "Cámara web",
+            paint: "pintar",
+            Media: "Reproductor multimedia",
+            Notes: "Bloc",
         },
         zh: {
-            start: "开始",
-            myComputer: "我的电脑",
+            myComputer: "的电脑",
             recycleBin: "回收站",
             controlPanel: "控制面板",
+            webcam: "网络摄像头",
+            paint: "漆",
+            Media: "媒体播放器",
+            Notes: "集团",
         }
     };
 
     const t = translations[lang] || translations.en;
 
-    document.querySelector('.start-menu-button').textContent = t.start;
     document.getElementById('my-computer-label').textContent = t.myComputer;
     document.getElementById('recycle-bin-label').textContent = t.recycleBin;
     document.getElementById('control-panel-label').textContent = t.controlPanel;
+    document.getElementById('webcam-label').textContent = t.webcam;
+    document.getElementById('paint-label').textContent = t.paint;
+    document.getElementById('media-player-label').textContent = t.Media;
+    document.getElementById('notepad-label').textContent = t.Notes;
 }
     </script>
 </body>
