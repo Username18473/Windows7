@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="styles.css"> 
     <style>
         :root {
-            --background-image: url('path/to/Harmony.png'); /* Update the path to your image */
-            --taskbar-color: rgba(255, 255, 255, 0.5); /* White with 50% transparency */
+            --background-image: url('path/to/Harmony.png');
+            --taskbar-color: rgba(255, 255, 255, 0.5); 
         }
 
         body {
@@ -23,13 +23,13 @@
         }
 
         .header {
-            background: rgba(34, 34, 34, 0.7); /* Semi-transparent background */
+            background: rgba(34, 34, 34, 0.7);
             color: white;
             padding: 5px;
             display: flex;
             align-items: center;
             border-bottom: 1px solid #ccc;
-            cursor: move; /* Add cursor move style for drag effect */
+            cursor: move; 
         }
 
         .header a {
@@ -153,16 +153,16 @@
             border: 1px solid #ccc;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             display: none;
-            cursor: move; /* Add cursor move style for drag effect */
+            cursor: move; 
         }
 
         .browser header {
             display: flex;
             align-items: center;
             padding: 5px;
-            background: rgba(34, 34, 34, 0.5); /* Semi-transparent background */
+            background: rgba(34, 34, 34, 0.5); 
             border-bottom: 1px solid #ccc;
-            cursor: move; /* Add cursor move style for drag effect */
+            cursor: move; 
         }
 
         .browser iframe {
@@ -219,7 +219,6 @@
             padding: 5px;
         }
 
-        /* New CSS for hover effect */
         .icon:hover {
             background-color: rgba(0, 0, 255, 0.2);
             border: 2px solid rgba(0, 0, 255, 0.5);
@@ -248,13 +247,13 @@
     display: flex;
     align-items: center;
     padding: 5px;
-    background: rgba(34, 34, 34, 0.5); /* Semi-transparent background */
+    background: rgba(34, 34, 34, 0.5);
     border-bottom: 1px solid #ccc;
-    cursor: move; /* Add cursor move style for drag effect */
+    cursor: move;
 }
 
 .recycle-bin-popup .close-button {
-    margin-left: auto;
+    margin-right: auto;
     background: red;
     color: white;
     border: none;
@@ -262,25 +261,25 @@
     cursor: pointer;
 }
         .recycle-bin-popup .content ul {
-    list-style: none; /* Remove bullet points */
-    padding: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
-    text-align: left; /* Align links to the left */
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+    text-align: left; 
 }
 
 .recycle-bin-popup .content ul li {
-    font-size: 12px; /* Make the font smaller */
-    margin-bottom: 5px; /* Add some spacing between links */
+    font-size: 12px;
+    margin-bottom: 5px; 
 }
 
 .recycle-bin-popup .content ul li a {
-    text-decoration: none; /* Remove underline from links */
-    color: black; /* Set link color */
+    text-decoration: none; 
+    color: black; 
 }
 
 .recycle-bin-popup .content ul li a:hover {
-    text-decoration: underline; /* Add underline on hover */
-    color: blue; /* Change color on hover */
+    text-decoration: underline; 
+    color: blue; 
 
 }
 
@@ -288,10 +287,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(34, 34, 34, 0.7); /* Semi-transparent background */
+    background: rgba(34, 34, 34, 0.7); 
     color: white;
     padding: 10px;
-    cursor: move; /* Enable dragging */
+    cursor: move; 
     border-bottom: 1px solid #ccc;
 }
 
@@ -377,21 +376,17 @@
             <li><a href="path/Music/">Music</a></li>
             <li><a href="path/Videos/">Videos</a></li>
         </ul>
-        <p>Your Recycle Bin is empty.</p>
     </div>
 </div>
-        
         <div class="icon" style="top: 20px; left: 180px;" id="browserIcon">
             <img src="path/to/browser-icon.png" alt="Browser">
             <div>Internet Explorer</div>
         </div> 
-        
         <div class="icon" style="top: 20px; left: 260px;" onclick="toggleControlPanel()">
             <img src="path/to/control-panel-icon.png" alt="Control Panel">
             <div id="control-panel-label">Control Panel</div>
         </div>
-        <!-- Webcam App Icon -->
-<div class="icon" style="top: 100px; left: 100px;" onclick="openWebcamApp()">
+       <div class="icon" style="top: 100px; left: 100px;" onclick="openWebcamApp()">
     <img src="path/to/webcam-icon.png" alt="Webcam App">
     <div id="webcam-label">Webcam</div>
 </div>
@@ -499,20 +494,6 @@
         </form>
     </div>
 </div>
-        <div id="header-container">
-    <img src="Program.png" alt="Header Image" class="header-image" style="width: 60px; height: 60px;">
-    <h3 style="color: black; font-family: Arial, sans-serif; class="header-text">Uninstall a Program</h3>
-</div>
-  </div>
-        <div class="dropdown-container">
-    <label for="programs-dropdown" style="color: black;">Choose a Program:</label>
-    <select id="programs-dropdown">
-        <option value="ie">Internet Explorer</option>
-        <option value="webcam">Webcam</option>
-    </select>
-    <button id="hide-program-btn">OK</button>
-</div>
-        
     <script src="Script.js"></script> 
     <script>
 
@@ -591,7 +572,7 @@ function updateNetworkIcon() {
     const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
 
     if (connection) {
-        const speed = connection.downlink; // Network speed in Mbps
+        const speed = connection.downlink;
 
         if (speed > 10) {
             icon.src = 'path/to/signal-full.png';
@@ -615,23 +596,19 @@ setInterval(updateNetworkIcon, 1000);
 updateNetworkIcon();
 
 
-// Function to set the wallpaper
 function setWallpaper(wallpaper) {
     document.documentElement.style.setProperty('--background-image', `url('${wallpaper}')`);
     localStorage.setItem('selectedWallpaper', wallpaper);
 }
 
-// Function to load the wallpaper on page load
 function loadWallpaper() {
     
     const savedWallpaper = localStorage.getItem('selectedWallpaper');
     if (savedWallpaper) {
-        // saved wallpaper
         document.documentElement.style.setProperty('--background-image', `url('${savedWallpaper}')`);
     }
 }
 
-// Run the loadWallpaper function
 window.addEventListener('DOMContentLoaded', loadWallpaper);
 
 function openNotepadApp() {
@@ -662,9 +639,7 @@ const languageSelect = document.getElementById('language');
 const timezoneSelect = document.getElementById('timezone');
 const saveButton = document.getElementById('save-language-timezone');
 
-// Event listener for the Save button
 saveButton.addEventListener('click', () => {
-    // Get the selected values
     const selectedLanguage = languageSelect.value;
     const selectedTimezone = timezoneSelect.value;
 
@@ -675,7 +650,6 @@ saveButton.addEventListener('click', () => {
     console.log('Preferences saved successfully!');
 });
 
-// Optional: Load saved preferences from localStorage (if any)
 window.addEventListener('load', () => {
     const savedLanguage = localStorage.getItem('preferredLanguage');
     const savedTimezone = localStorage.getItem('preferredTimezone');
@@ -687,7 +661,7 @@ window.addEventListener('load', () => {
 });
 
 function triggerUpload() {
-    document.getElementById('upload-image').click(); // Simulates the click on the hidden file input
+    document.getElementById('upload-image').click(); 
 }
 
 function setCustomWallpaper(event) {
@@ -696,7 +670,7 @@ function setCustomWallpaper(event) {
         const reader = new FileReader();
         reader.onload = function (e) {
             document.body.style.backgroundImage = `url('${e.target.result}')`;
-            document.body.style.backgroundSize = 'cover'; // Makes the wallpaper fit the screen
+            document.body.style.backgroundSize = 'cover'; 
         };
         reader.readAsDataURL(file);
         localStorage.setItem('selectedWallpaper', e.target.result);
@@ -708,9 +682,9 @@ function IframeFullscreen() {
 
     if (iframe.requestFullscreen) {
         iframe.requestFullscreen();
-    } else if (iframe.webkitRequestFullscreen) { // Safari
+    } else if (iframe.webkitRequestFullscreen) { 
         iframe.webkitRequestFullscreen();
-    } else if (iframe.msRequestFullscreen) { // IE/Edge
+    } else if (iframe.msRequestFullscreen) { 
         iframe.msRequestFullscreen();
     } else {
         alert("Fullscreen API is not supported in this browser.");
@@ -723,11 +697,9 @@ document.querySelector('.start-menu').addEventListener('click', function () {
     defaultImg.style.display = 'none';
     clickedImg.style.display = 'block';
 
-    // Optional: Show language/timezone settings when start menu is clicked
     document.getElementById('language-timezone-form').style.display = 'block';
 });
 
-// Load saved preferences on startup
 window.addEventListener('DOMContentLoaded', () => {
     const savedLanguage = localStorage.getItem('preferredLanguage');
     const savedTimezone = localStorage.getItem('preferredTimezone');
@@ -735,7 +707,7 @@ window.addEventListener('DOMContentLoaded', () => {
     if (savedLanguage) document.getElementById('language').value = savedLanguage;
     if (savedTimezone) document.getElementById('timezone').value = savedTimezone;
 
-    applyLanguage(savedLanguage); // Apply saved language immediately
+    applyLanguage(savedLanguage);
 });
 
 
@@ -749,7 +721,6 @@ document.getElementById('save-language-timezone').addEventListener('click', () =
     applyLanguage(selectedLanguage);
 });
 
-// Apply UI translations
 function applyLanguage(lang) {
     const translations = {
         en: {
