@@ -380,7 +380,7 @@
 </div>
         <div class="icon" style="top: 20px; left: 180px;" id="browserIcon">
             <img src="path/to/browser-icon.png" alt="Browser">
-            <div>Internet Explorer</div>
+            <div id="ie-label">Internet Explorer</div>
         </div> 
         <div class="icon" style="top: 20px; left: 260px;" onclick="toggleControlPanel()">
             <img src="path/to/control-panel-icon.png" alt="Control Panel">
@@ -475,7 +475,6 @@
     <div class="popup-content">
         <span id="close-language-timezone-popup" class="close-btn">&times;</span>
         <form id="language-timezone-form">
-            <label for="language">Language:</label>
             <select id="language" name="language">
                 <option value="en">English</option>
                 <option value="es">Spanish</option>
@@ -732,6 +731,7 @@ function applyLanguage(lang) {
             paint: "Paint",
             Media: "Media Player",
             Notes: "Notepad",
+            Internet: "Internet Explorer",
         },
         fr: {
             myComputer: "Ordinateur",
@@ -741,6 +741,7 @@ function applyLanguage(lang) {
             paint: "Peinture",
             Media: "Lecteur multimédia",
             Notes: "Bloc-notes",
+            Internet: "Internet Explorer",
         },
         es: {
             myComputer: "PC",
@@ -750,6 +751,7 @@ function applyLanguage(lang) {
             paint: "pintar",
             Media: "Reproductor multimedia",
             Notes: "Bloc",
+            Internet: "Internet Explorer",
         },
         zh: {
             myComputer: "的电脑",
@@ -759,6 +761,7 @@ function applyLanguage(lang) {
             paint: "漆",
             Media: "媒体播放器",
             Notes: "集团",
+            Internet: "IE浏览器",
         }
     };
 
@@ -771,6 +774,7 @@ function applyLanguage(lang) {
     document.getElementById('paint-label').textContent = t.paint;
     document.getElementById('media-player-label').textContent = t.Media;
     document.getElementById('notepad-label').textContent = t.Notes;
+    document.getElementById('ie-label').textContent = t.Internet;
 }
    
     document.getElementById('save-language-timezone').addEventListener('click', () => {
