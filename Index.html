@@ -771,6 +771,12 @@ function applyLanguage(lang) {
     document.getElementById('media-player-label').textContent = t.Media;
     document.getElementById('notepad-label').textContent = t.Notes;
 }
+   
+    document.getElementById('save-language-timezone').addEventListener('click', () => {
+    const selectedTimezone = document.getElementById('timezone').value;
+    localStorage.setItem('preferredTimezone', selectedTimezone);
+    console.log('Timezone saved:', selectedTimezone);
+});
     </script>
 </body>
 </html>
