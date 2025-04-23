@@ -602,13 +602,14 @@ function setWallpaper(wallpaper) {
 }
 
 function loadWallpaper() {
-    
     const savedWallpaper = localStorage.getItem('selectedWallpaper');
     if (savedWallpaper) {
         document.documentElement.style.setProperty('--background-image', `url('${savedWallpaper}')`);
+    } else {
+        document.documentElement.style.setProperty('--background-image', `url('path/to/Harmony.png')`);
     }
 }
-
+        
 window.addEventListener('DOMContentLoaded', loadWallpaper);
 
 function openNotepadApp() {
