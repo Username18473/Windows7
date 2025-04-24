@@ -337,6 +337,37 @@
     color: black;
     font-family: Arial, sans-serif;
 }
+
+  }
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        .tab {
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+        .tab.active {
+            background-color: #ddd;
+            font-weight: bold;
+        }
+        .tab button {
+            margin-left: 10px;
+            padding: 2px 6px;
+            cursor: pointer;
+        }
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: 1px solid #ccc;
+            display: none;
+        }
+        iframe.active {
+            display: block;
+        }
     </style>
 </head>
 <body>  
@@ -437,6 +468,9 @@
                 <button onclick="loadPage()">Go</button>
                 <button onclick="IframeFullscreen()">[]</button>
                 <button class="close-button" onclick="closeBrowser()">X</button>
+                <button id="addTabButton">+</button>
+                <div class="tabs" id="tabsContainer"></div>
+                <div class="iframe-container" id="iframeContainer"></div>
             </header>
             <iframe id="webview" src="https://www.google.com/?igu=1"></iframe>
         </div>
@@ -782,6 +816,53 @@ function applyLanguage(lang) {
     const selectedTimezone = document.getElementById('timezone').value;
     localStorage.setItem('preferredTimezone', selectedTimezone);
     console.log('Timezone saved:', selectedTimezone);
+});
+
+    let tabIndex = 0;
+
+document.getElementById('addTabButton').addEventListener('click', function() {
+    const tabsContainer = document.getElementById('tabsContainer');
+    const iframeContainer = document.getElementById('iframeContainer');
+
+    // Create a new tab
+    const newTab = document.createElement('div');
+    newTab.className = 'tab';
+    newTab.innerHTML = `Tab ${tabIndex + 1} <button>&times;</button>`;
+    newTab.dataset.tabIndex = tabIndex;
+
+    // Create a new iframe
+    const newIframe = document.createElement('iframe');
+    newIframe.src = 'https://www.example.com'; // Default URL
+    newIframe.title = `Tab ${tabIndex + 1}`;
+    newIframe.dataset.tabIndex = tabIndex;
+
+    // Tab click event
+    newTab.addEventListener('click', function(event) {
+        if (event.target.tagName === 'BUTTON') {
+            // Close tab
+            const index = newTab.dataset.tabIndex;
+            document.querySelector(`.tab[data-tab-index="${index}"]`).remove();
+            document.querySelector(`iframe[data-tab-index="${index}"]`).remove();
+        } else {
+            // Switch tab
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('iframe').forEach(iframe => iframe.classList.remove('active'));
+            newTab.classList.add('active');
+            newIframe.classList.add('active');
+        }
+    });
+
+    // Add elements to their containers
+    tabsContainer.appendChild(newTab);
+    iframeContainer.appendChild(newIframe);
+
+    // Activate the new tab and iframe
+    document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+    document.querySelectorAll('iframe').forEach(iframe => iframe.classList.remove('active'));
+    newTab.classList.add('active');
+    newIframe.classList.add('active');
+
+    tabIndex++;
 });
     </script>
 </body>
