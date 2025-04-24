@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login with Caps Lock Indicator</title>
     <style>
         :root {
             --background-image: url('path/to/Login.png'); /* Update with the correct image path */
@@ -44,6 +45,23 @@
                 window.location.href = "Index.html";
             }
         }
+
+        window.onload = function () {
+            const passwordInput = document.getElementById('password');
+            const warning = document.getElementById('caps-lock-warning');
+
+            passwordInput.addEventListener('keydown', (event) => {
+                if (event.getModifierState('CapsLock')) {
+                    warning.style.display = 'block';
+                }
+            });
+
+            passwordInput.addEventListener('keyup', (event) => {
+                if (!event.getModifierState('CapsLock')) {
+                    warning.style.display = 'none';
+                }
+            });
+        };
     </script>
 </head>
 <body>
@@ -53,6 +71,9 @@
             <div class="input-group">
                 <input type="password" id="password" name="password" placeholder="Password">
                 <input type="image" src="path/to/Button.png" alt="Login" width="40" height="40">
+            </div>
+            <div id="caps-lock-warning">
+                <img src="Balloon/Caplocks.png" alt="Caps Lock is On" width="50">
             </div>
         </form>
     </div>
