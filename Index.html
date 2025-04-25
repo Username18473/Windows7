@@ -906,11 +906,11 @@ document.getElementById('addTabButton').addEventListener('click', function() {
 
  navigator.getBattery().then(battery => {
     const checkBatteryLevel = () => {
-        if (Math.floor(battery.level * 100 === 10) {
+        if (Math.floor(battery.level * 100) === 10) {
             playSound('sounds/Low.mp3');
             const warningImage = document.getElementById('warningImage');
             warningImage.style.display = 'block';
-        } else if (Math.floor(battery.level * 100 === 5) {
+        } else if (Math.floor(battery.level * 100) === 5) {
             playSound('sounds/Critical.mp3');
             const warningImage = document.getElementById('warning2Image');
             warningImage.style.display = 'block';
