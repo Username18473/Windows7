@@ -437,7 +437,7 @@
     <div id="paint-label">Paint</div>
 </div>
       <div class="taskbar">
-             <div class="start-menu" aria-label="Start Menu" onclick="toggleStartMenu()">
+             <div class="start-menu" role="button" aria-label="Start Menu" onclick="toggleStartMenu()">
                  <img src="path/to/start-button-icon.png" alt="Start Menu" class="default">
                  <img src="path/to/start-button-hover-icon.png" alt="Start Menu" class="hover">
                  <img src="path/to/start-button-clicked-icon.png" alt="Start Menu" class="clicked">
@@ -505,7 +505,7 @@
 </div>
     </div>
   </div>
-        <div id="header-container">
+        <div id="header-container-clock">
     <img src="Clock.png" alt="Header Image" class="header-image" style="width: 60px; height: 60px;">
     <h3 style="color: black; font-family: Arial, sans-serif;" id="header-text">Clock & Language</h3>
             <div id="language-timezone-popup" class="popup">
@@ -580,7 +580,6 @@
             document.getElementById('myPCPopup').style.display = 'none';
         }
 
-     
         function toggleControlPanel() {
             var controlPanel = document.getElementById('control-panel');
             if (controlPanel.style.display === 'none' || controlPanel.style.display === '') {
@@ -590,10 +589,6 @@
             }
         }
 
-        function setWallpaper(wallpaper) {
-            document.documentElement.style.setProperty('--background-image', `url('${wallpaper}')`);
-        }
-        
         function openRecycleBin() {
     document.getElementById('recycleBinPopup').style.display = 'block';
 }
