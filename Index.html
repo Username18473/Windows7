@@ -128,7 +128,7 @@
         }
 
         .date {
-            padding-right: -25px;
+            padding-left: 25px;
         }
 
         .icon {
@@ -372,8 +372,8 @@
 </head>
 <body>  
     <div class="desktop">
-        <img id="warningImage" src="Balloon/Low.png" alt="Battery Low" display: none;">
-        <img id="warning2Image" src="Balloon/Critical.png" alt="Battery Critical" display: none;">
+       <img id="warningImage" src="Balloon/Low.png" alt="Battery Low" style="display: none;">
+<img id="warning2Image" src="Balloon/Critical.png" alt="Battery Critical" style="display: none;">
         <div class="icon" style="top: 20px; left: 20px;" onclick="openMyPC()">
             <img src="path/to/my-pc-icon.png" alt="Computer">
             <div id="my-computer-label">Computer</div>
@@ -893,69 +893,32 @@ document.getElementById('addTabButton').addEventListener('click', function() {
     taskbar.insertBefore(batteryUI, timeContainer);
 
     function updateBattery() {
-        const level = Math.round(battery.level * 100);
-        icon.textContent = battery.charging ? "⚡" : "🔋";
-        text.textContent = ` ${level}%`;
-    }
+    const level = Math.round(battery.level * 100);
+    icon.textContent = battery.charging ? "⚡" : "🔋";
+    text.textContent = ` ${level}%`;
+}
 
     updateBattery();
     battery.addEventListener("levelchange", updateBattery);
     battery.addEventListener("chargingchange", updateBattery);
 });
 
- // Play sound
-        const playSound = () => {
-            const audio = new Audio('sounds/Low.mp3'); // Replace with the path to your sound file
-            audio.play();
-        };
+ navigator.getBattery().then(battery => {
+    const checkBatteryLevel = () => {
+        if (Math.floor(battery.level * 100 === 10) {
+            playSound('sounds/Low.mp3');
+            const warningImage = document.getElementById('warningImage');
+            warningImage.style.display = 'block';
+        } else if (Math.floor(battery.level * 100 === 5) {
+            playSound('sounds/Critical.mp3');
+            const warningImage = document.getElementById('warning2Image');
+            warningImage.style.display = 'block';
+        }
+    };
 
-        // Monitor battery status
-        navigator.getBattery().then(battery => {
-            const checkBatteryLevel = () => {
-                if (battery.level * 100 === 10) { // Battery level at 10%
-                    playSound();
-                    const warningImage = document.getElementById('warningImage');
-                    warningImage.style.display = 'block';
-                }
-            };
-
-            battery.addEventListener('levelchange', checkBatteryLevel);
-
-            // Initial check
-            checkBatteryLevel();
-        });
-
-        // Hide image when clicked
-        document.getElementById('warning2Image').addEventListener('click', function() {
-            this.style.display = 'none';
-        });
-
-        // Play sound
-        const playSound = () => {
-            const audio = new Audio('sounds/Critical.mp3'); // Replace with the path to your sound file
-            audio.play();
-        };
-
-        // Monitor battery status
-        navigator.getBattery().then(battery => {
-            const checkBatteryLevel = () => {
-                if (battery.level * 100 === 5) { // Battery level at 10%
-                    playSound();
-                    const warningImage = document.getElementById('warning2Image');
-                    warningImage.style.display = 'block';
-                }
-            };
-
-            battery.addEventListener('levelchange', checkBatteryLevel);
-
-            // Initial check
-            checkBatteryLevel();
-        });
-
-        // Hide image when clicked
-        document.getElementById('warning2Image').addEventListener('click', function() {
-            this.style.display = 'none';
-        });
+    battery.addEventListener('levelchange', checkBatteryLevel);
+    checkBatteryLevel(); // Initial check
+});
     </script>
 </body>
 </html>
