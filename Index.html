@@ -918,8 +918,9 @@ document.getElementById('addTabButton').addEventListener('click', function() {
 
     document.getElementById('webview').classList.add('active');
 
-function setWallpaper(imagePath) {
-    document.body.style.backgroundImage = `url('${imagePath}')`;
+function setWallpaper(wallpaper) {
+    document.documentElement.style.setProperty('--background-image', `url('${wallpaper}')`);
+    localStorage.setItem('selectedWallpaper', wallpaper);
 }
     </script>
 <body>
