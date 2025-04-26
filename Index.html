@@ -171,35 +171,13 @@
             border: none;
         }
 
-        .close-button {
-            margin-left: auto;
-            background: red;
-            color: white;
-            border: none;
-            padding: 5px;
-            cursor: pointer;
-        }
-
         .time-container {
             position: absolute;
             bottom: 10px;
             right: 10px;
             text-align: right;
         }
-
-        .my-pc-popup {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 400px;
-            padding: 20px;
-            background-color: white;
-            border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: none;
-        }
-
+        
         #control-panel {
             position: absolute;
             top: 50%;
@@ -234,84 +212,6 @@
         .wallpaper.active {
     display: block;
         }
-       
-        .recycle-bin-popup {
-    position: absolute;
-    top: 150px;
-    left: 150px;
-    width: 400px;
-    height: 300px;
-    background: white;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    display: none;
-    cursor: move;
-}
-
-.recycle-bin-popup header {
-    display: flex;
-    align-items: center;
-    padding: 5px;
-    background: rgba(34, 34, 34, 0.5);
-    border-bottom: 1px solid #ccc;
-    cursor: move;
-}
-
-.recycle-bin-popup .close-button {
-    margin-right: auto;
-    background: red;
-    color: white;
-    border: none;
-    padding: 5px;
-    cursor: pointer;
-}
-        .recycle-bin-popup .content ul {
-    list-style: none; 
-    padding: 0; 
-    margin: 0; 
-    text-align: left; 
-}
-
-.recycle-bin-popup .content ul li {
-    font-size: 12px;
-    margin-bottom: 5px; 
-}
-
-.recycle-bin-popup .content ul li a {
-    text-decoration: none; 
-    color: black; 
-}
-
-.recycle-bin-popup .content ul li a:hover {
-    text-decoration: underline; 
-    color: blue; 
-
-}
-
-.control-panel header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(34, 34, 34, 0.7); 
-    color: white;
-    padding: 10px;
-    cursor: move; 
-    border-bottom: 1px solid #ccc;
-}
-
-.close-button {
-    background: red;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: 14px;
-    border-radius: 3px;
-}
-
-.close-button:hover {
-    background: darkred;
-}
 
 .control-panel-content {
     padding: 20px;
@@ -373,6 +273,60 @@
         iframe.active {
             display: block;
         }
+
+        .popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: none; /* Hidden by default */
+    z-index: 1000;
+    font-family: Arial, sans-serif;
+    border-radius: 8px; /* Optional: Rounded corners */
+    overflow: hidden;
+}
+
+.popup header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(34, 34, 34, 0.8);
+    color: white;
+    padding: 10px;
+    cursor: move; /* Draggable header */
+    border-bottom: 1px solid #ccc;
+}
+
+.popup header h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.popup .close-button {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 3px;
+}
+
+.popup .close-button:hover {
+    background: darkred;
+}
+
+.popup .content {
+    padding: 15px;
+    font-size: 14px;
+    color: black;
+    text-align: left;
+}
     </style>
 </head>
 </html>  
@@ -384,28 +338,28 @@
             <img src="path/to/my-pc-icon.png" alt="Computer">
             <div id="my-computer-label">Computer</div>
         </div>
-        <div class="my-pc-popup" id="myPCPopup">
-            <header>
-                <button class="close-button" onclick="closeMyPC()">X</button>
-                <h2>My PC</h2>
-            </header>
-            <div class="content">
-                <ul>
-                    <li><a href="path/Documents">Documents</a></li>
-                    <li><a href="path/Pictures">Pictures</a></li>
-                    <li><a href="path/Music">Music</a></li>
-                    <li><a href="path/Videos">Videos</a></li>
-                </ul>
-            </div>
-        </div>
+        <div class="popup" id="myPCPopup">
+    <header>
+        <h2>My PC</h2>
+        <button class="close-button" onclick="closePopup('myPCPopup')">X</button>
+    </header>
+    <div class="content">
+        <ul>
+            <li><a href="path/Documents">Documents</a></li>
+            <li><a href="path/Pictures">Pictures</a></li>
+            <li><a href="path/Music">Music</a></li>
+            <li><a href="path/Videos">Videos</a></li>
+        </ul>
+    </div>
+</div>
         <div class="icon" style="top: 20px; left: 100px;" onclick="openRecycleBin()">
     <img src="path/to/recycle-bin-icon.png" alt="Recycle Bin">
     <div id="recycle-bin-label">Recycle Bin</div>
 </div>
-        <div class="recycle-bin-popup" id="recycleBinPopup">
+        <div class="popup" id="recycleBinPopup">
     <header>
-        <button class="close-button" onclick="closeRecycleBin()">X</button>
         <h2>Recycle Bin</h2>
+        <button class="close-button" onclick="closePopup('recycleBinPopup')">X</button>
     </header>
     <div class="content">
         <ul>
@@ -415,6 +369,7 @@
             <li><a href="path/Videos/">Videos</a></li>
         </ul>
     </div>
+</div>
 </div>
         <div class="icon" style="top: 20px; left: 180px;" id="browserIcon">
             <img src="path/to/browser-icon.png" alt="Browser">
@@ -481,9 +436,12 @@
             <iframe id="webview" src="https://www.google.com/?igu=1"></iframe>
         </div>
     </div>
-    <div id="control-panel">
+    <div class="popup" id="controlPanelPopup">
+    <header>
     <h2 style="color: black; font-family: Arial, sans-serif;">Control Panel</h2>
-    <div id="header-container">
+    <button class="close-button" onclick="closePopup('controlPanelPopup')">X</button>
+    </header>
+    <div class="content">
         <img src="Personalization.png" alt="Header Image" class="header-image" style="width: 60px; height: 60px;">
         <h3 style="color: black; font-family: Arial, sans-serif;" id="header-text">Personalization</h3>
     </div>
