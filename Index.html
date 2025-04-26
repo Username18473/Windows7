@@ -228,6 +228,9 @@
         .wallpaper {
     width: 70%; 
     height: auto; 
+    display: none;
+        }
+        .wallpaper.active {
     display: block;
         }
        
@@ -917,6 +920,7 @@ document.getElementById('addTabButton').addEventListener('click', function() {
 });
 
     document.getElementById('webview').classList.add('active');
+    document.getElementById('wallpaper').classList.add('active');
 
 function setWallpaper(wallpaper) {
     document.documentElement.style.setProperty('--background-image', `url('${wallpaper}')`);
