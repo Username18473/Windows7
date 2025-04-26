@@ -532,35 +532,6 @@
     
         makeElementDraggable(document.getElementById('browser'));
 
-    
-        function openMyPC() {
-            document.getElementById('myPCPopup').style.display = 'block';
-        }
-
-        
-        function closeMyPC() {
-            document.getElementById('myPCPopup').style.display = 'none';
-        }
-
-        function toggleControlPanel() {
-            var controlPanel = document.getElementById('control-panel');
-            if (controlPanel.style.display === 'none' || controlPanel.style.display === '') {
-                controlPanel.style.display = 'block';
-            } else {
-                controlPanel.style.display = 'none';
-            }
-        }
-
-        function openRecycleBin() {
-    document.getElementById('recycleBinPopup').style.display = 'block';
-}
-
-function closeRecycleBin() {
-    document.getElementById('recycleBinPopup').style.display = 'none';
-}
-    
-makeElementDraggable(document.getElementById('recycleBinPopup'));
-
 function updateNetworkIcon() {
     const icon = document.getElementById('network-icon');
     const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
@@ -625,8 +596,6 @@ function openMazeApp() {
 function openMediaPlayerApp() {
             window.location.href = "Mediaplayer.html";
         }
-
-makeElementDraggable(document.getElementById('control-panel'));
 
 // Select the form elements
 const form = document.getElementById('language-timezone-form');
@@ -880,11 +849,16 @@ document.getElementById('addTabButton').addEventListener('click', function() {
 
     document.getElementById('webview').classList.add('active');
     document.getElementById('wallpaper').classList.add('active');
-
-function setWallpaper(wallpaper) {
-    document.documentElement.style.setProperty('--background-image', `url('${wallpaper}')`);
-    localStorage.setItem('selectedWallpaper', wallpaper);
+        
+function openPopup(popupId) {
+    document.getElementById(popupId).style.display = 'block';
 }
+
+function closePopup(popupId) {
+    document.getElementById(popupId).style.display = 'none';
+}
+
+makeElementDraggable(document.getElementById('myPCPopup'));
+makeElementDraggable(document.getElementById('recycleBinPopup'));
+makeElementDraggable(document.getElementById('controlPanelPopup'));
     </script>
-<body>
-<html>
