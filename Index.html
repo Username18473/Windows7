@@ -334,7 +334,7 @@
         <img id="warningImage" src="Balloon/Low.png" alt="Battery Low" style="display: none;">
         <img id="warning2Image" src="Balloon/Critical.png" alt="Battery Critical" style="display: none;">
     </div>
-        <div class="icon" style="top: 20px; left: 20px;" onclick="openMyPC()">
+        <div class="icon" style="top: 20px; left: 20px;" onclick="openPopup('myPCPopup')">
             <img src="path/to/my-pc-icon.png" alt="Computer">
             <div id="my-computer-label">Computer</div>
         </div>
@@ -352,7 +352,7 @@
         </ul>
     </div>
 </div>
-        <div class="icon" style="top: 20px; left: 100px;" onclick="openRecycleBin()">
+        <div class="icon" style="top: 20px; left: 100px;" onclick="openPopup('recycleBinPopup')">
     <img src="path/to/recycle-bin-icon.png" alt="Recycle Bin">
     <div id="recycle-bin-label">Recycle Bin</div>
 </div>
@@ -375,7 +375,7 @@
             <img src="path/to/browser-icon.png" alt="Browser">
             <div id="ie-label">Internet Explorer</div>
         </div> 
-        <div class="icon" style="top: 20px; left: 260px;" onclick="toggleControlPanel()">
+        <div class="icon" style="top: 20px; left: 260px;" onclick="openPopup('controlPanelPopup')">
             <img src="path/to/control-panel-icon.png" alt="Control Panel">
             <div id="control-panel-label">Control Panel</div>
         </div>
