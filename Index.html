@@ -279,8 +279,9 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400px;
-    padding: 20px;
+    width: 100px;
+    height: 200px;
+    padding: 10px;
     background-color: white;
     border: 1px solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -462,7 +463,7 @@
                     <img src="path/to/Harmony.png" alt="default" class="wallpaper" data-wallpaper="path/to/Harmony.png">
                 </button>
                 <button class="upload-btn" onclick="triggerUpload()">Upload</button>
-                <input type="file" id="upload-image" style="display: none;" accept="image/*" onchange="setCustomWallpaper(event)">
+                <input type="file" id="upload-image" style="display: block;" accept="image/*" onchange="setCustomWallpaper(event)">
             </div>
         </div>
     </div>
