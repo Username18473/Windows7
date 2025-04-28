@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A simulation of Windows 7 desktop experience.">
-    <meta name="keywords" content="Windows 7, desktop simulation">
+    <meta name="description" content="A simulation of Windows 7.">
+    <meta name="keywords" content="Windows 7 simulator">
     <meta name="author" content="Username18473">
     <title>Windows 7</title>
     <link rel="stylesheet" href="style.css"> 
@@ -409,7 +409,7 @@
 </div>
              <div class="start-menu-content" id="start-menu">
                  <ul>
-                     <li><a href="#" id="startMenuControlPanelLink" onclick="toggleControlPanel()">Control Panel</a></li>
+                     <li><a href="#" id="startMenuControlPanelLink" onclick="openPopup('controlPanelPopup')">Control Panel</a></li>
                      <li><a href="#" id="startMenuBrowserLink">Internet Explorer</a></li>
                      <li><a href="#" id="startMazeLink" onclick="openMazeApp()">Maze</a></li>
                      <li><a href="#" id="startMediaPlayerLink" onclick="openMediaPlayerApp()">Media Player</a></li>
@@ -534,38 +534,9 @@
             }
         }
 
-    
         makeElementDraggable(document.getElementById('browser'));
         makeElementDraggable(document.getElementById('popupId'));
-
-function updateNetworkIcon() {
-    const icon = document.getElementById('network-icon');
-    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-
-    if (connection) {
-        const speed = connection.downlink;
-
-        if (speed > 10) {
-            icon.src = 'path/to/signal-full.png';
-        } else if (speed > 5) {
-            icon.src = 'path/to/signal-excellent.png';
-        } else if (speed > 2) {
-            icon.src = 'path/to/signal-average.png';
-        } else if (speed > 1) {
-            icon.src = 'path/to/signal-medium.png';
-        } else if (speed > 0.5) {
-            icon.src = 'path/to/signal-low.png';
-        } else {
-            icon.src = 'path/to/signal-none.png';
-        }
-    } else {
-        console.log('Network Information API is not supported in your browser.');
-    }
-}
-
-setInterval(updateNetworkIcon, 1000);
-updateNetworkIcon();
-
+        
 document.querySelector('.start-menu').addEventListener('click', function () {
     const defaultImg = this.querySelector('img.default');
     const clickedImg = this.querySelector('img.clicked');
@@ -577,11 +548,9 @@ document.querySelector('.start-menu').addEventListener('click', function () {
         
 function openPopup(popupId) {
     document.getElementById(popupId).style.display = 'block';
-    document.getElementById('WallpaperButton').style.display = 'block';
 }
 
 function closePopup(popupId) {
     document.getElementById(popupId).style.display = 'none';
-    document.getElementById('WallpaperButton').style.display = 'none';
 }
     </script>
