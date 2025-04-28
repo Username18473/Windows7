@@ -492,7 +492,10 @@
         </div>
     </div>
 </div>
-    <script src="Script.js"></script> 
+    <script src="wallpaper.js"></script>
+<script src="redirecton.js"></script>
+<script src="language.js"></script>
+<script src="battery.js"></script>
     <script>
 
         document.querySelector('.start-menu').addEventListener('click', function() {
@@ -561,101 +564,6 @@ function updateNetworkIcon() {
 setInterval(updateNetworkIcon, 1000);
 updateNetworkIcon();
 
-
-function setWallpaper(wallpaper) {
-    document.documentElement.style.setProperty('--background-image', `url('${wallpaper}')`);
-    localStorage.setItem('selectedWallpaper', wallpaper);
-}
-
-function loadWallpaper() {
-    const savedWallpaper = localStorage.getItem('selectedWallpaper');
-    if (savedWallpaper) {
-        document.documentElement.style.setProperty('--background-image', `url('${savedWallpaper}')`);
-    } else {
-        document.documentElement.style.setProperty('--background-image', `url('path/to/Harmony.png')`);
-    }
-}
-        
-window.addEventListener('DOMContentLoaded', loadWallpaper);
-
-function openNotepadApp() {
-            window.location.href = "Notepad.html";
-        }
-
-function openPaintApp() {
-            window.location.href = "Paint.html";
-        }
-        
-function openWebcamApp() {
-            window.location.href = "webcam.html";
-        } 
-
-function openMazeApp() {
-            window.location.href = "Maze.html";
-        } 
-
-function openMediaPlayerApp() {
-            window.location.href = "Mediaplayer.html";
-        }
-
-// Select the form elements
-const form = document.getElementById('language-timezone-form');
-const languageSelect = document.getElementById('language');
-const timezoneSelect = document.getElementById('timezone');
-const saveButton = document.getElementById('save-language-timezone');
-
-saveButton.addEventListener('click', () => {
-    const selectedLanguage = languageSelect.value;
-    const selectedTimezone = timezoneSelect.value;
-
-    
-    localStorage.setItem('preferredLanguage', selectedLanguage);
-    localStorage.setItem('preferredTimezone', selectedTimezone);
-
-    console.log('Preferences saved successfully!');
-});
-
-window.addEventListener('load', () => {
-    const savedLanguage = localStorage.getItem('preferredLanguage');
-    const savedTimezone = localStorage.getItem('preferredTimezone');
-
-    if (savedLanguage) languageSelect.value = savedLanguage;
-    if (savedTimezone) timezoneSelect.value = savedTimezone;
-
-    console.log('Preferences loaded:', { savedLanguage, savedTimezone });
-});
-
-function triggerUpload() {
-    document.getElementById('upload-image').click(); 
-}
-
-function setCustomWallpaper(event) {
-    const file = event.target.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-            document.body.style.backgroundImage = `url('${e.target.result}')`;
-            document.body.style.backgroundSize = 'cover'; 
-        };
-        reader.readAsDataURL(file);
-        localStorage.setItem('selectedWallpaper', e.target.result);
-    }
-}
-
-function IframeFullscreen() {
-    const iframe = document.getElementById('webview');
-
-    if (iframe.requestFullscreen) {
-        iframe.requestFullscreen();
-    } else if (iframe.webkitRequestFullscreen) { 
-        iframe.webkitRequestFullscreen();
-    } else if (iframe.msRequestFullscreen) { 
-        iframe.msRequestFullscreen();
-    } else {
-        alert("Fullscreen API is not supported in this browser.");
-    }
-}
-
 document.querySelector('.start-menu').addEventListener('click', function () {
     const defaultImg = this.querySelector('img.default');
     const clickedImg = this.querySelector('img.clicked');
@@ -664,145 +572,8 @@ document.querySelector('.start-menu').addEventListener('click', function () {
 
     document.getElementById('language-timezone-form').style.display = 'block';
 });
-
-window.addEventListener('DOMContentLoaded', () => {
-    const savedLanguage = localStorage.getItem('preferredLanguage');
-    const savedTimezone = localStorage.getItem('preferredTimezone');
-
-    if (savedLanguage) document.getElementById('language').value = savedLanguage;
-    if (savedTimezone) document.getElementById('timezone').value = savedTimezone;
-
-    applyLanguage(savedLanguage);
-});
-
-
-document.getElementById('save-language-timezone').addEventListener('click', () => {
-    const selectedLanguage = document.getElementById('language').value;
-    const selectedTimezone = document.getElementById('timezone').value;
-
-    localStorage.setItem('preferredLanguage', selectedLanguage);
-    localStorage.setItem('preferredTimezone', selectedTimezone);
-
-    applyLanguage(selectedLanguage);
-});
-
-function applyLanguage(lang) {
-    const translations = {
-        en: {
-            myComputer: "Computer",
-            recycleBin: "Recycle Bin",
-            controlPanel: "Control Panel",
-            webcam: "Webcam",
-            paint: "Paint",
-            Media: "Media Player",
-            Notes: "Notepad",
-            Internet: "Internet Explorer",
-        },
-        fr: {
-            myComputer: "Ordinateur",
-            recycleBin: "Corbeille",
-            controlPanel: "Panneau de configuration",
-            webcam: "Webcam",
-            paint: "Peinture",
-            Media: "Lecteur multimédia",
-            Notes: "Bloc-notes",
-            Internet: "Internet Explorer",
-        },
-        es: {
-            myComputer: "PC",
-            recycleBin: "Papelera",
-            controlPanel: "Panel de control",
-            webcam: "Cámara web",
-            paint: "pintar",
-            Media: "Reproductor multimedia",
-            Notes: "Bloc",
-            Internet: "Internet Explorer",
-        },
-        zh: {
-            myComputer: "的电脑",
-            recycleBin: "回收站",
-            controlPanel: "控制面板",
-            webcam: "网络摄像头",
-            paint: "漆",
-            Media: "媒体播放器",
-            Notes: "集团",
-            Internet: "IE浏览器",
-        }
-    };
-
-    const t = translations[lang] || translations.en;
-
-    document.getElementById('my-computer-label').textContent = t.myComputer;
-    document.getElementById('recycle-bin-label').textContent = t.recycleBin;
-    document.getElementById('control-panel-label').textContent = t.controlPanel;
-    document.getElementById('webcam-label').textContent = t.webcam;
-    document.getElementById('paint-label').textContent = t.paint;
-    document.getElementById('media-player-label').textContent = t.Media;
-    document.getElementById('notepad-label').textContent = t.Notes;
-    document.getElementById('ie-label').textContent = t.Internet;
-}
-   
-    document.getElementById('save-language-timezone').addEventListener('click', () => {
-    const selectedTimezone = document.getElementById('timezone').value;
-    localStorage.setItem('preferredTimezone', selectedTimezone);
-    console.log('Timezone saved:', selectedTimezone);
-});
-
-    navigator.getBattery().then(battery => {
-    const batteryUI = document.createElement("div");
-    batteryUI.id = "battery-status";
-    batteryUI.style.display = "flex";
-    batteryUI.style.alignItems = "center";
-    batteryUI.style.marginRight = "10px";
-    batteryUI.style.color = "white";
-    batteryUI.style.fontFamily = "Segoe UI, sans-serif";
-    batteryUI.style.fontSize = "24px";
-
-    const icon = document.createElement("span");
-    icon.id = "battery-icon";
-    icon.style.marginRight = "4px";
-
-    const text = document.createElement("span");
-    text.id = "battery-text";
-
-    batteryUI.appendChild(icon);
-    batteryUI.appendChild(text);
-
-    // Insert battery status before time container
-    const taskbar = document.querySelector(".taskbar");
-    const timeContainer = document.querySelector(".time-container");
-    taskbar.insertBefore(batteryUI, timeContainer);
-
-    function updateBattery() {
-    const level = Math.round(battery.level * 100);
-    icon.textContent = battery.charging ? "⚡" : "🔋";
-    text.textContent = ` ${level}%`;
-}
-
-    updateBattery();
-    battery.addEventListener("levelchange", updateBattery);
-    battery.addEventListener("chargingchange", updateBattery);
-});
-
- navigator.getBattery().then(battery => {
-    const checkBatteryLevel = () => {
-        if (Math.floor(battery.level * 100) === 10) {
-            playSound('sounds/Low.mp3');
-            const warningImage = document.getElementById('warningImage');
-            warningImage.style.display = 'block';
-        } else if (Math.floor(battery.level * 100) === 5) {
-            playSound('sounds/Critical.mp3');
-            const warningImage = document.getElementById('warning2Image');
-            warningImage.style.display = 'block';
-        }
-    };
-
-    battery.addEventListener('levelchange', checkBatteryLevel);
-    checkBatteryLevel(); // Initial check
-});
-
+        
     document.getElementById('webview').classList.add('active');
-    document.getElementById('wallpaper').classList.add('active');
         
 function openPopup(popupId) {
     document.getElementById(popupId).style.display = 'block';
@@ -812,19 +583,5 @@ function openPopup(popupId) {
 function closePopup(popupId) {
     document.getElementById(popupId).style.display = 'none';
     document.getElementById('WallpaperButton').style.display = 'none';
-}
-
-function goBack() {
-    const iframe = document.getElementById('webview');
-    if (iframe.contentWindow.history.length > 0) {
-        iframe.contentWindow.history.back();
-    }
-}
-
-function goForward() {
-    const iframe = document.getElementById('webview');
-    if (iframe.contentWindow.history.length > 0) {
-        iframe.contentWindow.history.forward();
-    }
 }
     </script>
