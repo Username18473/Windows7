@@ -59,69 +59,6 @@
             padding: 0 10px;
         }
 
-        .start-menu {
-            width: 70px;
-            height: 100%;
-            background: var(--start-menu-color);
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        .start-menu img {
-            width: 100%;
-            height: auto;
-        }
-
-        .start-menu img.default {
-            display: block;
-        }
-
-        .start-menu img.hover, .start-menu img.clicked {
-            display: none;
-        }
-
-        .start-menu:hover img.default {
-            display: none;
-        }
-
-        .start-menu:hover img.hover {
-            display: block;
-        }
-
-        .start-menu-content {
-            display: none;
-            position: absolute;
-            bottom: 50px;
-            left: 10px;
-            width: 200px;
-            background-color: #f1f1f1;
-            border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .start-menu-content ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .start-menu-content li {
-            padding: 10px;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .start-menu-content li a {
-            text-decoration: none;
-            color: #333;
-        }
-
-        .start-menu-content li a:hover {
-            background-color: #ddd;
-        }
-
         .time {
             margin-left: auto;
             padding-right: 0px;
@@ -221,7 +158,6 @@
     color: black;
 }
 
-
 .network-status img {
     width: 50px;
     height: 50px;
@@ -244,93 +180,18 @@
     color: black;
     font-family: Arial, sans-serif;
 }
-
-  }
-.tabs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
+        
+.iframe {
+ width: 100%;
+ height: 300px;
+ border: 1px solid #ccc;
+display: none;
         }
-        .tab {
-            padding: 5px 10px;
-            border: 1px solid #ccc;
-            background-color: #f9f9f9;
-            cursor: pointer;
-        }
-        .tab.active {
-            background-color: #ddd;
-            font-weight: bold;
-        }
-        .tab button {
-            margin-left: 10px;
-            padding: 2px 6px;
-            cursor: pointer;
-        }
-        iframe {
-            width: 100%;
-            height: 300px;
-            border: 1px solid #ccc;
-            display: none;
-        }
-        iframe.active {
+        
+  iframe.active {
             display: block;
         }
-
-        .popup {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 300px;
-    height: 400px;
-    padding: 20px;
-    background-color: white;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    display: none; /* Hidden by default */
-    z-index: 1000;
-    font-family: Arial, sans-serif;
-    border-radius: 0px; /* Optional: Rounded corners */
-    overflow: hidden;
-}
-
-.popup header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(34, 34, 34, 0.8);
-    color: white;
-    padding: 10px;
-    cursor: move; /* Draggable header */
-    border-bottom: 1px solid #ccc;
-}
-
-.popup header h2 {
-    margin: 0;
-    font-size: 18px;
-}
-
-.popup .close-button {
-    background: red;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: 14px;
-    border-radius: 3px;
-}
-
-.popup .close-button:hover {
-    background: darkred;
-}
-
-.popup .content {
-    padding: 15px;
-    font-size: 14px;
-    color: black;
-    text-align: left;
-}
-    </style>
+  </style>
 </head>
 </html>  
      <div class="desktop">
@@ -492,7 +353,7 @@
         </div>
     </div>
 </div>
-    <script src="wallpaper.js"></script>
+<script src="scripts/wallpaper.js"></script>
 <script src="scripts/redirecton.js"></script>
 <script src="scripts/language.js"></script>
 <script src="scripts/battery.js"></script>
