@@ -290,7 +290,7 @@
     display: none; /* Hidden by default */
     z-index: 1000;
     font-family: Arial, sans-serif;
-    border-radius: 8px; /* Optional: Rounded corners */
+    border-radius: 0px; /* Optional: Rounded corners */
     overflow: hidden;
 }
 
@@ -812,5 +812,19 @@ function openPopup(popupId) {
 function closePopup(popupId) {
     document.getElementById(popupId).style.display = 'none';
     document.getElementById('WallpaperButton').style.display = 'none';
+}
+
+function goBack() {
+    const iframe = document.getElementById('webview');
+    if (iframe.contentWindow.history.length > 0) {
+        iframe.contentWindow.history.back();
+    }
+}
+
+function goForward() {
+    const iframe = document.getElementById('webview');
+    if (iframe.contentWindow.history.length > 0) {
+        iframe.contentWindow.history.forward();
+    }
 }
     </script>
