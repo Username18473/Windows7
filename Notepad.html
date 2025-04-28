@@ -62,7 +62,6 @@
             const savedNote = localStorage.getItem('savedNote');
             if (savedNote !== null) {
                 document.getElementById('notepad').value = savedNote;
-                alert('Note loaded!');
             } else {
                 alert('No saved note found.');
             }
