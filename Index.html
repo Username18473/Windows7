@@ -203,15 +203,17 @@
             border-radius: 5px;
         }
 
-        .wallpaper {
-    width: 70%; 
-    z-index: 10
-    height: auto; 
-    display: inline-block;
-        }
-        .wallpaper.active {
-    display: block;
-        }
+        ..wallpaper {
+    width: 100px; /* Thumbnail size */
+    height: auto;
+    border: 2px solid transparent;
+    transition: transform 0.2s, border-color 0.2s; /* Smooth hover effect */
+}
+
+.wallpaper:hover {
+    transform: scale(1.1); /* Zoom effect on hover */
+    border-color: #007BFF; /* Highlight border */
+}
 
 .control-panel-content {
     padding: 20px;
@@ -532,6 +534,7 @@
 
     
         makeElementDraggable(document.getElementById('browser'));
+        makeElementDraggable(document.getElementById('popupId'));
 
 function updateNetworkIcon() {
     const icon = document.getElementById('network-icon');
@@ -860,8 +863,4 @@ function closePopup(popupId) {
     document.getElementById(popupId).style.display = 'none';
     document.getElementById('WallpaperButton').style.display = 'none';
 }
-
-makeElementDraggable(document.getElementById('myPCPopup'));
-makeElementDraggable(document.getElementById('recycleBinPopup'));
-makeElementDraggable(document.getElementById('controlPanelPopup'));
     </script>
