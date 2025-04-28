@@ -31,3 +31,17 @@ function loadPage() {
 }
 
 document.getElementById('webview').classList.add('active');
+
+function IframeFullscreen() {
+    const iframe = document.getElementById('webview');
+
+    if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+    } else if (iframe.webkitRequestFullscreen) { 
+        iframe.webkitRequestFullscreen();
+    } else if (iframe.msRequestFullscreen) { 
+        iframe.msRequestFullscreen();
+    } else {
+        alert("Fullscreen API is not supported in this browser.");
+    }
+}
