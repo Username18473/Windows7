@@ -17,4 +17,7 @@ function openMazeApp() {
 function openMediaPlayerApp() {
             window.location.href = "Mediaplayer.html";
         }
-        
+
+function logoff() {
+    window.location.href = "Logoff.html";
+}
