@@ -168,11 +168,3 @@ function closeControlPanel() {
         controlPanel.style.display = 'none';
     }
 }
-
-function openMediaPlayerApp() {
-    window.location.href = 'Mediaplayer.html';
-}
-
-function openPaintApp() {
-    window.location.href = "Paint.html";
-}
