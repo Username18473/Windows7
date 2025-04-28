@@ -17,38 +17,6 @@ function updateTime() {
 setInterval(updateTime, 1000);
 updateTime();
 
-function goBack() {
-    const webview = document.getElementById('webview');
-    if (!webview) {
-        console.warn('Webview element not found.');
-        return;
-    }
-    webview.contentWindow.history.back();
-}
-
-function goForward() {
-    const webview = document.getElementById('webview');
-    if (!webview) {
-        console.warn('Webview element not found.');
-        return;
-    }
-    webview.contentWindow.history.forward();
-}
-
-function loadPage() {
-    const urlBar = document.getElementById('url-bar');
-    const webview = document.getElementById('webview');
-    if (!urlBar || !webview) {
-        console.warn('URL bar or Webview element not found.');
-        return;
-    }
-    let url = urlBar.value;
-    if (!url.startsWith('http')) {
-        url = 'https://' + url; // Add https if missing
-    }
-    webview.src = url;
-}
-
 function closeBrowser() {
     const browser = document.getElementById('browser');
     if (browser) {
@@ -132,39 +100,5 @@ function makeElementDraggable(element) {
 }
 
 makeElementDraggable(document.getElementById('browser'));
-
-function openMyPC() {
-    const myPCPopup = document.getElementById('myPCPopup');
-    if (myPCPopup) {
-        myPCPopup.style.display = 'block';
-    }
-}
-
-function closeMyPC() {
-    const myPCPopup = document.getElementById('myPCPopup');
-    if (myPCPopup) {
-        myPCPopup.style.display = 'none';
-    }
-}
-
 makeElementDraggable(document.getElementById('myPCPopup'));
-
-function logoff() {
-    window.location.href = "Logoff.html";
-}
-
-function toggleControlPanel() {
-    const controlPanel = document.getElementById('control-panel');
-    if (controlPanel) {
-        controlPanel.style.display = (controlPanel.style.display === 'none' || controlPanel.style.display === '') ? 'block' : 'none';
-    }
-}
-
 makeElementDraggable(document.getElementById('control-panel'));
-
-function closeControlPanel() {
-    const controlPanel = document.getElementById('control-panel');
-    if (controlPanel) {
-        controlPanel.style.display = 'none';
-    }
-}
