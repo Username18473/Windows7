@@ -25,11 +25,10 @@ function setCustomWallpaper(event) {
     if (file) {
         const reader = new FileReader();
         reader.onload = function (e) {
-            document.body.style.backgroundImage = `url('${e.target.result}')`;
-            document.body.style.backgroundSize = 'cover'; 
+            document.documentElement.style.setProperty('--background-image', `url('${e.target.result}')`);
+            localStorage.setItem('selectedWallpaper', e.target.result);
         };
         reader.readAsDataURL(file);
-        localStorage.setItem('selectedWallpaper', e.target.result);
     }
 }
 
