@@ -101,4 +101,5 @@ function makeElementDraggable(element) {
 
 makeElementDraggable(document.getElementById('browser'));
 makeElementDraggable(document.getElementById('myPCPopup'));
-makeElementDraggable(document.getElementById('control-panel'));
+makeElementDraggable(document.getElementById('controlPanelPopup'));
+makeElementDraggable(document.getElementById('recycleBinPopup'));
