@@ -101,3 +101,9 @@ function makeElementDraggable(element) {
 
 makeElementDraggable(document.getElementById('browser'));
 const popup = document.getElementById('popupId');makeElementDraggable(popup);
+
+document.getElementById('browserButton').addEventListener('click', function() {
+    const browser = document.getElementById('browser');
+    if (browser) {
+        browser.style.display = 'block';
+    }
