@@ -95,7 +95,28 @@ function showBrowser() {
     const browser = document.getElementById('browser');
     if (browser) {
         browser.style.display = 'block';
+
+        // Optionally reset the position of the browser when shown
+        browser.style.left = '50px'; // Default left position
+        browser.style.top = '100px'; // Default top position
+    } else {
+        console.error('Browser element not found. Ensure the element with ID "browser" exists.');
     }
+}
+
+// Attach the updated function to the necessary event listeners
+const browserIcon = document.getElementById('browserIcon');
+if (browserIcon) {
+    browserIcon.addEventListener('click', showBrowser);
+} else {
+    console.error('Browser icon element not found.');
+}
+
+const startMenuBrowserLink = document.getElementById('startMenuBrowserLink');
+if (startMenuBrowserLink) {
+    startMenuBrowserLink.addEventListener('click', showBrowser);
+} else {
+    console.error('Start menu browser link element not found.');
 }
 
 document.getElementById('browserIcon').addEventListener('click', showBrowser);
