@@ -193,24 +193,6 @@ display: none;
   iframe.active {
             display: block;
         }
-
-.browserButton {
-  background: none;
-  border: none;
-  margin-right: 5px;
-  cursor: pointer;
-  padding: 5px;
-}
-
-.browserButton img {
-  width: 20px; /* Adjust size of the image */
-  height: 20px;
-  border-radius: 5px; /* Optional: Rounded corners */
-}
-
-.browserButton img:hover {
-  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5); /* Glow effect on hover */
-}
   </style>
 </head>
 </html>  
@@ -280,9 +262,6 @@ display: none;
     <div id="paint-label">Paint</div>
 </div>
       <div class="taskbar">
-          <button class="browserIcon">
-    <img src="path/to/browser-icon.png" alt="IE" />
-  </button>
              <div class="start-menu" role="button" aria-label="Start Menu" onclick="toggleStartMenu()">
                  <img src="path/to/start-button-icon.png" alt="Start Menu" class="default">
                  <img src="path/to/start-button-hover-icon.png" alt="Start Menu" class="hover">
