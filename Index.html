@@ -280,7 +280,7 @@ display: none;
     <div id="paint-label">Paint</div>
 </div>
       <div class="taskbar">
-          <button class="browserButton">
+          <button class="browserIcon">
     <img src="path/to/browser-icon.png" alt="IE" />
   </button>
              <div class="start-menu" role="button" aria-label="Start Menu" onclick="toggleStartMenu()">
@@ -382,7 +382,6 @@ display: none;
 <script src="scripts/browser.js"></script>
 <script src="scripts/network-detection.js"></script>
     <script>
-        
         document.querySelector('.start-menu').addEventListener('click', function() {
             const defaultImg = this.querySelector('img.default');
             const clickedImg = this.querySelector('img.clicked');
