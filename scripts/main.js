@@ -24,26 +24,12 @@ function closeBrowser() {
     }
 }
 
-document.getElementById('browserIcon').addEventListener('click', function() {
-    const browser = document.getElementById('browser');
-    if (browser) {
-        browser.style.display = 'block';
-    }
-});
-
 function toggleStartMenu() {
     const startMenu = document.getElementById('start-menu');
     if (startMenu) {
         startMenu.style.display = (startMenu.style.display === 'none' || startMenu.style.display === '') ? 'block' : 'none';
     }
 }
-
-document.getElementById('startMenuBrowserLink').addEventListener('click', function() {
-    const browser = document.getElementById('browser');
-    if (browser) {
-        browser.style.display = 'block';
-    }
-});
 
 document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -100,10 +86,18 @@ function makeElementDraggable(element) {
 }
 
 makeElementDraggable(document.getElementById('browser'));
-const popup = document.getElementById('popupId');makeElementDraggable(popup);
+const popup = document.getElementById('popupId');
+if (popup) {
+    makeElementDraggable(popup);
+}
 
-document.getElementById('browserButton').addEventListener('click', function() {
+function showBrowser() {
     const browser = document.getElementById('browser');
     if (browser) {
         browser.style.display = 'block';
     }
+}
+
+document.getElementById('browserIcon').addEventListener('click', showBrowser);
+document.getElementById('startMenuBrowserLink').addEventListener('click', showBrowser);
+document.getElementById('browserButton').addEventListener('click', showBrowser);
