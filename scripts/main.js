@@ -100,4 +100,3 @@ function showBrowser() {
 
 document.getElementById('browserIcon').addEventListener('click', showBrowser);
 document.getElementById('startMenuBrowserLink').addEventListener('click', showBrowser);
-document.getElementById('browserButton').addEventListener('click', showBrowser);
