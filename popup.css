@@ -1,4 +1,4 @@
- .popup {
+.popup {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -6,49 +6,56 @@
     width: 500px;
     height: 500px;
     padding: 20px;
-    background-color: white;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    display: none; /* Hidden by default */
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    display: none;
     z-index: 1000;
-    font-family: Arial, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     overflow: auto;
-    border-radius: 0px;
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
 }
 
 .popup header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(34, 34, 34, 0.8);
-    color: white;
+    background: linear-gradient(to right, rgba(180, 200, 255, 0.6), rgba(120, 140, 255, 0.6));
+    color: #fff;
     padding: 10px;
-    cursor: move; /* Draggable header */
-    border-bottom: 1px solid #ccc;
+    cursor: move;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
 }
 
 .popup header h2 {
     margin: 0;
     font-size: 18px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .popup .close-button {
-    background: red;
+    background: linear-gradient(to bottom, #ff5c5c, #d40000);
     color: white;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
     font-size: 14px;
     border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .popup .close-button:hover {
-    background: darkred;
+    background: linear-gradient(to bottom, #e60000, #a00000);
 }
 
 .popup .content {
     padding: 15px;
     font-size: 14px;
-    color: black;
+    color: #333;
     text-align: left;
 }
+
