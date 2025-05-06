@@ -31,32 +31,6 @@ function toggleStartMenu() {
     }
 }
 
-document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    console.log('Username:', username);
-    console.log('Password:', password);
-
-    const desktop = document.getElementById('desktop');
-    const loginContainer = document.getElementById('loginContainer');
-    if (desktop && loginContainer) {
-        desktop.style.display = 'block';
-        loginContainer.style.display = 'none';
-    }
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    const loginContainer = document.getElementById('loginContainer');
-    const desktop = document.getElementById('desktop');
-    if (loginContainer && desktop) {
-        if (loginContainer.style.display !== 'none') {
-            desktop.style.display = 'none';
-        }
-    }
-});
-
 function makeElementDraggable(element) {
     if (!element) return;
     let isDragging = false;
@@ -86,38 +60,31 @@ function makeElementDraggable(element) {
 }
 
 makeElementDraggable(document.getElementById('browser'));
-const popup = document.getElementById('popupId');
-if (popup) {
-    makeElementDraggable(popup);
-}
 
 function showBrowser() {
     const browser = document.getElementById('browser');
     if (browser) {
         browser.style.display = 'block';
-
-        // Optionally reset the position of the browser when shown
         browser.style.left = '50px'; // Default left position
         browser.style.top = '100px'; // Default top position
     } else {
-        console.error('Browser element not found. Ensure the element with ID "browser" exists.');
+        alert('Browser element not found. Ensure the element with ID "browser" exists.');
     }
 }
 
-// Attach the updated function to the necessary event listeners
-const browserIcon = document.getElementById('browserIcon');
-if (browserIcon) {
-    browserIcon.addEventListener('click', showBrowser);
-} else {
-    console.error('Browser icon element not found.');
-}
+// Attach event listeners after the DOM has loaded
+document.addEventListener('DOMContentLoaded', function () {
+    const browserIcon = document.getElementById('browserIcon');
+    if (browserIcon) {
+        browserIcon.addEventListener('click', showBrowser);
+    } else {
+        alert('Browser icon element not found.');
+    }
 
-const startMenuBrowserLink = document.getElementById('startMenuBrowserLink');
-if (startMenuBrowserLink) {
-    startMenuBrowserLink.addEventListener('click', showBrowser);
-} else {
-    console.error('Start menu browser link element not found.');
-}
-
-document.getElementById('browserIcon').addEventListener('click', showBrowser);
-document.getElementById('startMenuBrowserLink').addEventListener('click', showBrowser);
+    const startMenuBrowserLink = document.getElementById('startMenuBrowserLink');
+    if (startMenuBrowserLink) {
+        startMenuBrowserLink.addEventListener('click', showBrowser);
+    } else {
+        alert('Start menu browser link element not found.');
+    }
+});
