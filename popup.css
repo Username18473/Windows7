@@ -3,9 +3,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400px;
-    height: 400px;
-    padding: 20px;
+    width: 500px;
+    height: 500px;
     background: rgba(255, 255, 255, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
