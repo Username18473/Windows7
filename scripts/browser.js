@@ -19,14 +19,25 @@ function goForward() {
 function loadPage() {
     const urlBar = document.getElementById('url-bar');
     const webview = document.getElementById('webview');
+    
     if (!urlBar || !webview) {
         console.warn('URL bar or Webview element not found.');
         return;
     }
-    let url = urlBar.value;
-    if (!url.startsWith('http')) {
-        url = 'https://' + url; // Add https if missing
+    
+    let url = urlBar.value.trim(); // Trim any white spaces
+    
+    // Check if the URL is valid
+    try {
+        const parsedUrl = new URL(url);
+        if (!parsedUrl.protocol.startsWith('http')) {
+            throw new Error('Invalid protocol');
+        }
+    } catch (e) {
+        // If invalid, perform a Google search
+        url = `https://www.google.com/search?q=${encodeURIComponent(url)}`&igu=1;
     }
+   
     webview.src = url;
 }
 
