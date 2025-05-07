@@ -25,7 +25,7 @@ navigator.getBattery().then(battery => {
 
     function updateBattery() {
     const level = Math.round(battery.level * 100);
-    icon.textContent = battery.charging ? "⚡" : "🔋";
+    icon.src = battery.charging ? "path/to/charging-image.png" : "path/to/battery-image.png";
     text.textContent = ` ${level}%`;
 
  navigator.getBattery().then(battery => {
