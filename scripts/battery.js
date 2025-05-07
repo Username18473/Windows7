@@ -29,7 +29,6 @@ navigator.getBattery().then(battery => {
         const level = Math.round(battery.level * 100);
         // Set the image source based on charging status
         icon.src = battery.charging ? "path/to/charging-image.png" : "path/to/battery-image.png";
-        text.textContent = ` ${level}%`;
     }
 
     updateBattery();
