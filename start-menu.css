@@ -37,12 +37,11 @@
             display: none;
             position: absolute;
             bottom: 50px;
-            width: 500px;
-             background-image: url('path/to/start-menu.png');
+            width: 200px;
+            height: 400px;
+            background-image: url('path/to/start-menu.png');
             background-size: cover; /* Ensures the image covers the area */
-              background-position: center; /* Centers the image */
-            border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-position: center; /* Centers the image */
         }
 
         .start-menu-content ul {
