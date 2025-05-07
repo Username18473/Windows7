@@ -39,7 +39,9 @@
             bottom: 50px;
             left: 10px;
             width: 200px;
-            background-color: #f1f1f1;
+             background-image: url('path/to/start-menu.png');
+            background-size: cover; /* Ensures the image covers the area */
+              background-position: center; /* Centers the image */
             border: 1px solid #ccc;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
