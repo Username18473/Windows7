@@ -32,8 +32,8 @@
         .start-menu-content {
             display: none;
             position: absolute;
-            bottom: 20px;
-            width: 260px;
+            bottom: 50px;
+            width: 270px;
             height: 400px;
             background-image: url('path/to/start-menu.png');
             background-size: cover; /* Ensures the image covers the area */
@@ -42,20 +42,7 @@
 
         .start-menu-content ul {
             list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .start-menu-content li {
-            padding: 10px;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .start-menu-content li a {
-            text-decoration: none;
-            color: #333;
-        }
-
-        .start-menu-content li a:hover {
-            background-color: #ddd;
+            padding: 0px;
+            top: 50px;
+            margin: 0px;
         }
