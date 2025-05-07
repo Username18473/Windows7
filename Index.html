@@ -219,6 +219,11 @@ display: none;
 .browser .close-button:hover {
     background: linear-gradient(to bottom, #e60000, #a00000);
 }
+
+.browser-buttons {
+    width: 35px; 
+    height: auto;
+}
   </style>
 </head>
 </html>  
@@ -312,8 +317,12 @@ display: none;
         </div>
         <div class="browser" id="browser">
             <header>
-                <button onclick="goBack()">←</button>
-                <button onclick="goForward()">→</button>
+                <button style="border: none; background: none; padding: 0; cursor: pointer;" onclick="goBack()">
+                    <img src="path/to/Back-Button.png" alt="Backwards" class="browser-buttons">
+                </button>
+                <button style="border: none; background: none; padding: 0; cursor: pointer;" onclick="goForward()">
+                    <img src="path/to/Button.png" alt="Forward" class="browser-buttons">
+                </button>
                 <input id="url-bar" type="text" placeholder="Enter URL">
                 <button onclick="loadPage()">Go</button>
                 <button onclick="IframeFullscreen()">[]</button>
