@@ -8,11 +8,11 @@ navigator.getBattery().then(battery => {
     batteryUI.style.fontFamily = "Segoe UI, sans-serif";
     batteryUI.style.fontSize = "24px";
 
-    const icon = document.createElement("img"); // Use <img> for custom icons
+    const icon = document.createElement("img"); // Use <img> instead of <span>
     icon.id = "battery-icon";
     icon.style.marginRight = "4px";
-    icon.style.width = "24px"; // Set width for the image
-    icon.style.height = "24px"; // Set height for the image
+    icon.style.width = "24px"; // Set width
+    icon.style.height = "24px"; // Set height
 
     const text = document.createElement("span");
     text.id = "battery-text";
@@ -27,9 +27,15 @@ navigator.getBattery().then(battery => {
 
     function updateBattery() {
         const level = Math.round(battery.level * 100);
-        icon.src = battery.charging ? "path/to/charging-image.png" : "path/to/battery-image.png"; // Set the image source
+        // Set the image source based on charging status
+        icon.src = battery.charging ? "path/to/charging-image.png" : "path/to/battery-image.png";
         text.textContent = ` ${level}%`;
     }
+
+    updateBattery();
+    battery.addEventListener("levelchange", updateBattery);
+    battery.addEventListener("chargingchange", updateBattery);
+});
 
     function checkBatteryLevel() {
         if (Math.floor(battery.level * 100) === 10) {
