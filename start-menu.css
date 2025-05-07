@@ -1,17 +1,3 @@
-.start-menu {
-    width: 70px;
-    height: 100%;
-    background: var(--start-menu-color);
-    background-image: url('path/to/start-menu.png');
-    background-size: cover; /* Ensures the image covers the area */
-    background-position: center; /* Centers the image */
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
         .start-menu img {
             width: 100%;
             height: auto;
@@ -37,7 +23,7 @@
             display: none;
             position: absolute;
             bottom: 50px;
-            width: 200px;
+            width: 220px;
             height: 400px;
             background-image: url('path/to/start-menu.png');
             background-size: cover; /* Ensures the image covers the area */
