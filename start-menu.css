@@ -37,8 +37,7 @@
             display: none;
             position: absolute;
             bottom: 50px;
-            left: 10px;
-            width: 200px;
+            width: 500px;
              background-image: url('path/to/start-menu.png');
             background-size: cover; /* Ensures the image covers the area */
               background-position: center; /* Centers the image */
