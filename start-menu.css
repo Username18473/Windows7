@@ -32,8 +32,8 @@
         .start-menu-content {
             display: none;
             position: absolute;
-            bottom: 50px;
-            width: 220px;
+            bottom: 20px;
+            width: 260px;
             height: 400px;
             background-image: url('path/to/start-menu.png');
             background-size: cover; /* Ensures the image covers the area */
