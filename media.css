@@ -1,12 +1,5 @@
-  font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center; /* Centers horizontally */
-    align-items: center; /* Centers vertically */
-    height: 100vh; /* Full height of the viewport */
-    margin: 0;
-    background-color: #f0f0f0;
-}
-        video, audio {
+
+        .video, audio {
             width: 1000%;
             max-width: 1000px;
             border-radius: 10px;
