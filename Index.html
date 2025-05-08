@@ -230,7 +230,6 @@ display: none;
 }
   </style>
 </head>
-</html>  
      <div class="desktop">
         <img id="warningImage" src="Balloon/Low.png" alt="Battery Low" style="display: none;">
         <img id="warning2Image" src="Balloon/Critical.png" alt="Battery Critical" style="display: none;">
@@ -345,9 +344,9 @@ display: none;
 </div>
              <div class="start-menu-content" id="start-menu">
                  <ul> 
-                    <button class="start-menu-item" onclick="openPopup('controlPanelPopup')" style="border: none; background: none; padding: 0; display: flex; align-items: center; cursor: pointer;">
-  <img src="path/to/control-panel-icon.png" alt="Control Button" style="width: 35px; height: 35px; margin-right: 8px;">
-  <span style="font-size: 16px; color: black;">Control Panel</span>
+                    <button class="start-menu-item control-panel-button" onclick="openPopup('controlPanelPopup')">
+  <img src="path/to/control-panel-icon.png" alt="Control Button" class="control-panel-icon">
+  <span class="control-panel-text">Control Panel</span>
 </button>
                      <button id="startMenuBrowserLink" class="start-menu-item" style="border: none; background: none; padding: 0; display: flex; align-items: center; cursor: pointer;">
   <img src="path/to/browser-icon.png" alt="browser Button" style="width: 35px; height: 35px; margin-right: 8px;">
@@ -469,7 +468,12 @@ display: none;
         });
         
 function openPopup(popupId) {
-    document.getElementById(popupId).style.display = 'block';
+    const popup = document.getElementById(popupId);
+    if (popup) {
+        popup.style.display = 'block';
+    } else {
+        console.error(`Popup with ID '${popupId}' not found.`);
+    }
 }
 
 function closePopup(popupId) {
