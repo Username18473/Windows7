@@ -8,11 +8,11 @@ navigator.getBattery().then(battery => {
     batteryUI.style.fontFamily = "Segoe UI, sans-serif";
     batteryUI.style.fontSize = "24px";
 
-    const icon = document.createElement("img"); // Use <img> instead of <span>
+    const icon = document.createElement("img");
     icon.id = "battery-icon";
     icon.style.marginRight = "4px";
-    icon.style.width = "60px"; // Set width
-    icon.style.height = "60px"; // Set height
+    icon.style.width = "60px";
+    icon.style.height = "60px";
 
     const text = document.createElement("span");
     text.id = "battery-text";
@@ -20,38 +20,37 @@ navigator.getBattery().then(battery => {
     batteryUI.appendChild(icon);
     batteryUI.appendChild(text);
 
-    // Insert battery status before time container
     const taskbar = document.querySelector(".taskbar");
     const timeContainer = document.querySelector(".time-container");
     taskbar.insertBefore(batteryUI, timeContainer);
 
     function updateBattery() {
         const level = Math.round(battery.level * 100);
-        // Set the image source based on charging status
         icon.src = battery.charging ? "path/to/charging-image.png" : "path/to/battery-image.png";
+        text.textContent = `${level}%`;
     }
 
-    updateBattery();
-    battery.addEventListener("levelchange", updateBattery);
-    battery.addEventListener("chargingchange", updateBattery);
-});
-
     function checkBatteryLevel() {
-        if (Math.floor(battery.level * 100) === 10) {
+        const level = Math.floor(battery.level * 100);
+        if (level === 10) {
             playSound('sounds/Low.mp3');
             const warningImage = document.getElementById('warningImage');
-            warningImage.style.display = 'block';
-        } else if (Math.floor(battery.level * 100) === 5) {
+            if (warningImage) warningImage.style.display = 'block';
+        } else if (level === 5) {
             playSound('sounds/Critical.mp3');
-            const warningImage = document.getElementById('warning2Image');
-            warningImage.style.display = 'block';
+            const warning2Image = document.getElementById('warning2Image');
+            if (warning2Image) warning2Image.style.display = 'block';
         }
     }
 
     // Initial update and event listeners
     updateBattery();
     checkBatteryLevel();
-    battery.addEventListener("levelchange", updateBattery);
+    battery.addEventListener("levelchange", () => {
+        updateBattery();
+        checkBatteryLevel();
+    });
     battery.addEventListener("chargingchange", updateBattery);
-    battery.addEventListener("levelchange", checkBatteryLevel);
+}).catch(error => {
+    console.error("Battery API not supported or failed to fetch battery info:", error);
 });
