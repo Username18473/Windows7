@@ -1,0 +1,54 @@
+  font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    height: 100vh; /* Full height of the viewport */
+    margin: 0;
+    background-color: #f0f0f0;
+}
+        video, audio {
+            width: 1000%;
+            max-width: 1000px;
+            border-radius: 10px;
+        }
+        .controls button {
+            margin: 10px;
+            text-align: center;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+        }
+        .controls button:hover {
+            background-color: #0056b3;
+        }
+        .media-player {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    flex-direction: column; /* Ensures items stack vertically if needed */
+    height: 100vh; /* Full viewport height */
+        } 
+        
+            .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 0%;
+            width: 50px;
+            height: 30px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .video-container {
+    width: 1000px;
+    text-align: center;
+    height: 1000px; 
+    margin: 0 auto;
+    display: block; 
+}
