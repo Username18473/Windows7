@@ -291,7 +291,7 @@ display: none;
     <img src="path/to/webcam-icon.png" alt="Webcam App">
     <div id="webcam-label">Webcam</div>
 </div>
-<div class="icon" style="top: 100px; left: 180px;" onclick="openPopup('controlPanelPopup')">
+<div class="icon" style="top: 100px; left: 180px;" onclick="openPopup('MediaPlayerPopup')">
     <img src="path/to/media-icon.png" alt="Media Player">
     <div id="media-player-label">Media Player</div>
       <div class="popup" id="MediaPlayerPopup">
@@ -339,7 +339,7 @@ display: none;
     <img src="path/to/signal-full.png" alt="Network Signal" id="network-icon">
 </div>
              <div class="start-menu-content" id="start-menu">
-                 <ul>
+                 <ul> 
                     <button class="start-menu-item" onclick="openPopup('controlPanelPopup')" style="border: none; background: none; padding: 0; display: flex; align-items: center; cursor: pointer;">
   <img src="path/to/control-panel-icon.png" alt="Control Button" style="width: 35px; height: 35px; margin-right: 8px;">
   <span style="font-size: 16px; color: black;">Control Panel</span>
@@ -352,7 +352,7 @@ display: none;
   <img src="path/to/maze-icon.png" alt="Maze Button" style="width: 35px; height: 35px; margin-right: 8px;">
   <span style="font-size: 16px; color: black;">Maze</span>
 </button>
-                      <button class="start-menu-item" onclick="openMediaPlayerApp()" style="border: none; background: none; padding: 0; display: flex; align-items: center; cursor: pointer;">
+                      <button class="start-menu-item" onclick="openPopup('MediaPlayerPopup')" style="border: none; background: none; padding: 0; display: flex; align-items: center; cursor: pointer;">
   <img src="path/to/media-icon.png" alt="Media Button" style="width: 35px; height: 35px; margin-right: 8px;">
   <span style="font-size: 16px; color: black;">Media Player</span>
 </button>
