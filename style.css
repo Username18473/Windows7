@@ -4,28 +4,9 @@
     display: none;
 }
 
-.icon {
-    position: absolute;
-    text-align: center;
-    color: white;
-}
-
 .icon img {
     width: 64px;
     height: 64px;
-}
-
-.taskbar {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 40px;
-    background-color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    padding: 0 10px;
 }
 
 .start-menu {
@@ -173,90 +154,32 @@
     /* CSS for switching icons */
 .start-menu img.default {
     display: block;
+    width: 40px;
+    height: 40px;
 }
 
 .start-menu img.hover, .start-menu img.clicked {
     display: none;
+    width: 40px;
+    height: 40px;
 }
 
 .start-menu:hover img.default {
     display: none;
+    width: 40px;
+    height: 40px;
 }
 
 .start-menu:hover img.hover {
     display: block;
+    width: 40px;
+    height: 40px;
 }
 
 .icon:hover {
     background-color: rgba(0, 0, 255, 0.2); /* Transparent blue */
     border: 2px solid rgba(0, 0, 255, 0.5); /* Slightly more opaque blue border */
     border-radius: 5px; /* Optional: round corners */
-}
-
-    .button {
-    border-radius: 0; /* Ensures the button is a rectangle */
-}
-
-.control-panel-header {
-  display: flex;
-  align-items: center;
-  padding: 5px;
-  background: rgba(34, 34, 34, 0.5); /* Semi-transparent background */
-  border-bottom: 1px solid #ccc; /* Bottom border */
-  cursor: move; /* Add cursor move style for drag effect */
-  color: white; /* White text color */
-  font-size: 16px; /* Adjust font size */
-}
-
-.control-panel-header .header-content {
-  flex: 1; /* Ensure content spans across the header */
-  text-align: center; /* Center the title text */
-  font-weight: bold; /* Make the title bold */
-}
-
-.popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 300px;
-    padding: 20px;
-    background: #f1f1f1;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-}
-
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #ff5c5c;
-    border: none;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 50%;
-}
-
-.close-btn:hover {
-    background: #ff1c1c;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-}
-
-#action1-btn {
-  margin: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
 }
 
 .popup {
@@ -269,25 +192,6 @@ body {
   background: rgba(0, 0, 0, 0.5);
   justify-content: center;
   align-items: center;
-}
-
-.popup-content {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  text-align: center;
-  position: relative;
-}
-
-.popup-content h3 {
-  margin-bottom: 20px;
-}
-
-.popup-content .images img {
-  margin: 5px;
-  width: 150px;
-  height: auto;
-  cursor: pointer;
 }
 
 .close-btn {
