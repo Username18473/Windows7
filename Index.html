@@ -9,6 +9,7 @@
     <title>Windows 7</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="popup.css"> 
+    <link rel="stylesheet" href="media.css">
     <link rel="stylesheet" href="start-menu.css">
     <style>
         :root {
@@ -290,9 +291,36 @@ display: none;
     <img src="path/to/webcam-icon.png" alt="Webcam App">
     <div id="webcam-label">Webcam</div>
 </div>
-<div class="icon" style="top: 100px; left: 180px;" onclick="openMediaPlayerApp()">
+<div class="icon" style="top: 100px; left: 180px;" onclick="openPopup('controlPanelPopup')">
     <img src="path/to/media-icon.png" alt="Media Player">
     <div id="media-player-label">Media Player</div>
+      <div class="popup" id="MediaPlayerPopup">
+    <header>
+        <h2>Media Player</h2>
+        <button class="close-button" onclick="closePopup('MediaPlayerPopup')">X</button>
+    </header>
+       <div class="media-player">
+    <video id="media">
+        <source id="videoSource" src="/path/Videos/Clouds.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="controls">
+        <button onclick="backMedia()" style="border: none; background: none; padding: 0; cursor: pointer;">
+    <img src="back-icon.png" alt="Back" style="width: 50px; height: 50px;">
+</button>
+<button id="playPauseButton" onclick="togglePlayPause()" style="border: none; background: none; padding: 0; cursor: pointer;">
+    <img id="playPauseIcon" src="play-icon.png" alt="Play" style="width: 50px; height: 50px;">
+</button>
+      <button onclick="forwardMedia()" style="border: none; background: none; padding: 0; cursor: pointer;">
+    <img src="foward-icon.png" alt="foward" style="width: 50px; height: 50px;">
+</button>
+    </div>
+    <div>
+        <label for="videoUpload">Upload Video: </label>
+        <input type="file" id="videoUpload" accept="video/*" onchange="uploadVideo(event)">
+    </div>
+</div>
 </div>
 <div class="icon" style="top: 100px; left: 260px;" onclick="openNotepadApp()">
     <img src="path/to/note-icon.png" alt="Notepad">
@@ -421,6 +449,7 @@ display: none;
 </div>
 <script src="scripts/wallpaper.js"></script>
 <script src="scripts/redirection.js"></script>
+<script src="scripts/media.js"></script>
 <script src="scripts/language.js"></script>
 <script src="scripts/battery.js"></script>
 <script src="scripts/main.js"></script>
