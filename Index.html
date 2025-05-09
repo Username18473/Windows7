@@ -59,7 +59,7 @@
         }
 
         .date {
-            padding-left: 25px;
+            padding-right: 0px;
         }
 
         .icon {
@@ -78,8 +78,8 @@
 
         .time-container {
             position: absolute;
-            bottom: 10px;
-            right: 10px;
+            bottom: 20px;
+            right: 20px;
             text-align: right;
         }
         
@@ -203,7 +203,7 @@
             <img src="path/to/control-panel-icon.png" alt="Control Panel">
             <div id="control-panel-label">Control Panel</div>
         </div>
-       <div class="icon" style="top: 100px; left: 100px;" onclick="openPopup('webcamPopup')">
+       <div class="icon" style="top: 100px; left: 100px;" onclick="openWebcamApp()">
     <img src="path/to/webcam-icon.png" alt="Webcam App">
     <div id="webcam-label">Webcam</div>
     <div class="popup" id="webcamPopup">
@@ -414,22 +414,4 @@ function closePopup(popupId) {
         popup.style.display = 'none'; // Hide the popup
     }
 }
-
-const icons = [
-    { top: '20px', left: '20px', src: 'path/to/my-pc-icon.png', alt: 'Computer', label: 'Computer' },
-    { top: '20px', left: '100px', src: 'path/to/recycle-bin-icon.png', alt: 'Recycle Bin', label: 'Recycle Bin' },
-    // ... More icons
-];
-
-icons.forEach(icon => {
-    const div = document.createElement('div');
-    div.className = 'icon';
-    div.style.top = icon.top;
-    div.style.left = icon.left;
-    div.innerHTML = `
-        <img src="${icon.src}" alt="${icon.alt}">
-        <div>${icon.label}</div>
-    `;
-    document.querySelector('.desktop').appendChild(div);
-});
     </script>
