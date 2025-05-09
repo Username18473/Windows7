@@ -9,16 +9,14 @@
     background-color: white;
     border: 1px solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    visibility: hidden;
-    opacity: 0;
+    display: none;
     transition: opacity 0.3s ease, visibility 0.3s ease;
     z-index: 1000;
     overflow: auto;
 }
 
 .popup.active {
-    visibility: visible;
-    opacity: 1;
+    display: block;
 }
 
 .popup header {
