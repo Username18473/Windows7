@@ -10,15 +10,11 @@ navigator.getBattery().then(battery => {
 
     const icon = document.createElement("img");
     icon.id = "battery-icon";
-    icon.style.marginRight = "10px";
+    icon.style.marginRight = "25px";
     icon.style.width = "10px";
-    icon.style.height = "10px";
-
-    const text = document.createElement("span");
-    text.id = "battery-text";
+    icon.style.height = "15px";
 
     batteryUI.appendChild(icon);
-    batteryUI.appendChild(text);
 
     const taskbar = document.querySelector(".taskbar");
     const timeContainer = document.querySelector(".time-container");
