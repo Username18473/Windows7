@@ -317,7 +317,7 @@
 </div>
              <div class="start-menu-content" id="start-menu">
                  <ul> 
-                    <button class="start-menu-item control-panel-button" onclick="openPopup('controlPanelPopup')">
+                    <button class="start-menu-item" control-panel-button" onclick="openPopup('controlPanelPopup')">
   <img src="path/to/control-panel-icon.png" alt="Control Button" class="control-panel-icon">
   <span class="control-panel-text">Control Panel</span>
 </button>
@@ -444,14 +444,17 @@
 function openPopup(popupId) {
     const popup = document.getElementById(popupId);
     if (popup) {
-        popup.style.display = 'block';
+        popup.classList.add('active');
     } else {
         alert(`Popup with ID '${popupId}' not found.`);
     }
 }
 
 function closePopup(popupId) {
-    document.getElementById(popupId).style.display = 'none';
+    const popup = document.getElementById(popupId);
+    if (popup) {
+        popup.classList.remove('active');
+    }
 }
 
 const icons = [
