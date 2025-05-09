@@ -1,16 +1,24 @@
 .popup {
-    position: fixed; /* Use fixed positioning to center in the viewport */
-    top: 50%; /* Move to the vertical center */
-    left: 50%; /* Move to the horizontal center */
-    transform: translate(-50%, -50%); /* Offset the element's own width and height */
-    width: 400px; /* Define width for the popup */
-    padding: 20px; /* Add padding inside */
-    background-color: white; /* Background color */
-    border: 1px solid #ccc; /* Border for the popup */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add shadow effect */
-    display: none; /* Initially hidden */
-    overflow: hidden; /* Prevent overflow of content */
-    z-index: 1000; /* Ensure it appears above other elements */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    width: 400px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+    overflow: auto;
+}
+
+.popup.active {
+    visibility: visible;
+    opacity: 1;
 }
 
 .popup header {
@@ -54,3 +62,9 @@
     text-align: left;
 }
 
+@media (max-width: 480px) {
+    .popup {
+        width: 90%;
+        padding: 10px;
+    }
+}
