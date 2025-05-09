@@ -148,20 +148,6 @@
     color: black;
     font-family: Arial, sans-serif;
 }
-        
-        .start-menu-item {
-    padding: 10px;
-    bottom: 20px;
-    margin: 5px;
-    border: none;
-    background-color: #333;
-    color: white;
-    cursor: pointer;
-}
-
-.start-menu-item:hover {
-    background-color: #555;
-}
 
 #mediaPlayerIcon:hover {
     background-color: rgba(0, 0, 255, 0.2);
@@ -313,8 +299,11 @@
                      <button class="start-menu-item" onclick="openWebcamApp()" style="border: none; background: none; padding: 0; display: flex; align-items: center; cursor: pointer;">
   <img src="path/to/webcam-icon.png" alt="Webcam Button" style="width: 35px; height: 35px; margin-right: 8px;">
   <span style="font-size: 16px; color: black;">Webcam</span>
+</button>     
+                    <button id="startMenuLogoffLink" class="start-menu-item" onclick="logoff()" style="border: none; background: none; padding: 0; display: flex; align-items: center; cursor: pointer;">
+  <img src="path/to/Logout2.png" alt="Logoff Button" style="width: 35px; height: 35px; margin-right: 8px;">
+  <span style="font-size: 16px; color: black;">Log off</span>
 </button>
-                     <li><a href="#" id="startMenuLogoffLink" class="start-menu-item" onclick="logoff()">Logoff ⏼</a></li>
                  </ul>
              </div>
              <div class="time-container">
