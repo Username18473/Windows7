@@ -402,7 +402,7 @@
 function openPopup(popupId) {
     const popup = document.getElementById(popupId);
     if (popup) {
-        popup.classList.add('active');
+        popup.style.display = 'block'; // Show the popup
     } else {
         alert(`Popup with ID '${popupId}' not found.`);
     }
@@ -411,7 +411,7 @@ function openPopup(popupId) {
 function closePopup(popupId) {
     const popup = document.getElementById(popupId);
     if (popup) {
-        popup.classList.remove('active');
+        popup.style.display = 'none'; // Hide the popup
     }
 }
 
