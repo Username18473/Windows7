@@ -31,7 +31,23 @@
     function openWebcamApp() {
         openPopup('webcamPopup');
         startWebcam();
+           }
+
+function closePopup(popupId) {
+    const popup = document.getElementById(popupId);
+    if (popup) {
+        popup.style.display = 'none'; // Hide the popup
+        if (popupId === 'webcamPopup') {
+            const videoElement = document.getElementById('webcam');
+            const stream = videoElement.srcObject;
+            if (stream) {
+                const tracks = stream.getTracks();
+                tracks.forEach(track => track.stop()); // Stop all tracks
+                videoElement.srcObject = null;
+            }
+        }
     }
+}
 
     document.getElementById('screenshot-button').addEventListener('click', takeScreenshot);
     document.getElementById('remove-screenshot-button').addEventListener('click', removeScreenshot);
