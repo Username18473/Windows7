@@ -9,6 +9,7 @@
     <title>Windows 7</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="popup.css"> 
+    <link rel="stylesheet" href="browser.css"> 
     <link rel="stylesheet" href="media.css">
     <link rel="stylesheet" href="taskbar.css">
     <link rel="stylesheet" href="webcam.css">
@@ -73,45 +74,6 @@
         .icon img {
             max-width: 100%;
             max-height: 100%;
-        }
-
-        .browser {
-    position: absolute;
-    top: 100px;
-    left: 50px;
-    width: 80%;
-    height: 80%;
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    display: none;
-    cursor: move;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    border-radius: 6px;
-    transition: all 0.3s ease-in-out;
-    overflow: hidden;
-    z-index: 1000;
-}
-
-.browser header {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    background: linear-gradient(to right, rgba(180, 200, 255, 0.6), rgba(120, 140, 255, 0.6));
-    color: #fff;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    cursor: move;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-        .browser iframe {
-            width: 100%;
-            height: calc(100% - 40px);
-            border: none;
         }
 
         .time-container {
@@ -324,7 +286,7 @@
 </div>
              <div class="start-menu-content" id="start-menu">
                  <ul> 
-                    <button class="start-menu-item" control-panel-button" onclick="openPopup('controlPanelPopup')">
+                    <button class="start-menu-item"  onclick="openPopup('controlPanelPopup')" style="border: none; background: none; padding: 0; display: flex; align-items: center; cursor: pointer;">
   <img src="path/to/control-panel-icon.png" alt="Control Button" class="control-panel-icon">
   <span class="control-panel-text">Control Panel</span>
 </button>
