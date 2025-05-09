@@ -10,9 +10,9 @@ navigator.getBattery().then(battery => {
 
     const icon = document.createElement("img");
     icon.id = "battery-icon";
-    icon.style.marginRight = "25px";
-    icon.style.width = "10px";
-    icon.style.height = "15px";
+    icon.style.marginRight = "100px";
+    icon.style.width = "20px";
+    icon.style.height = "25px";
 
     batteryUI.appendChild(icon);
 
