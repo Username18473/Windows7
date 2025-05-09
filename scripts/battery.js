@@ -10,9 +10,9 @@ navigator.getBattery().then(battery => {
 
     const icon = document.createElement("img");
     icon.id = "battery-icon";
-    icon.style.marginRight = "4px";
-    icon.style.width = "30px";
-    icon.style.height = "30px";
+    icon.style.marginRight = "10px";
+    icon.style.width = "10px";
+    icon.style.height = "10px";
 
     const text = document.createElement("span");
     text.id = "battery-text";
