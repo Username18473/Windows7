@@ -200,6 +200,12 @@
 .start-menu-item:hover {
     background-color: #555;
 }
+
+#mediaPlayerIcon:hover {
+    background-color: rgba(0, 0, 255, 0.2);
+    border: 2px solid rgba(0, 0, 255, 0.5);
+    border-radius: 5px;
+}
   </style>
     <body>
 </head>
@@ -267,9 +273,10 @@
     </div>
 </div>
 </div>
-<div class="icon" style="top: 100px; left: 220px;" onclick="openPopup('MediaPlayerPopup')">
+<div id="mediaPlayerIcon" class="icon" onclick="openPopup('MediaPlayerPopup')">
     <img src="path/to/media-icon.png" alt="Media Player">
     <div id="media-player-label">Media Player</div>
+</div>
       <div class="popup" id="MediaPlayerPopup">
     <header>
         <h2>Media Player</h2>
