@@ -56,12 +56,12 @@
         .time {
             margin-left: auto;
             padding-right: 10px;
-            margin-top: 10px;
+            margin-top: 20px;
         }
 
         .date {
             padding-right: 10px;
-            margin-top: 10px;
+            margin-top: 20px;
         }
 
         .icon {
@@ -162,6 +162,13 @@
 .start-menu-item {
     position: relative;
     margin-top: 10px; /* Adjust the value as needed */
+}
+
+.start-menu-item:hover {
+    background-color: rgba(0, 0, 255, 0.2); /* Light blue background */
+    border: 2px solid rgba(0, 0, 255, 0.5); /* Light blue border */
+    border-radius: 5px; /* Optional: Add border radius for aesthetics */
+    transition: background-color 0.3s ease, border 0.3s ease; /* Smooth transition */
 }
   </style>
     <body>
@@ -377,6 +384,7 @@
                         <option value="fr">French</option>
                         <option value="zh">Chinese</option>
                     </select>
+                <button type="button" id="save-language-timezone">Save</button>
                 </form>
             </div>
         </div>
