@@ -1,7 +1,6 @@
 // Select the form elements
-const form = document.getElementById('language-timezone-form');
+const form = document.getElementById('language-form');
 const languageSelect = document.getElementById('language');
-const timezoneSelect = document.getElementById('timezone');
 const saveButton = document.getElementById('save-language-timezone');
 
 saveButton.addEventListener('click', () => {
@@ -94,5 +93,4 @@ function applyLanguage(lang) {
 }
    
     document.getElementById('save-language-timezone').addEventListener('click', () => {
-    localStorage.setItem('preferredTimezone', selectedTimezone);
 });
