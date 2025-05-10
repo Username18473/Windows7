@@ -6,31 +6,24 @@ const saveButton = document.getElementById('save-language-timezone');
 
 saveButton.addEventListener('click', () => {
     const selectedLanguage = languageSelect.value;
-    const selectedTimezone = timezoneSelect.value;
-
     
     localStorage.setItem('preferredLanguage', selectedLanguage);
-    localStorage.setItem('preferredTimezone', selectedTimezone);
 
     console.log('Preferences saved successfully!');
 });
 
 window.addEventListener('load', () => {
     const savedLanguage = localStorage.getItem('preferredLanguage');
-    const savedTimezone = localStorage.getItem('preferredTimezone');
 
     if (savedLanguage) languageSelect.value = savedLanguage;
-    if (savedTimezone) timezoneSelect.value = savedTimezone;
 
-    console.log('Preferences loaded:', { savedLanguage, savedTimezone });
+    console.log('Preferences loaded:', { savedLanguage });
 });
 
 window.addEventListener('DOMContentLoaded', () => {
     const savedLanguage = localStorage.getItem('preferredLanguage');
-    const savedTimezone = localStorage.getItem('preferredTimezone');
 
     if (savedLanguage) document.getElementById('language').value = savedLanguage;
-    if (savedTimezone) document.getElementById('timezone').value = savedTimezone;
 
     applyLanguage(savedLanguage);
 });
@@ -38,10 +31,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
 document.getElementById('save-language-timezone').addEventListener('click', () => {
     const selectedLanguage = document.getElementById('language').value;
-    const selectedTimezone = document.getElementById('timezone').value;
 
     localStorage.setItem('preferredLanguage', selectedLanguage);
-    localStorage.setItem('preferredTimezone', selectedTimezone);
 
     applyLanguage(selectedLanguage);
 });
@@ -103,7 +94,5 @@ function applyLanguage(lang) {
 }
    
     document.getElementById('save-language-timezone').addEventListener('click', () => {
-    const selectedTimezone = document.getElementById('timezone').value;
     localStorage.setItem('preferredTimezone', selectedTimezone);
-    console.log('Timezone saved:', selectedTimezone);
 });
