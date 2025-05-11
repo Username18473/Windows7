@@ -42,8 +42,7 @@ function loadPage() {
         }
     } catch (e) {
         console.error('Error parsing URL:', e);
-        // Prompt user or fallback to Google search
-        url = `https://www.google.com/search?q=${encodeURIComponent(url)}`;
+        url = `https://www.bing.com/search?q=${encodeURIComponent(url)}`;
     }
 
     webview.src = url;
