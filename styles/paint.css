@@ -1,0 +1,36 @@
+
+#toolbar {
+  display: flex;
+  padding: 10px;
+  background-color: #f4f4f4;
+  border-bottom: 1px solid #ccc;
+  align-items: center;
+}
+
+.button {
+  border: 1px solid #ccc;
+  background-color: #e6e6e6;
+  margin-right: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.color-palette {
+  display: flex;
+  margin-left: 10px;
+}
+
+.color-square {
+  width: 25px;
+  height: 25px;
+  margin: 0 3px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+canvas {
+  display: block;
+  margin: 0 auto;
+  border: 1px solid #000;
+  background-color: white;
+}
