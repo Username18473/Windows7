@@ -269,13 +269,14 @@
     </div>
 </div>
 </div>
-<div class="icon" style="top: 100px; left: 20px;" onclick="openPaintApp()">
+<div class="icon" style="top: 100px; left: 20px;" onclick="openPopup('PaintPopup')">
     <img src="path/to/paint-icon.png" alt="Paint">
     <div id="paint-label">Paint</div>
 </div>
 <div id="popup" id="PaintPopup">
  <header>
         <h2>Paint</h2>
+     <div class="content">
     <button class="close-button" onclick="closePopup('PaintPopup')">X</button>
     <div id="toolbar">
       <div class="button" onclick="changeTool('brush')">Brush</div>>
@@ -321,7 +322,7 @@
   <img src="path/to/note-icon.png" alt="Notepad Button" style="width: 35px; height: 35px; margin-right: 8px;">
   <span style="font-size: 16px; color: black;">Notepad</span>
 </button>
-                     <button class="start-menu-item" onclick="openPaintApp()" style="border: none; background: none; padding: 0; display: flex; align-items: center; cursor: pointer;">
+                     <button class="start-menu-item" onclick="openPopup('PaintPopup')" style="border: none; background: none; padding: 0; display: flex; align-items: center; cursor: pointer;">
   <img src="path/to/paint-icon.png" alt="Paint Button" style="width: 35px; height: 35px; margin-right: 8px;">
   <span style="font-size: 16px; color: black;">Paint</span>
 </button>
