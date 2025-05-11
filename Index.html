@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="styles/taskbar.css">
     <link rel="stylesheet" href="styles/webcam.css">
     <link rel="stylesheet" href="styles/start-menu.css">
+     <link rel="stylesheet" href="styles/paint.css">
     <style>
         :root {
             --background-image: url('path/to/Harmony.png');
@@ -272,7 +273,19 @@
     <img src="path/to/paint-icon.png" alt="Paint">
     <div id="paint-label">Paint</div>
 </div>
-
+<div id="popup" id="PaintPopup">
+ <header>
+        <h2>Paint</h2>
+    <button class="close-button" onclick="closePopup('PaintPopup')">X</button>
+    <div id="toolbar">
+      <div class="button" onclick="changeTool('brush')">Brush</div>>
+      <div class="button" onclick="clearCanvas()">Clear</div>
+      <div class="color-palette" id="colorPalette">
+        <!-- Colors will be dynamically generated here -->
+      </div>
+    </div>
+    <canvas id="paintCanvas"></canvas>
+  </div>
 <div class="icon" style="top: 100px; left: 260px;" onclick="openNotepadApp()">
     <img src="path/to/note-icon.png" alt="Notepad">
     <div id="notepad-label">Notepad</div>
@@ -399,6 +412,7 @@
 <script src="scripts/main.js"></script>
 <script src="scripts/browser.js"></script>
 <script src="scripts/webcam.js"></script>
+<script src="scripts/paint.js"></script>
 <script src="scripts/network-detection.js"></script>
     <script>
         document.querySelector('.start-menu').addEventListener('click', function() {
