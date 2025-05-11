@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="styles/webcam.css">
     <link rel="stylesheet" href="styles/start-menu.css">
      <link rel="stylesheet" href="styles/paint.css">
+    <link rel="stylesheet" href="styles/notepad.css">
     <style>
         :root {
             --background-image: url('path/to/Harmony.png');
@@ -288,9 +289,21 @@
     <canvas id="paintCanvas"></canvas>
   </div>
 </div>
-<div class="icon" style="top: 100px; left: 260px;" onclick="openNotepadApp()">
+<div class="icon" style="top: 100px; left: 260px;" onclick="openPopup('NotepadPopup')">
     <img src="path/to/note-icon.png" alt="Notepad">
     <div id="notepad-label">Notepad</div>
+</div>
+    <div class="popup" id="NotepadPopup">
+ <header>
+      <h2>Notepad</h2>
+     <div class="content">
+         <textarea id="notepad" placeholder="Start typing here..."></textarea>
+    <div id="controls">
+        <button class="close-button" onclick="closePopup('NotepadPopup')">X</button>
+        <button onclick="saveNote()">Save</button>
+        <button onclick="loadNote()">Load</button>
+        <button onclick="clearNote()">Clear</button>
+    </div>
 </div>
       <div class="taskbar">
              <div class="start-menu" role="button" aria-label="Start Menu" onclick="toggleStartMenu()">
@@ -319,7 +332,7 @@
   <img src="path/to/media-icon.png" alt="Media Button" style="width: 35px; height: 35px; margin-right: 8px;">
   <span style="font-size: 16px; color: black;">Media Player</span>
 </button>
-                     <button class="start-menu-item" onclick="openNotepadApp()" style="border: none; background: none; padding: 0; display: flex; align-items: center; cursor: pointer;">
+                     <button class="start-menu-item" onclick="openPopup('NotepadPopup')" style="border: none; background: none; padding: 0; display: flex; align-items: center; cursor: pointer;">
   <img src="path/to/note-icon.png" alt="Notepad Button" style="width: 35px; height: 35px; margin-right: 8px;">
   <span style="font-size: 16px; color: black;">Notepad</span>
 </button>
@@ -412,6 +425,7 @@
 <script src="scripts/language.js"></script>
 <script src="scripts/battery.js"></script>
 <script src="scripts/main.js"></script>
+<script src="scripts/notepad.js"></script>
 <script src="scripts/browser.js"></script>
 <script src="scripts/webcam.js"></script>
 <script src="scripts/paint.js"></script>
