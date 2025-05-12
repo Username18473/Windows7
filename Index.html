@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="styles/start-menu.css">
      <link rel="stylesheet" href="styles/paint.css">
     <link rel="stylesheet" href="styles/notepad.css">
+    <link rel="stylesheet" href="styles/maze.css">
     <style>
         :root {
             --background-image: url('path/to/Harmony.png');
@@ -229,8 +230,16 @@
         </div>
     <div class="icon" style="top: 20px; left: 340px;" onclick="openPopup('MazePopup')">
             <img src="path/to/maze-icon.png" alt="Maze">
-            <div id="control-panel-label">Maze</div>
+            <div id="maze-label">Maze</div>
         </div>
+          <div class="popup" id="MazePopup">
+    <header>
+        <h2>Maze</h2>
+         <div id="maze">
+        <div id="player"></div>
+        <div id="goal"></div>
+    </div>
+</div>
        <div id="webcamIcon" class="icon" style="top: 100px; left: 100px;" onclick="openPopup('webcamPopup')">
     <img src="path/to/webcam-icon.png" alt="Webcam">
     <div id="webcam-label">Webcam</div>
@@ -444,6 +453,7 @@
 <script src="scripts/browser.js"></script>
 <script src="scripts/webcam.js"></script>
 <script src="scripts/paint.js"></script>
+<script src="scripts/maze.js"></script>
 <script src="scripts/network-detection.js"></script>
     <script>
         document.querySelector('.start-menu').addEventListener('click', function() {
