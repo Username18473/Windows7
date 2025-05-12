@@ -51,3 +51,4 @@ function closePopup(popupId) {
 
     document.getElementById('screenshot-button').addEventListener('click', takeScreenshot);
     document.getElementById('remove-screenshot-button').addEventListener('click', removeScreenshot);
+document.querySelector('#webcamIcon').addEventListener('click', openWebcamApp);
