@@ -525,11 +525,19 @@
 <script src="scripts/network-detection.js"></script>
     <script>
         document.querySelector('.start-menu').addEventListener('click', function() {
-            const defaultImg = this.querySelector('img.default');
-            const clickedImg = this.querySelector('img.clicked');
-            defaultImg.style.display = 'none';
-            clickedImg.style.display = 'block';
-        });
+    const defaultImg = this.querySelector('img.default');
+    const clickedImg = this.querySelector('img.clicked');
+
+    const isDefaultVisible = defaultImg.style.display !== 'none';
+
+    if (isDefaultVisible) {
+        defaultImg.style.display = 'none';
+        clickedImg.style.display = 'block';
+    } else {
+        defaultImg.style.display = 'block';
+        clickedImg.style.display = 'none';
+    }
+});
         
 function openPopup(popupId) {
     const popup = document.getElementById(popupId);
