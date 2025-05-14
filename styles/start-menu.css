@@ -34,7 +34,7 @@
     bottom: 45px;
     width: 270px;
     height: 400px;
-    background-color: lightgray; /* Temporarily for testing */
+    background-color: transparent; /* Temporarily for testing */
     background-image: url('path/to/start_menu.png') !important;
     background-size: cover;
     background-position: center;
