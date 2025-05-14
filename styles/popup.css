@@ -5,6 +5,8 @@
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
     width: 400px;
+    max-height: 80vh; /* Ensure the popup doesn't exceed 80% of viewport height */
+    min-height: 100px; /* Minimum height for small content */
     padding: 20px;
     background-color: white;
     border: 1px solid #ccc;
@@ -12,7 +14,7 @@
     display: none;
     transition: opacity 0.3s ease, visibility 0.3s ease;
     z-index: 1000;
-    overflow: auto;
+    overflow: auto; /* Enable scrolling for large content */
 }
 
 .popup.active {
@@ -26,7 +28,7 @@
     background: linear-gradient(to right, rgba(180, 200, 255, 0.6), rgba(120, 140, 255, 0.6));
     color: #fff;
     padding: 10px;
-    cursor: move;
+    cursor: move; /* Indicates draggable functionality */
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
