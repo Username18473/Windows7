@@ -191,8 +191,8 @@
     align-items: center;
     justify-content: center;
     flex-direction: column; /* Icon above text */
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 30px;
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
     border-radius: 5px;
@@ -200,14 +200,13 @@
 }
 
 .taskbar-button img {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
 }
 
 .taskbar-button:hover {
-    background-color: rgba(0, 0, 255, 0.2); /* Light blue hover effect */
-    border: 2px solid rgba(0, 0, 255, 0.5);
-    transform: scale(1.1); /* Slight zoom on hover */
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    transform: scale(1.05); /* Slight zoom on hover */
 }
   </style>
     <body>
@@ -368,12 +367,12 @@
     </div>
      <div class="taskbar-buttons">
         <div class="taskbar-button" onclick="openPopup('NotepadPopup')">
-            <img src="path/to/notepad-icon.png" alt="Notepad">
+            <img src="path/to/note-icon.png" alt="Notepad">
         </div>
         <div class="taskbar-button" onclick="openPopup('MediaPlayerPopup')">
             <img src="path/to/media-icon.png" alt="Media Player">
         </div>
-        <div class="taskbar-button" onclick="openPopup('BrowserPopup')">
+        <div class="taskbar-button" onclick="showBrowser()">
             <img src="path/to/browser-icon.png" alt="Browser">
         </div>
     </div>
