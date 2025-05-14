@@ -1,4 +1,7 @@
 .start-menu {
+    border: none;
+    outline: none;
+    box-shadow: none;
     background-color: transparent;
     display: flex;
     justify-content: center;
