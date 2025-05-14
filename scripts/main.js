@@ -88,3 +88,34 @@ document.addEventListener('DOMContentLoaded', function () {
         alert('Start menu browser link element not found.');
     }
 });
+
+const popup = document.querySelector('.popup');
+
+function adjustPopupSize() {
+    const contentHeight = popup.querySelector('.content').scrollHeight;
+    popup.style.height = contentHeight > 400 ? '400px' : `${contentHeight}px`;
+    popup.style.overflowY = contentHeight > 400 ? 'auto' : 'hidden';
+}
+
+adjustPopupSize();
+
+const popup = document.querySelector('.popup');
+const header = popup.querySelector('header');
+
+header.addEventListener('mousedown', (e) => {
+    let offsetX = e.clientX - popup.offsetLeft;
+    let offsetY = e.clientY - popup.offsetTop;
+
+    function mouseMoveHandler(e) {
+        popup.style.left = `${e.clientX - offsetX}px`;
+        popup.style.top = `${e.clientY - offsetY}px`;
+    }
+
+    function mouseUpHandler() {
+        document.removeEventListener('mousemove', mouseMoveHandler);
+        document.removeEventListener('mouseup', mouseUpHandler);
+    }
+
+    document.addEventListener('mousemove', mouseMoveHandler);
+    document.addEventListener('mouseup', mouseUpHandler);
+});
