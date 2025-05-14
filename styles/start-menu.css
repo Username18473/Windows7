@@ -24,21 +24,21 @@
             display: none;
         }
 
-        .start-menu-content {
-            z-index: 9999;
-            display: block;
-            border: none;
-            outline: none;
-            box-shadow: none;
-            position: absolute;
-            bottom: 45px;
-            width: 270px;
-            height: 400px;
-            background-image: url('path/to/start_menu.png') !important;
-            background-size: cover; /* Ensures the image covers the area */
-            background-position: center; /* Centers the image */
-            background-color: transparent; /* ✅ In case image is styled */
-        }
+       .start-menu-content {
+    z-index: 9999;
+    display: block;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    position: absolute;
+    bottom: 45px;
+    width: 270px;
+    height: 400px;
+    background-color: lightgray; /* Temporarily for testing */
+    background-image: url('path/to/start_menu.png') !important;
+    background-size: cover;
+    background-position: center;
+}
 
         .start-menu-content ul {
             list-style: none;
