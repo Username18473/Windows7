@@ -47,6 +47,7 @@ function applyLanguage(lang) {
             Media: "Media Player",
             Notes: "Notepad",
             Internet: "Internet Explorer",
+            Maze: "Maze",
         },
         fr: {
             myComputer: "Ordinateur",
@@ -57,6 +58,7 @@ function applyLanguage(lang) {
             Media: "Lecteur multimédia",
             Notes: "Bloc-notes",
             Internet: "Internet Explorer",
+            Maze: "Labyrinthe",
         },
         es: {
             myComputer: "PC",
@@ -65,8 +67,9 @@ function applyLanguage(lang) {
             webcam: "Cámara web",
             paint: "pintar",
             Media: "Reproductor multimedia",
-            Notes: "Bloc",
+            Notes: "Bloc de notas",
             Internet: "Internet Explorer",
+            Maze: "Laberinto",
         },
         zh: {
             myComputer: "的电脑",
@@ -75,8 +78,9 @@ function applyLanguage(lang) {
             webcam: "网络摄像头",
             paint: "漆",
             Media: "媒体播放器",
-            Notes: "集团",
+            Notes: "记事本",
             Internet: "IE浏览器",
+            Maze: "迷宫",
         }
     };
 
@@ -90,6 +94,7 @@ function applyLanguage(lang) {
     document.getElementById('media-player-label').textContent = t.Media;
     document.getElementById('notepad-label').textContent = t.Notes;
     document.getElementById('ie-label').textContent = t.Internet;
+    document.getElementById('Maze-label').textContent = t.Maze;
 }
    
     document.getElementById('save-language-timezone').addEventListener('click', () => {
