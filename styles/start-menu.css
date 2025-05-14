@@ -20,20 +20,12 @@
             display: block;
         }
 
-        .start-menu img.hover, .start-menu img.clicked {
+        .start-menu img.clicked {
             display: none;
-        }
-
-        .start-menu:hover img.default {
-            display: none;
-        }
-
-        .start-menu:hover img.hover {
-            display: block;
         }
 
         .start-menu-content {
-            display: none;
+            display: block;
             position: absolute;
             bottom: 45px;
             width: 270px;
