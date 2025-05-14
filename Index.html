@@ -179,6 +179,36 @@
     border: 2px solid rgba(0, 0, 255, 0.5); /* Specific border for webcam icon */
     border-radius: 5px;
 }
+
+.taskbar-buttons {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+    margin-left: 10px;
+}
+
+.taskbar-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; /* Icon above text */
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+.taskbar-button img {
+    width: 30px;
+    height: 30px;
+}
+
+.taskbar-button:hover {
+    background-color: rgba(0, 0, 255, 0.2); /* Light blue hover effect */
+    border: 2px solid rgba(0, 0, 255, 0.5);
+    transform: scale(1.1); /* Slight zoom on hover */
+}
   </style>
     <body>
 </head>
@@ -336,6 +366,17 @@
         <img src="path/to/start-button-hover-icon.png" alt="Start Menu" class="hover">
         <img src="path/to/start-button-clicked-icon.png" alt="Start Menu" class="clicked">
     </div>
+     <div class="taskbar-buttons">
+        <div class="taskbar-button" onclick="openPopup('NotepadPopup')">
+            <img src="path/to/notepad-icon.png" alt="Notepad">
+        </div>
+        <div class="taskbar-button" onclick="openPopup('MediaPlayerPopup')">
+            <img src="path/to/media-icon.png" alt="Media Player">
+        </div>
+        <div class="taskbar-button" onclick="openPopup('BrowserPopup')">
+            <img src="path/to/browser-icon.png" alt="Browser">
+        </div>
+    </div>
     <div class="network-status" style="width: 30px; height: 30px">
         <img src="path/to/signal-full.png" alt="Network Signal" id="network-icon">
     </div>
@@ -480,4 +521,17 @@ function closePopup(popupId) {
         popup.style.display = 'none'; // Hide the popup
     }
 }
+
+// Example function to toggle taskbar button active state
+document.querySelectorAll('.taskbar-button').forEach(button => {
+    button.addEventListener('click', function() {
+        // Remove active state from other buttons
+        document.querySelectorAll('.taskbar-button').forEach(btn => {
+            btn.classList.remove('active');
+        });
+
+        // Add active state to the clicked button
+        this.classList.add('active');
+    });
+});
     </script>
