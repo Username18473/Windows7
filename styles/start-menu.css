@@ -1,7 +1,7 @@
 .start-menu {
     width: 70px;
     height: 100%;
-    color: white;
+    background-color: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
