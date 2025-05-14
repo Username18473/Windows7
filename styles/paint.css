@@ -21,9 +21,9 @@
 }
 
 .color-square {
-  width: 25px;
-  height: 25px;
-  margin: 0 3px;
+  width: 10px;
+  height: 10px;
+  margin: 0 2px;
   border: 1px solid #ccc;
   cursor: pointer;
 }
