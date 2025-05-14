@@ -530,17 +530,4 @@ function closePopup(popupId) {
         popup.style.display = 'none'; // Hide the popup
     }
 }
-
-// Example function to toggle taskbar button active state
-document.querySelectorAll('.taskbar-button').forEach(button => {
-    button.addEventListener('click', function() {
-        // Remove active state from other buttons
-        document.querySelectorAll('.taskbar-button').forEach(btn => {
-            btn.classList.remove('active');
-        });
-
-        // Add active state to the clicked button
-        this.classList.add('active');
-    });
-});
     </script>
