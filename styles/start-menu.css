@@ -4,7 +4,7 @@
     border: none;
     outline: none;
     box-shadow: none;
-    background-color: transparent;
+    background-color: red;
     display: flex;
     justify-content: center;
     align-items: center;
