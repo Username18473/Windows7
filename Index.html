@@ -196,7 +196,6 @@
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
     border-radius: 2px;
-    transition: all 0.2s ease-in-out;
 }
 
 .taskbar-button img {
@@ -205,8 +204,7 @@
 }
 
 .taskbar-button:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
-    transform: scale(1.05); /* Slight zoom on hover */
+    background-color: rgba(192, 192, 192, 0.2); /* Semi-transparent background */
 }
   </style>
     <body>
@@ -376,14 +374,18 @@
             <img src="path/to/media-icon.png" alt="Media Player">
         </div>
          <div class="taskbar-button" onclick="openPopup('NotepadPopup')">
-            <img src="path/to/note-icon.png" alt=Notepad">
+            <img src="path/to/note-icon.png" alt="Notepad">
         </div>
          <div class="taskbar-button" onclick="openPopup('PaintPopup')">
-            <img src="path/to/paint-icon.png" alt=Paint">
+            <img src="path/to/paint-icon.png" alt="Paint">
+        </div>         
+         <div class="taskbar-button" onclick="openWebcamApp()">
+            <img src="path/to/webcam-icon.png" alt="Webcam">
+         </div>
+          <div class="taskbar-button" onclick="openPopup('MazePopup')">
+            <img src="path/to/maze-icon.png" alt="Maze">
         </div>
-         <div class="taskbar-button" onclick="openPopup('MazePopup')">
-            <img src="path/to/maze-icon.png" alt=Maze">
-        </div>
+
     </div>
     <div class="network-status" style="width: 30px; height: 30px">
         <img src="path/to/signal-full.png" alt="Network Signal" id="network-icon">
