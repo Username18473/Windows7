@@ -4,7 +4,7 @@
     border: none;
     outline: none;
     box-shadow: none;
-    background-color: red;
+    background-color: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,15 +25,19 @@
         }
 
         .start-menu-content {
+            z-index: 9999;
             display: block;
+            border: none;
+            outline: none;
+            box-shadow: none;
             position: absolute;
             bottom: 45px;
             width: 270px;
             height: 400px;
-            background-image: url('path/to/Login.png') !important;
+            background-image: url('path/to/start_menu.png') !important;
             background-size: cover; /* Ensures the image covers the area */
             background-position: center; /* Centers the image */
-          background-color: transparent; /* ✅ In case image is styled */
+            background-color: transparent; /* ✅ In case image is styled */
         }
 
         .start-menu-content ul {
