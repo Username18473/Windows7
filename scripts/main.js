@@ -65,38 +65,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const startMenuBrowserLink = document.getElementById('startMenuBrowserLink');
     startMenuBrowserLink?.addEventListener('click', showBrowser);
-
-    const popup = document.querySelector('.popup');
-    if (popup) {
-        const adjustPopupSize = () => {
-            const contentHeight = popup.querySelector('.content')?.scrollHeight || 0;
-            popup.style.height = contentHeight > 400 ? '400px' : `${contentHeight}px`;
-            popup.style.overflowY = contentHeight > 400 ? 'auto' : 'hidden';
-        };
-
-        new MutationObserver(adjustPopupSize).observe(popup.querySelector('.content'), { childList: true, subtree: true });
-
-        adjustPopupSize();
-
-        const header = popup.querySelector('header');
-        if (header) {
-            header.addEventListener('pointerdown', (e) => {
-                let offsetX = e.clientX - popup.offsetLeft;
-                let offsetY = e.clientY - popup.offsetTop;
-
-                function mouseMoveHandler(e) {
-                    popup.style.left = `${e.clientX - offsetX}px`;
-                    popup.style.top = `${e.clientY - offsetY}px`;
-                }
-
-                function mouseUpHandler() {
-                    document.removeEventListener('pointermove', mouseMoveHandler);
-                    document.removeEventListener('pointerup', mouseUpHandler);
-                }
-
-                document.addEventListener('pointermove', mouseMoveHandler);
-                document.addEventListener('pointerup', mouseUpHandler);
-            });
-        }
-    }
-});
