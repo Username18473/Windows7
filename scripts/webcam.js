@@ -43,7 +43,7 @@ function closePopup(popupId) {
             if (stream) {
                 const tracks = stream.getTracks();
                 tracks.forEach(track => track.stop()); // Stop all tracks
-                videoElement.srcObject = null;
+                const stream = await navigator.mediaDevices.getUserMedia({ video: false })
             }
         }
     }
