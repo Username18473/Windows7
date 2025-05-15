@@ -134,7 +134,7 @@
 .network-status img {
     width: 50px;
     height: 50px;
-    margin-left: -200px;
+    margin-left: -100px;
     margin-top: -13px;
     display: block;
 }
@@ -275,15 +275,16 @@
             <div id="Maze-label">Maze</div>
         </div>
           <div class="popup" id="MazePopup">
-    <header>
-        <h2>Maze</h2>
-        <button class="close-button" onclick="closePopup('MazePopup')">X</button>
-        <header>
-         <div class="content">
-         <div id="maze">
-        <div id="player"></div>
-        <div id="goal"></div>
+  <header>
+    <h2>Maze</h2>
+    <button class="close-button" onclick="closePopup('MazePopup')">X</button>
+  </header>
+  <div class="content">
+    <div id="maze">
+      <div id="player"></div>
+      <div id="goal"></div>
     </div>
+  </div>
 </div>
        <div id="webcamIcon" class="icon" style="top: 100px; left: 100px;" onclick="openPopup('webcamPopup')">
     <img src="path/to/webcam-icon.png" alt="Webcam">
