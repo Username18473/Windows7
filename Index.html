@@ -154,37 +154,31 @@
     color: black;
     font-family: Arial, sans-serif;
 }
-
 #mediaPlayerIcon:hover {
     background-color: rgba(0, 0, 255, 0.2);
     border: 2px solid rgba(0, 0, 255, 0.5);
     border-radius: 5px;
 }
-
 .start-menu-item {
     position: relative;
     margin-top: 10px; /* Adjust the value as needed */
 }
-
 .start-menu-item:hover {
     background-color: rgba(0, 0, 255, 0.2); /* Light blue background */
     border: 2px solid rgba(0, 0, 255, 0.5); /* Light blue border */
     border-radius: 5px; /* Optional: Add border radius for aesthetics */
     transition: background-color 0.3s ease, border 0.3s ease; /* Smooth transition */
 }
-
         #webcamIcon:hover {
     background-color: rgba(0, 0, 255, 0.2); /* Add specific hover effect */
     border: 2px solid rgba(0, 0, 255, 0.5); /* Specific border for webcam icon */
     border-radius: 5px;
 }
-
 .taskbar-buttons {
     display: flex;
     gap: 5px; /* Space between buttons */
     margin-left: 60px;
 }
-
 .taskbar-button {
     display: flex;
     align-items: center;
@@ -196,16 +190,13 @@
     background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
     border-radius: 2px;
 }
-
 .taskbar-button img {
     width: 30px;
     height: 30px;
 }
-
 .taskbar-button:hover {
     background-color: rgba(192, 192, 192, 0.2); /* Semi-transparent background */
 }
-
  .start-menu-content {
     z-index: 9999;
     display: block;
@@ -221,7 +212,6 @@
     background-size: cover;
     background-position: center;
 }
-
  #maze {
             position: relative;
             width: 420px;
@@ -232,26 +222,38 @@
             background-size: cover; 
             background-position: center;
         }
-
         #player, #goal {
             position: absolute;
             width: 15px;
             height: 15px;
         }
-
         #player {
             background: red;
         }
-
         #goal {
             background: green;
         }
-
         .wall {
             position: absolute;
             background-image: url('Maze/wall.png');
             background-size: cover;
         }
+        .myPCPopup.popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    width: 400px;
+    height: 325px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+}
   </style>
     <body>
 </head>
