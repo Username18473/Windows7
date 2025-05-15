@@ -77,8 +77,6 @@
     -webkit-transform: translate(-50%, -50%);
     width: 400px;
     height: 325px;
-    max-height: 80vh; /* Ensure the popup doesn't exceed 80% of viewport height */
-    min-height: 100px; /* Minimum height for small content */
     padding: 20px;
     background-color: white;
     border: 1px solid #ccc;
