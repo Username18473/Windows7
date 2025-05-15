@@ -221,6 +221,37 @@
     background-size: cover;
     background-position: center;
 }
+
+ #maze {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin: 20px auto;
+            border: 3px solid black;
+            background-image: url('Maze/floor.png');
+            background-size: cover; 
+            background-position: center;
+        }
+
+        #player, #goal {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+        }
+
+        #player {
+            background: red;
+        }
+
+        #goal {
+            background: green;
+        }
+
+        .wall {
+            position: absolute;
+            background-image: url('Maze/wall.png');
+            background-size: cover;
+        }
   </style>
     <body>
 </head>
