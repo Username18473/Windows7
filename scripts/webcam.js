@@ -37,13 +37,14 @@ function closePopup(popupId) {
     const popup = document.getElementById(popupId);
     if (popup) {
         popup.style.display = 'none'; // Hide the popup
+        const stream = await navigator.mediaDevices.getUserMedia({ video: false })
         if (popupId === 'webcamPopup') {
             const videoElement = document.getElementById('webcam');
             const stream = videoElement.srcObject;
             if (stream) {
                 const tracks = stream.getTracks();
                 tracks.forEach(track => track.stop()); // Stop all tracks
-                const stream = await navigator.mediaDevices.getUserMedia({ video: false })
+                 videoElement.srcObject = null;
             }
         }
     }
