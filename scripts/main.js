@@ -60,7 +60,7 @@ function makeElementDraggable(element) {
 }
 
 makeElementDraggable(document.getElementById('browser'));
-document.querySelectorAll('.popup.header').forEach(makeElementDraggable);
+document.querySelectorAll('.popup').forEach(makeElementDraggable);
 
 
 function showBrowser() {
@@ -73,20 +73,3 @@ function showBrowser() {
         alert('Browser element not found. Ensure the element with ID "browser" exists.');
     }
 }
-
-// Attach event listeners after the DOM has loaded
-document.addEventListener('DOMContentLoaded', function () {
-    const browserIcon = document.getElementById('browserIcon');
-    if (browserIcon) {
-        browserIcon.addEventListener('click', showBrowser);
-    } else {
-        alert('Browser icon element not found.');
-    }
-
-    const startMenuBrowserLink = document.getElementById('startMenuBrowserLink');
-    if (startMenuBrowserLink) {
-        startMenuBrowserLink.addEventListener('click', showBrowser);
-    } else {
-        alert('Start menu browser link element not found.');
-    }
-});
