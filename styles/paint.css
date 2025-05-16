@@ -45,13 +45,15 @@
   transform: scale(1.2);
 }
 
+#canvas-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
 canvas {
-  width: 200px;
-  height: 200px;
-  display: block;
-  margin: 0 auto;
   border: 1px solid #000;
   background-color: white;
-  max-width: 100%; /* Optional: make canvas responsive */
-  height: auto;
 }
