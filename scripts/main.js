@@ -73,10 +73,3 @@ function showBrowser() {
         alert('Browser element not found. Ensure the element with ID "browser" exists.');
     }
 }
-
-function OpenNetwork() {
-    const Network = document.getElementById('network-tray');
-    if (Network) {
-        Network.style.display = (Network.style.display === 'none' || Network.style.display === '') ? 'block' : 'none';
-    }
-}
