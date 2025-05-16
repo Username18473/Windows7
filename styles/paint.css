@@ -1,18 +1,29 @@
-
 #toolbar {
   display: flex;
   padding: 10px;
   background-color: #f4f4f4;
   border-bottom: 1px solid #ccc;
   align-items: center;
+  position: sticky; /* Keeps the toolbar on top when scrolling */
+  top: 0;
+  z-index: 999;
 }
 
 .button {
-  border: 1px solid #ccc;
+  border:   solid #ccc;
   background-color: #e6e6e6;
   margin-right: 5px;
   padding: 5px 10px;
   cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.button:hover {
+  background-color: #dcdcdc;
+}
+
+.button:active {
+  background-color: #bbb;
 }
 
 .color-palette {
@@ -26,14 +37,21 @@
   margin: 0 2px;
   border: 1px solid #ccc;
   cursor: pointer;
+  transition: transform 0.2s ease, border 0.2s ease;
+}
+
+.color-square.selected {
+  border: 2px solid black;
+  transform: scale(1.2);
 }
 
 canvas {
-  align-items: center;
   width: 200px;
   height: 200px;
   display: block;
   margin: 0 auto;
   border: 1px solid #000;
   background-color: white;
+  max-width: 100%; /* Optional: make canvas responsive */
+  height: auto;
 }
