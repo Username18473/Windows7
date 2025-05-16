@@ -23,11 +23,9 @@
 
 .popup header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     background: linear-gradient(to right, rgba(180, 200, 255, 0.6), rgba(120, 140, 255, 0.6));
     color: #fff;
-    padding: 10px;
     cursor: move; /* Indicates draggable functionality */
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     border-top-left-radius: 6px;
