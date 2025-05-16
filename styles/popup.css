@@ -32,6 +32,7 @@
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .popup header h2 {
@@ -67,21 +68,4 @@
         width: 90%;
         padding: 10px;
     }
-}
-
-.myPCPopup.popup {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    width: 400px;
-    height: 325px;
-    padding: 20px;
-    background-color: white;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    display: none;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    z-index: 1000;
 }
