@@ -374,20 +374,22 @@
     <div id="paint-label">Paint</div>
 </div>
 <div class="popup" id="PaintPopup">
-    <header>
-        <h2>Paint</h2>
-    </header>
+  <header>
+    <h2>Paint</h2>
     <button class="close-button" onclick="closePopup('PaintPopup')">X</button>
-    <div class="content">
-        <div id="toolbar">
-            <div class="button" onclick="changeTool('brush')">Brush</div>
-            <div class="button" onclick="clearCanvas()">Clear</div>
-            <div class="color-palette" id="colorPalette">
-                <!-- Colors will be dynamically generated here -->
-            </div>
-        </div>
-        <canvas id="paintCanvas"></canvas>
+  </header>
+  <div class="content">
+    <div id="toolbar">
+      <div class="button" onclick="changeTool('brush')">Brush</div>
+      <div class="button" onclick="clearCanvas()">Clear</div>
+      <div class="color-palette" id="colorPalette">
+        <!-- Colors will be dynamically generated here -->
+      </div>
     </div>
+    <div id="canvas-container">
+      <canvas id="paintCanvas" width="200" height="200"></canvas>
+    </div>
+  </div>
 </div>
 <div class="icon" style="top: 100px; left: 260px;" onclick="openPopup('NotepadPopup')">
     <img src="path/to/note-icon.png" alt="Notepad">
