@@ -14,7 +14,7 @@
     display: none;
     transition: opacity 0.3s ease, visibility 0.3s ease;
     z-index: 1000;
-    overflow: auto; /* Enable scrolling for large content */
+    overflow: hidden; /* Enable scrolling for large content */
 }
 
 .popup.active {
@@ -23,6 +23,7 @@
 
 .popup header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     background: linear-gradient(to right, rgba(180, 200, 255, 0.6), rgba(120, 140, 255, 0.6));
     color: #fff;
@@ -30,6 +31,7 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
+    width: 100%;
 }
 
 .popup header h2 {
