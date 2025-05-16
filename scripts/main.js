@@ -60,6 +60,7 @@ function makeElementDraggable(element) {
 }
 
 makeElementDraggable(document.getElementById('browser'));
+document.querySelectorAll('.popup').forEach(makeElementDraggable);
 
 function showBrowser() {
     const browser = document.getElementById('browser');
