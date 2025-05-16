@@ -29,19 +29,19 @@
 }
 
 .network-tray {
-    display: none;
-    width: 400px;
-    background: linear-gradient(to bottom, #d9e6f7, #a3c1e2);
-    border: 2px solid #004b8d;
-    border-radius: 6px;
-    padding: 15px;
-    font-family: "Segoe UI", Tahoma, sans-serif;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    padding: 8px;
+    background: linear-gradient(to right, #f2f2f2, #d6d6d6);
+    border: 1px solid #a0a0a0;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.network {
-    font-size: 18px;
-    font-weight: bold;
-    color: #004b8d;
-    text-align: center;
+.network-tray #connect {
+    font-size: 12px;
+    color: black;
+    margin-left: 10px;
 }
+
