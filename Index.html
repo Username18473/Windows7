@@ -132,9 +132,9 @@
 }
 
 .network-status img {
-    width: 70px;
-    height: 70px;
-    margin-left: -240px;
+    width: 50px;
+    height: 50px;
+    margin-left: -120px;
     margin-top: -13px;
     display: block;
 }
@@ -436,10 +436,11 @@
           <div class="taskbar-button" onclick="openPopup('MazePopup')">
             <img src="path/to/maze-icon.png" alt="Maze">
         </div>
+
     </div>
-  <button onclick="OpenNetwork()" style="border: none; background: none; padding: 0; cursor: pointer;">
-      <img src="path/to/signal-full.png" alt="Network Signal" id="network-icon" style="width: 30px; height: 30px;">
-        </button>
+    <div class="network-status" style="width: 30px; height: 30px">
+        <img src="path/to/signal-full.png" alt="Network Signal" id="network-icon">
+    </div>
 </div>
          <div class="start-menu-content" id="start-menu">
                  <ul> 
@@ -492,6 +493,7 @@
                 </button>
                 <input id="url-bar" type="text" placeholder="Enter URL">
                 <button onclick="loadPage()">Go</button>
+                <button onclick="IframeFullscreen()">☐</button>
                 <button class="close-button" onclick="closeBrowser()">X</button>
             </header>
             <iframe id="webview" src="https://www.google.com/?igu=1"></iframe>
