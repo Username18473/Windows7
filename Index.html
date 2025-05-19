@@ -471,10 +471,13 @@
   <img src="path/to/webcam-icon.png" alt="Webcam Button" style="width: 30px; height: 30px; margin-right: 8px;">
   <span id="webcam-label"style="font-size: 12px; color: black;">Webcam</span>
 </button>     
-                    <button id="startMenuLogoffLink" class="start-menu-item" onclick="logoff()" style="border: none; background: none; padding: 0; display: flex; align-items: center; cursor: pointer;">
-  <img src="path/to/Logout2.png" alt="Logoff Button" style="width: 30px; height: 30px; margin-right: 8px;">
-  <span style="font-size: 12px; color: black;">Log off</span>
-</button>
+                    <form id="power-form">
+    <select id="power-option" name="power">
+        <option value="">Select an action</option>
+        <option value="shutdown">Shutdown</option>
+        <option value="logoff">Logoff</option>
+        <option value="switch-user">Switch User</option>
+    </select>
                  </ul>
              </div>
              <div class="time-container">
