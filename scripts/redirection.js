@@ -4,7 +4,7 @@ document.getElementById("power-option").addEventListener("change", function() {
     if (action === "logoff" || action === "switch-user") {
         logoff();
     } else if (action === "shutdown") {
-        window.close();
+        window.location.href = "about:blank";
     }
 });
 
