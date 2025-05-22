@@ -23,7 +23,6 @@
             --background-image: url('path/to/Harmony.png');
             --taskbar-color: rgba(255, 255, 255, 0.5); 
         }
-
         body {
             margin: 0;
             background: var(--background-image) no-repeat center center fixed;
@@ -31,7 +30,6 @@
             color: white;
             font-family: Arial, sans-serif;
         }
-
         .header {
             background: rgba(34, 34, 34, 0.7);
             color: white;
@@ -41,33 +39,27 @@
             border-bottom: 1px solid #ccc;
             cursor: move; 
         }
-
         .header a {
             color: white;
             margin: 0 1em;
             text-decoration: none;
         }
-
         .header a:hover {
             text-decoration: underline;
         }
-
         .desktop {
             width: 100%;
            min-height: 100vh;
         }
-
         .time {
     margin-left: auto;
     padding-right: 18px;
     margin-top: 0px; 
 }
-
 .date {
     padding-right: 10px;
     margin-top: 2px; 
 }
-        
         .icon {
             position: absolute;
             width: 50px;
@@ -76,12 +68,10 @@
             top: 20px;
             left: 20px;
         }
-
         .icon img {
             max-width: 100%;
             max-height: 100%;
         }
-
       .time-container {
     position: absolute;
     bottom: 5px;
@@ -95,18 +85,15 @@
     margin-top: -13px;
     display: block;
 }
-
 .content {
     display: flex;
     align-items: center;
 }
-
 .header-image {
     width: 60px;
     height: 60px;
     margin-right: 10px; /* Adds spacing between the image and text */
 }
-
 #header-text {
     color: black;
     font-family: Arial, sans-serif;
@@ -353,7 +340,6 @@
           <div class="taskbar-button" onclick="openPopup('MazePopup')">
             <img src="path/to/maze-icon.png" alt="Maze">
         </div>
-
     </div>
     <div class="network-status" style="width: 30px; height: 30px">
         <img src="path/to/signal-full.png" alt="Network Signal" id="network-icon">
@@ -488,9 +474,7 @@
         document.querySelector('.start-menu').addEventListener('click', function() {
     const defaultImg = this.querySelector('img.default');
     const clickedImg = this.querySelector('img.clicked');
-
     const isDefaultVisible = defaultImg.style.display !== 'none';
-
     if (isDefaultVisible) {
         defaultImg.style.display = 'none';
         clickedImg.style.display = 'block';
@@ -498,8 +482,7 @@
         defaultImg.style.display = 'block';
         clickedImg.style.display = 'none';
     }
-});
-        
+});  
 function openPopup(popupId) {
     const popup = document.getElementById(popupId);
     if (popup) {
@@ -508,7 +491,6 @@ function openPopup(popupId) {
         alert(`Popup with ID '${popupId}' not found.`);
     }
 }
-
 function closePopup(popupId) {
     const popup = document.getElementById(popupId);
     if (popup) {
