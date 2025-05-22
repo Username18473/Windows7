@@ -15,11 +15,11 @@ function togglePlayPause() {
 
     if (media.paused) {
         media.play();
-        playPauseIcon.src = "stop-icon.png"; // Ensure file exists
+        playPauseIcon.src = "mediaplayer/stop-icon.png"; // Ensure file exists
         playPauseIcon.alt = "Stop";
     } else {
         media.pause();
-        playPauseIcon.src = "play-icon.png"; // Ensure file exists
+        playPauseIcon.src = "mediaplayer/play-icon.png"; // Ensure file exists
         playPauseIcon.alt = "Play";
     }
 }
