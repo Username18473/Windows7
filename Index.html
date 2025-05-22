@@ -146,6 +146,31 @@
     background-size: cover;
     background-position: center;
 }
+#battery-status {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    color: white;
+    font-family: Segoe UI, sans-serif;
+    font-size: 24px;
+}
+
+#battery-icon {
+    margin-right: 10px;
+}
+
+#tray-box {
+    position: absolute;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+    font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    color: #333;
+}
   </style>
     <body>
 </head>
@@ -372,6 +397,13 @@
         </form>
     </div>
 </div>
+    <div class="taskbar">
+    <div id="battery-status">
+        <img id="battery-icon" src="path/to/battery-image.png" width="20" height="25" />
+        <span id="battery-level">100%</span>
+    </div>
+</div>
+<div id="tray-box">Battery: 100%</div>
 <div class="time-container">
     <div class="time" id="time">23:17</div>
     <div class="date" id="date">03/19/25</div>
