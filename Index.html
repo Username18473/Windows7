@@ -131,6 +131,21 @@
             background-image: url('Maze/wall.png');
             background-size: cover;
         }
+     .start-menu-content {
+    z-index: 9999;
+    display: block;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    position: absolute;
+    bottom: 45px;
+    width: 270px;
+    height: 400px;
+    background-color: transparent; /* Temporarily for testing */
+    background-image: url('path/to/start_menu.png') !important;
+    background-size: cover;
+    background-position: center;
+}
   </style>
     <body>
 </head>
@@ -388,14 +403,14 @@
     <div id="popup" class="controlPanelPopup">
         <div class="popup-content">
             <div id="wallpaper-selection" style="display: flex; gap: 10px; flex-wrap: wrap; padding-top: 10px;">
-                <button style="border: none; background: none; padding: 0; cursor: pointer;" onclick="setWallpaper('wallpaper1.jpg')">
-                    <img src="wallpaper1.jpg" alt="Wallpaper 1" class="wallpaper" data-wallpaper="wallpaper1.jpg">
+                <button style="border: none; background: none; padding: 0; cursor: pointer;" onclick="setWallpaper('wallpapers/wallpaper1.jpg')">
+                    <img src="wallpapers/wallpaper1.jpg" alt="Wallpaper 1" class="wallpaper" data-wallpaper="wallpapers/wallpaper1.jpg">
                 </button>
-                <button style="border: none; background: none; padding: 0; cursor: pointer;" onclick="setWallpaper('wallpaper2.jpg')">
-                    <img src="wallpaper2.jpg" alt="Wallpaper 2" class="wallpaper" data-wallpaper="wallpaper2.jpg">
+                <button style="border: none; background: none; padding: 0; cursor: pointer;" onclick="setWallpaper('wallpapers/wallpaper2.jpg')">
+                    <img src="wallpapers/wallpaper2.jpg" alt="Wallpaper 2" class="wallpaper" data-wallpaper="wallpapers/wallpaper2.jpg">
                 </button>
-                <button style="border: none; background: none; padding: 0; cursor: pointer;" onclick="setWallpaper('wallpaper3.jpg')">
-                    <img src="wallpaper3.jpg" alt="Wallpaper 3" class="wallpaper" data-wallpaper="wallpaper3.jpg">
+                <button style="border: none; background: none; padding: 0; cursor: pointer;" onclick="setWallpaper('wallpapers/wallpaper3.jpg')">
+                    <img src="wallpapers/wallpaper3.jpg" alt="Wallpaper 3" class="wallpaper" data-wallpaper="wallpapers/wallpaper3.jpg">
                 </button>
                 <button style="border: none; background: none; padding: 0; cursor: pointer;" onclick="setWallpaper('path/to/Harmony.png')">
                     <img src="path/to/Harmony.png" alt="Default" class="wallpaper" data-wallpaper="path/to/Harmony.png">
