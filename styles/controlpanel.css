@@ -1,0 +1,42 @@
+        #control-panel {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: none;
+            overflow: hidden;
+        }
+
+        #control-panel button {
+            margin: 5px;
+            padding: 5px;
+        }
+
+        .icon:hover {
+            background-color: rgba(0, 0, 255, 0.2);
+            border: 2px solid rgba(0, 0, 255, 0.5);
+            border-radius: 5px;
+        }
+
+        .wallpaper {
+    width: 100px; /* Thumbnail size */
+    height: auto;
+    border: 2px solid transparent;
+    transition: transform 0.2s, border-color 0.2s; /* Smooth hover effect */
+}
+
+.wallpaper:hover {
+    transform: scale(1.1); /* Zoom effect on hover */
+    border-color: #007BFF; /* Highlight border */
+}
+
+.control-panel-content {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: black;
+}
