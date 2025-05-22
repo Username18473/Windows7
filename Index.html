@@ -17,6 +17,7 @@
      <link rel="stylesheet" href="styles/paint.css">
     <link rel="stylesheet" href="styles/notepad.css">
     <link rel="stylesheet" href="styles/maze.css">
+     <link rel="stylesheet" href="styles/controlpanel.css">
     <style>
         :root {
             --background-image: url('path/to/Harmony.png');
@@ -87,50 +88,6 @@
     right: 20px;
     text-align: right;
 }
-        
-        #control-panel {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 400px;
-            padding: 20px;
-            background-color: white;
-            border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            display: none;
-            overflow: hidden;
-        }
-
-        #control-panel button {
-            margin: 5px;
-            padding: 5px;
-        }
-
-        .icon:hover {
-            background-color: rgba(0, 0, 255, 0.2);
-            border: 2px solid rgba(0, 0, 255, 0.5);
-            border-radius: 5px;
-        }
-
-        .wallpaper {
-    width: 100px; /* Thumbnail size */
-    height: auto;
-    border: 2px solid transparent;
-    transition: transform 0.2s, border-color 0.2s; /* Smooth hover effect */
-}
-
-.wallpaper:hover {
-    transform: scale(1.1); /* Zoom effect on hover */
-    border-color: #007BFF; /* Highlight border */
-}
-
-.control-panel-content {
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    color: black;
-}
-
 .network-status img {
     width: 50px;
     height: 50px;
@@ -159,59 +116,6 @@
     border: 2px solid rgba(0, 0, 255, 0.5);
     border-radius: 5px;
 }
-.start-menu-item {
-    position: relative;
-    margin-top: 15px; /* Adjust the value as needed */
-}
-.start-menu-item:hover {
-    background-color: rgba(0, 0, 255, 0.2); /* Light blue background */
-    border: 2px solid rgba(0, 0, 255, 0.5); /* Light blue border */
-    border-radius: 5px; /* Optional: Add border radius for aesthetics */
-    transition: background-color 0.3s ease, border 0.3s ease; /* Smooth transition */
-}
-        #webcamIcon:hover {
-    background-color: rgba(0, 0, 255, 0.2); /* Add specific hover effect */
-    border: 2px solid rgba(0, 0, 255, 0.5); /* Specific border for webcam icon */
-    border-radius: 5px;
-}
-.taskbar-buttons {
-    display: flex;
-    gap: 5px; /* Space between buttons */
-    margin-left: 60px;
-}
-.taskbar-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column; /* Icon above text */
-    width: 60px;
-    height: 40px;
-    cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
-    border-radius: 2px;
-}
-.taskbar-button img {
-    width: 30px;
-    height: 30px;
-}
-.taskbar-button:hover {
-    background-color: rgba(192, 192, 192, 0.2); /* Semi-transparent background */
-}
- .start-menu-content {
-    z-index: 9999;
-    display: block;
-    border: none;
-    outline: none;
-    box-shadow: none;
-    position: absolute;
-    bottom: 45px;
-    width: 270px;
-    height: 400px;
-    background-color: transparent; /* Temporarily for testing */
-    background-image: url('path/to/start_menu.png') !important;
-    background-size: cover;
-    background-position: center;
-}
  #maze {
             position: relative;
             width: 420px;
@@ -222,38 +126,11 @@
             background-size: cover; 
             background-position: center;
         }
-        #player, #goal {
-            position: absolute;
-            width: 15px;
-            height: 15px;
-        }
-        #player {
-            background: red;
-        }
-        #goal {
-            background: green;
-        }
         .wall {
             position: absolute;
             background-image: url('Maze/wall.png');
             background-size: cover;
         }
-        .myPCPopup.popup {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    width: 400px;
-    height: 325px;
-    padding: 20px;
-    background-color: white;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    display: none;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    z-index: 1000;
-}
   </style>
     <body>
 </head>
