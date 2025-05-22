@@ -66,18 +66,3 @@
 .taskbar-button:hover {
     background-color: rgba(192, 192, 192, 0.2); /* Semi-transparent background */
 }
- .start-menu-content {
-    z-index: 9999;
-    display: block;
-    border: none;
-    outline: none;
-    box-shadow: none;
-    position: absolute;
-    bottom: 45px;
-    width: 270px;
-    height: 400px;
-    background-color: transparent; /* Temporarily for testing */
-    background-image: url('path/to/start_menu.png') !important;
-    background-size: cover;
-    background-position: center;
-}
