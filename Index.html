@@ -442,10 +442,9 @@
         <img src="path/to/signal-full.png" alt="Network Signal" id="network-icon">
     </div>
 </div>
-         <div class="start-menu-content" id="start-menu">
-                 <ul> 
-                    <button class="start-menu-item"  onclick="openPopup('controlPanelPopup')" style="border: none; background: none; padding-left: 120px;  display: flex; align-items: center; cursor: pointer;">
-  <img src="start/control.png" alt="Control Button" style="width: 100px; height: 20px; margin-right: 8px;">
+        <div class="start-menu-content" id="start-menu">
+        <button class="start-menu-item"  onclick="openPopup('controlPanelPopup')" style="border: none; background: none; padding-left: 180px;  display: flex; align-items: center; cursor: pointer;">
+  <img src="start/control.png" alt="Control Button" style="width: 50px; height: 10px; margin-right: 8px;">
 </button>
                      <button id="startMenuBrowserLink" onclick="showBrowser()"class="start-menu-item" style="border: none; background: none; padding: 0px; display: flex; align-items: center; cursor: pointer;">
   <img src="path/to/browser-icon.png" alt="browser Button" style="width: 30px; height: 30px; margin-right: 8px;">
@@ -471,19 +470,20 @@
   <img src="path/to/webcam-icon.png" alt="Webcam Button" style="width: 30px; height: 30px; margin-right: 8px;">
   <span id="webcam-label"style="font-size: 12px; color: black;">Webcam</span>
 </button>     
-                    <form id="power-form">
-    <select id="power-option" name="power">
-        <option value="">Select an action</option>
-        <option value="shutdown">Shutdown</option>
-        <option value="logoff">Logoff</option>
-        <option value="switch-user">Switch User</option>
-    </select>
-             </form>
-             <div class="time-container">
-                 <div class="time" id="time">23:17</div>
-                 <div class="date" id="date">03/19/25</div>
-             </div>
+        <form id="power-form">
+            <select id="power-option" name="power">
+                <option value="">Select an action</option>
+                <option value="shutdown">Shutdown</option>
+                <option value="logoff">Logoff</option>
+                <option value="switch-user">Switch User</option>
+            </select>
+        </form>
     </div>
+</div>
+<div class="time-container">
+    <div class="time" id="time">23:17</div>
+    <div class="date" id="date">03/19/25</div>
+</div>
         <div class="browser" id="browser">
             <header>
                 <button style="border: none; background: none; padding: 0; cursor: pointer;" onclick="goBack()">
