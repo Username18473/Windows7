@@ -47,3 +47,14 @@ form button:hover {
       align-items: center;
       gap: 20px; /* Space between header and image */
     }
+.start-menu img.hover, .start-menu img.clicked {
+    display: none;
+    width: 40px;
+    height: 40px;
+}
+
+.start-menu:hover img.default {
+    display: none;
+    width: 40px;
+    height: 40px;
+}
