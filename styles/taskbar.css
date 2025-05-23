@@ -1,6 +1,5 @@
 .taskbar {
     position: fixed;
-    z-index: -1;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -14,14 +13,12 @@
 }
 
 .start-button {
-    z-index: 9999;
     display: flex;
     align-items: center;
     cursor: pointer;
 }
 
 .start-button img {
-    z-index: 9999;
     height: 24px;
     margin-right: 5px;
 }
@@ -47,13 +44,11 @@
     border-radius: 5px;
 }
 .taskbar-buttons {
-    z-index: 9999;
     display: flex;
     gap: 5px; /* Space between buttons */
     margin-left: 60px;
 }
 .taskbar-button {
-    z-index: 9999;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -65,7 +60,6 @@
     border-radius: 2px;
 }
 .taskbar-button img {
-    z-index: 9999;
     width: 30px;
     height: 30px;
 }
