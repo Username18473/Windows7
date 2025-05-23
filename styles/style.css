@@ -3,103 +3,6 @@
     width: 64px;
     height: 64px;
 }
-
-.start-menu {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 200px;
-    height: 300px;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    border: 1px solid #444;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
-    display: none;
-    cursor: pointer;
-}
-
-.start-menu.active {
-    display: block;
-}
-
-.start-menu-content {
-    display: none;
-    position: absolute;
-    bottom: 40px;
-    left: 10px;
-    background-color: #444;
-    color: white;
-    border: 1px solid #333;
-}
-
-.time-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.time-container {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    text-align: right;
-}
-
-.time, .date {
-    font-size: 14px;
-}
-
-/* Control Panel styles */
-#control-panel {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 20px;
-    width: 300px;
-    display: none;
-}
-
-#control-panel button {
-    margin: 5px;
-    padding: 10px;
-}
-
-/* Additional styles for draggable browser */
-.browser {
-    position: absolute;
-    top: 100px;
-    left: 50px;
-    width: 80%;
-    height: 80%;
-    background: white;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    display: none;
-    cursor: move;
-    flex-direction: column;
-}
-
-.browser header {
-    display: flex;
-    align-items: center;
-    padding: 5px;
-    background: #f1f1f1;
-    border-bottom: 1px solid #ccc;
-}
-
-.browser iframe {
-    width: 100%;
-    height: calc(100% - 40px);
-    border: none;
-}
-
-.browser header input {
-    flex: 1;
-    margin: 0 10px;
-    padding: 5px;
-    border: none;
-    border-radius: 3px;
-}
-
 .browser header button {
     background-color: #0078d7;
     color: white;
@@ -108,50 +11,6 @@
     cursor: pointer;
     border-radius: 3px;
 }
-
-.browser iframe {
-    flex: 1;
-    border: none;
-}
-#control-panel {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 500px; /* Increase width for a more rectangular shape */
-    height: 300px; /* Add height to enhance the rectangle */
-    padding: 20px;
-    background-color: white;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    display: none;
-}
-
-    /* CSS for switching icons */
-.start-menu img.default {
-    display: block;
-    width: 40px;
-    height: 40px;
-}
-
-.start-menu img.hover, .start-menu img.clicked {
-    display: none;
-    width: 40px;
-    height: 40px;
-}
-
-.start-menu:hover img.default {
-    display: none;
-    width: 40px;
-    height: 40px;
-}
-
-.start-menu:hover img.hover {
-    display: block;
-    width: 40px;
-    height: 40px;
-}
-
 .icon:hover {
     background-color: rgba(0, 0, 255, 0.2); /* Transparent blue */
     border: 2px solid rgba(0, 0, 255, 0.5); /* Slightly more opaque blue border */
@@ -187,14 +46,4 @@ form button:hover {
       display: flex;
       align-items: center;
       gap: 20px; /* Space between header and image */
-    }
-
-    .header-text {
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    .header-image {
-      width: 150px;
-      height: auto; /* Maintain aspect ratio */
     }
