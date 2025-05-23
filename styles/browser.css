@@ -67,3 +67,10 @@ display: none;
             height: calc(100% - 40px);
             border: none;
         }
+.browser header input {
+    flex: 1;
+    margin: 0 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+}
