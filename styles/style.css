@@ -58,3 +58,8 @@ form button:hover {
     width: 40px;
     height: 40px;
 }
+.start-menu img.default {
+    display: block;
+    width: 40px;
+    height: 40px;
+}
