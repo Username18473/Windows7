@@ -49,6 +49,7 @@
     margin-left: 60px;
 }
 .taskbar-button {
+    gap: 5px;
     margin-left: 60px;
     display: flex;
     align-items: center;
