@@ -46,7 +46,7 @@
 .taskbar-buttons {
     display: flex;
     gap: 5px; /* Space between buttons */
-    margin-left: -600px;
+    margin-left: -1200px;
 }
 .taskbar-button {
     display: flex;
