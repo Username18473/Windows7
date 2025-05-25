@@ -153,6 +153,15 @@
     font-size: 14px;
     color: #333;
 }
+.popup {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+}
+.popup.show {
+    opacity: 1;
+    visibility: visible;
+}
   </style>
 </head>
     <body>
@@ -477,15 +486,16 @@
 function openPopup(popupId) {
     const popup = document.getElementById(popupId);
     if (popup) {
-        popup.style.display = 'block'; // Show the popup
+        popup.classList.add('show');
     } else {
         alert(`Popup with ID '${popupId}' not found.`);
     }
 }
+
 function closePopup(popupId) {
     const popup = document.getElementById(popupId);
     if (popup) {
-        popup.style.display = 'none'; // Hide the popup
+        popup.classList.remove('show');
     }
 }
     </script>
