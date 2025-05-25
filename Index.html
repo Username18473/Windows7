@@ -131,14 +131,14 @@
 #battery-status {
     display: flex;
     align-items: center;
-     margin-left: -160px;
+     margin-left: -100px;
     color: white;
     font-family: Segoe UI, sans-serif;
     font-size: 24px;
 }
 
 #battery-icon {
-    margin-left: -170px;
+    margin-left: -130px;
 }
 
 #tray-box {
@@ -282,7 +282,6 @@
       <div class="button" onclick="changeTool('brush')">Brush</div>
       <div class="button" onclick="clearCanvas()">Clear</div>
       <div class="color-palette" id="colorPalette">
-        <!-- Colors will be dynamically generated here -->
       </div>
     </div>
     <div id="canvas-container">
@@ -378,13 +377,12 @@
         </form>
     </div>
 </div>
-    
 <div class="time-container">
     <div class="time" id="time">23:17</div>
     <div class="date" id="date">03/19/25</div>
 </div>
     <div id="battery-status">
-        <img id="battery-icon" src="path/to/battery-image.png" width="20" height="25" />
+        <img id="battery-icon" src="path/to/battery-image.png" width="20" height="25">
         <span id="battery-level">100%</span>
     </div>
 </div>
@@ -403,7 +401,6 @@
             </header>
             <iframe id="webview" src="https://www.google.com/?igu=1"></iframe>
         </div>
-    </div>
 <div class="popup" id="controlPanelPopup">
     <header>
         <h2 style="color: black; font-family: Arial, sans-serif;">Control Panel</h2>
