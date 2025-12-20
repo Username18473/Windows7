@@ -1,0 +1,27 @@
+ .start-menu img {
+            width: 100%;
+            height: auto;
+        }
+
+        .start-menu img.default {
+            display: block;
+        }
+
+        .start-menu img.clicked {
+            display: none;
+        }
+#Program {
+    bottom: 75px;
+    position: fixed;
+    width: 251px;
+    left: 10px;
+    border-radius: 10px;
+    background: white;
+}
+ #Start-menu-Right {
+    background: white;
+    bottom: 444px;
+    position: fixed;
+    width: 100px;
+    margin-left: 21%;
+}

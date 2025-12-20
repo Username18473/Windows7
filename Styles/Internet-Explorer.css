@@ -1,0 +1,31 @@
+    
+.browser-buttons {
+    width: 35px; 
+    height: auto;
+}
+
+      .browser {
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    width: 80%;
+    height: 80%;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: none;
+    cursor: move;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+#webview {
+    width: 100%;
+    height: calc(100% - 40px);
+    border: none;
+}

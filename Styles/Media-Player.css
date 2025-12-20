@@ -1,0 +1,38 @@
+        .video, audio {
+            width: 100%;
+            max-width: 100px;
+            border-radius: 10px;
+        }
+        .controls button {
+            margin: 0px;
+            text-align: center;
+            padding: 1px 2px;
+            border: none;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+        }
+        .controls button:hover {
+            background-color: #0056b3;
+        }
+        .media-player {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 40vh;
+        } 
+
+        .video-container {
+    width: 60px;
+    text-align: center;
+    height: 200px; 
+    margin: 0 auto;
+    display: block; 
+}
+
+    #media {
+    width: 350px;
+    height: 450px;
+}
