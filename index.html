@@ -1,35 +1,33 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A simulation of Windows 7.">
-    <meta name="keywords" content="Windows 7 simulator">
-    <meta name="author" content="Username18473">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Windows 7</title>
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/popup.css"> 
-    <link rel="stylesheet" href="styles/browser.css"> 
-    <link rel="stylesheet" href="styles/media.css">
-    <link rel="stylesheet" href="styles/taskbar.css">
-    <link rel="stylesheet" href="styles/webcam.css">
-    <link rel="stylesheet" href="styles/start-menu.css">
-     <link rel="stylesheet" href="styles/paint.css">
-    <link rel="stylesheet" href="styles/notepad.css">
-    <link rel="stylesheet" href="styles/maze.css">
-     <link rel="stylesheet" href="styles/controlpanel.css">
+    <link rel="icon" type="image/png" href="Popup-Icons/favicon.png">
+    <link rel="stylesheet" href="Styles/Misc.css"> 
+    <link rel="stylesheet" href="Styles/Internet-Explorer.css"> 
+    <link rel="stylesheet" href="Styles/Media-Player.css">
+    <link rel="stylesheet" href="Styles/Taskbar.css">
+    <link rel="stylesheet" href="Styles/Webcam.css">
+    <link rel="stylesheet" href="Styles/Start-menu.css">
+     <link rel="stylesheet" href="Styles/Paint.css">
+    <link rel="stylesheet" href="Styles/Notepad.css">
+     <link rel="stylesheet" href="Styles/7.css">
     <style>
-        :root {
-            --background-image: url('path/to/Harmony.png');
-            --taskbar-color: rgba(255, 255, 255, 0.5); 
-        }
         body {
             margin: 0;
-            background: var(--background-image) no-repeat center center fixed;
+            background-image: url('Wallpapers/Harmony.jpg');
             background-size: cover;
+            background-position: center;
             color: white;
             font-family: Arial, sans-serif;
             overflow: hidden;
+            text-shadow:2px 2px rgba(7, 7, 7, 0.7);
+            user-select: none;
         }
         .header {
             background: rgba(34, 34, 34, 0.7);
@@ -41,6 +39,7 @@
             cursor: move; 
         }
         .desktop {
+            background-color: transparent;
             width: 100%;
            min-height: 100vh;
         }
@@ -57,8 +56,8 @@
 }
         .icon {
             position: absolute;
-            width: 50px;
-            height: 50px;
+            width: 3.6819vw;
+            height: 7.8616vh;
             cursor: pointer;
             top: 20px;
             left: 20px;
@@ -72,378 +71,478 @@
     bottom: 5px;
     right: 20px;
     text-align: right;
+    z-index: 100000
 }
 .network-status img {
-    width: 50px;
-    height: 50px;
-    margin-left: -120px;
-    margin-top: -13px;
+    width: 3.6819vw;
+    height: 7.8616vh;
+    left: 900px;
     display: block;
+    position: relative;
+    bottom: 11px;
 }
 .content {
     display: flex;
+    text-shadow: none;
     align-items: center;
 }
 .header-image {
-    width: 60px;
-    height: 60px;
-    margin-right: 10px; /* Adds spacing between the image and text */
+    width: 4.4183vw;
+    height: 9.434vh;
+    margin-right: 10px;
 }
-#header-text {
+.header-text {
     color: black;
     font-family: Arial, sans-serif;
 }
-#mediaPlayerIcon:hover {
-    background-color: rgba(0, 0, 255, 0.2);
-    border: 2px solid rgba(0, 0, 255, 0.5);
-    border-radius: 5px;
-}
- #maze {
-            position: relative;
-            width: 420px;
-            height: 400px;
-            margin: 20px auto;
-            border: 3px solid black;
-            background-image: url('Maze/floor.png');
-            background-size: cover; 
-            background-position: center;
-        }
-        .wall {
-            position: absolute;
-            background-image: url('Maze/wall.png');
-            background-size: cover;
-        }
-     .start-menu-content {
-    z-index: 9999;
+     #start-menu {
+    z-index: 990000099;
     display: none;
     border: none;
     outline: none;
     box-shadow: none;
-    position: absolute;
-    bottom: 45px;
-    width: 270px;
-    height: 400px;
-    background-color: transparent; /* Temporarily for testing */
-    background-image: url('path/to/start_menu.png') !important;
-    background-size: cover;
-    background-position: center;
+    position: fixed;
+    bottom: 7vh;
+    width: 29.4551vw;
+    background-image: 
+    linear-gradient(
+        45deg, 
+        rgba(24, 40, 52, 0.9),
+        rgba(40, 62, 84, 0.5)
+        );
+    height: 84.343vh;
+    transition: all 0.3s;
 }
 #battery-status {
-    display: flex;
+    display: block;
     align-items: center;
      margin-left: -100px;
+     position: inherit;
     color: white;
     font-family: Segoe UI, sans-serif;
     font-size: 24px;
 }
 
 #battery-icon {
+    display: block;
     margin-left: -130px;
+    margin-top: 0px;
+    height: 3.9308vh;
+    width: 20px;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+ #battery { 
+    position: fixed;
+    bottom: 45px;
+    right: 0px;
+    width: 18.4094vw;
+    height: 70.7547vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    z-index: 1000;
+    display: none;
+}
+.app-icon {
+    width: 20px;
+    height: 20px;
+}
+.appStats {
+ display: flex;
+ align-items: center;
+ gap: 5px;
+}
+#BatteryStats {
+    left: 800px;
+    top: 0px;
+    position: relative;
+}
+#BatteryTRUE {
+   width: 20px;
+   height: 35px;
+   z-index: 99999999999999;
+}
+#ImageViewer {
+    width: 370px;
+    height: 300px;
+}
+  .screen {
+    width: 27vh;
+    height: 7vh;
+    background: #eee;
+    border: 2px inset #999;
+    font-size: 20px;
+    text-align: right;
+    padding: 5px;
+    color: black;
+}
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 50px);
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .btn {
+             width: 10px;
+             height: 50px;
+             background: #ddd;
+             border: 2px outset #999;
+             font-size: 18px;
+             cursor: pointer;
+             color: black;
+             padding: 0;
+            }
+        .btn:active { 
+            border: 2px inset #999;
+
+         }
+         #CalculatorPopup .content {
+            flex-direction: column;
+            align-items: flex-start;
+         }
+         #myPCPopup, #MazePopup, #webcamPopup, #MediaPlayerPopup, #PaintPopup, #NotepadPopup, #CalculatorPopup  {
+            display: none;
+            width: 400px;
+            top: 100px;
+            left: 100px;
+         }
+         #SavePopup, #ImageViewerPopup {
+             display: none;
+            width: 300px;
+            top: 100px;
+            left: 100px;
+         }
+         #PageStatUI input{
+            width: 100px;
+         }
+         .window .active {
+    background: var(--w7-w-bg);
 }
 
-#tray-box {
-    position: absolute;
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #f0f0f0;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    display: none;
-    font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 14px;
-    color: #333;
-}
-.popup {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease-in-out;
-}
-.popup.show {
-    opacity: 1;
-    visibility: visible;
-}
   </style>
-</head>
-    <body>
+</head><!--The .css file (Popup.css) was deprecated on 11.26.25 on 1:40 AM -->
+<!--The .css file (Control-Panel.css) was deprecated on 11.26.25 on 6:15 AM -->
+    <body oncontextmenu="return false;">
+    <audio id="Nav" src="Misc/Windows Navigation Start.wav"></audio>
      <div class="desktop">
-        <img id="warningImage" src="Balloon/Low.png" alt="Battery Low" style="display: none;">
-        <img id="warning2Image" src="Balloon/Critical.png" alt="Battery Critical" style="display: none;">
-    </div>
-        <div class="icon" style="top: 20px; left: 20px;" onclick="openPopup('myPCPopup')">
-            <img src="path/to/my-pc-icon.png" alt="Computer">
-            <div id="my-computer-label">Computer</div>
+
+        <div class="window active" id="myPCPopup">
+    <div class="title-bar">
+        <div class="appStats">
+        <img class="app-icon" src="Apps/Recycle-Bin.png" alt="Recycle Bin Icon">
+        <div class="title-bar-text">A complete window</div>
         </div>
-        <div class="popup" id="myPCPopup">
-    <header>
-        <h2>My PC</h2>
-        <button class="close-button" onclick="closePopup('myPCPopup')">X</button>
-    </header>
-    <div class="content">
+        <div class="title-bar-controls">
+             <button aria-label="Help"></button>
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize" disabled></button>
+        <button aria-label="Close" onclick="closePopup('myPCPopup')"></button>
+        </div>
+    </div>
+    <div class="window-body has-space">
         <ul>
-           <button onclick="location.href='path/Documents/'" style="border: none; background: none; padding: 0; display: flex; flex-direction: row; align-items: center; cursor: pointer;">
-  <img src="Files/Documents.png" alt="Documents Button" style="width: 50px; height: 50px; margin-right: 8px;">
+          <li><button onclick="openPopup('DocumentsPopup'); closePopup('myPCPopup');PlayNavaudio()" style="border: none; background: none; padding: 0; display: flex; flex-direction: row; align-items: center; cursor: pointer;">
+  <img src="Popup-Icons/Documents.png" alt="Documents Button" style="width: 50px; height: 50px; margin-right: 8px;">
   <span style="font-size: 16px; color: black;">Documents</span>
-</button>
-<button onclick="location.href='path/Pictures/'" style="border: none; background: none; padding: 0; display: flex; flex-direction: row; align-items: center; cursor: pointer;">
-  <img src="Files/Pictures.png" alt="Pictures Button" style="width: 50px; height: 50px; margin-right: 8px;">
+</button></li>
+<li><button onclick=" openPopup('ImagesPopup');closePopup('myPCPopup');PlayNavaudio() " style="border: none; background: none; padding: 0; display: flex; flex-direction: row; align-items: center; cursor: pointer;">
+  <img src="Popup-Icons/Pictures.ico" alt="Pictures Button" style="width: 50px; height: 50px; margin-right: 8px;">
   <span style="font-size: 16px; color: black;">Pictures</span>
-</button>
-<button onclick="location.href='path/Music/'" style="border: none; background: none; padding: 0; display: flex; flex-direction: row; align-items: center; cursor: pointer;">
-  <img src="Files/Music.png" alt="Music Button" style="width: 50px; height: 50px; margin-right: 8px;">
+</button></li>
+<li><button onclick="openPopup('MediaPlayerPopup'); closePopup('myPCPopup');PlayNavaudio()" style="border: none; background: none; padding: 0; display: flex; flex-direction: row; align-items: center; cursor: pointer;">
+  <img src="Popup-Icons/Music.png" alt="Music Button" style="width: 50px; height: 50px; margin-right: 8px;">
   <span style="font-size: 16px; color: black;">Music</span>
-</button>
-<button onclick="openPopup('MediaPlayerPopup'); closePopup('myPCPopup')" style="border: none; background: none; padding: 0; display: flex; flex-direction: row; align-items: center; cursor: pointer;">
-  <img src="Files/Videos.png" alt="Videos Button" style="width: 50px; height: 50px; margin-right: 8px;">
+</button></li>
+<li><button onclick="openPopup('MediaPlayerPopup'); closePopup('myPCPopup');PlayNavaudio()" style="border: none; background: none; padding: 0; display: flex; flex-direction: row; align-items: center; cursor: pointer;">
+  <img src="Popup-Icons/Videos.png" alt="Videos Button" style="width: 50px; height: 50px; margin-right: 8px;">
   <span style="font-size: 16px; color: black;">Videos</span>
-</button>
+</button></li>
         </ul>
     </div>
 </div>
-        <div class="icon" style="top: 20px; left: 100px;" onclick="openPopup('myPCPopup')">
-    <img src="path/to/recycle-bin-icon.png" alt="Recycle Bin">
-    <div id="recycle-bin-label">Recycle Bin</div>
+
+        <div class="icon" style="top: 20px; left: 20px;" onclick="openPopup('myPCPopup')">
+    <img src="Apps/Recycle-Bin.png" alt="Recycle Bin">
+    <span id="recycle-bin-label">Recycle Bin</span>
 </div>
-        <div class="icon" style="top: 20px; left: 180px;" onclick="showBrowser()"id="browserIcon">
-            <img src="path/to/browser-icon.png" alt="Browser">
-            <div id="ie-label">Internet Explorer</div>
-        </div> 
-        <div class="icon" style="top: 20px; left: 260px;" onclick="openPopup('controlPanelPopup')">
-            <img src="path/to/control-panel-icon.png" alt="Control Panel">
-            <div id="control-panel-label">Control Panel</div>
-        </div>
-    <div class="icon" style="top: 20px; left: 340px;" onclick="openPopup('MazePopup')">
-            <img src="path/to/maze-icon.png" alt="Maze">
-            <div id="Maze-label">Maze</div>
-        </div>
-          <div class="popup" id="MazePopup">
-  <header>
-    <h2>Maze</h2>
-    <button class="close-button" onclick="closePopup('MazePopup')">X</button>
-  </header>
-  <div class="content">
-    <div id="maze">
-      <div id="player"></div>
-      <div id="goal"></div>
+
+         <div class="window active" id="MazePopup">
+  <div class="title-bar">
+<div class="appStats">
+    <img class="app-icon" src="Apps/Maze.png" alt="Maze Icon">
+    <div class="title-bar-text">Maze</div>
     </div>
+    <div class="title-bar-controls">
+      <button aria-label="Help"></button>
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize" disabled></button>
+      <button aria-label="Close" onclick="closePopup('MazePopup')"></button>
   </div>
-</div>
-       <div id="webcamIcon" class="icon" style="top: 100px; left: 100px;" onclick="openPopup('webcamPopup')">
-    <img src="path/to/webcam-icon.png" alt="Webcam">
-    <div id="webcam-label">Webcam</div>
-</div>
-    <div class="popup" id="webcamPopup">
-    <header>
-        <h2>Webcam</h2>
-        <button class="close-button" onclick="closePopup('webcamPopup')">X</button>
-    </header>
-    <div class="content">
+  </div>
+  <div class="window-body has-space">
+    <div style="position:relative;height: calc(300px + 5em);width:100%;overflow:hidden;"><iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://arcade.makecode.com/S72952-75847-95129-10763" allowfullscreen="allowfullscreen"></iframe></div>
+    </div>
+    </div>
+        <div class="window active" id="webcamPopup">
+    <div class="title-bar">
+        <div class="appStats">
+        <img class="app-icon" src="Apps/Webcam.png" alt="Webcam Icon">
+        <div class="title-bar-text">Webcam</div>
+        </div>
+        <div class="title-bar-controls">
+        <button aria-label="Help"></button>
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize" disabled></button>
+        <button aria-label="Close" onclick="closePopup('webcamPopup')"></button>
+        </div>
+        </div>
+    <div class="window-body has-space">
         <div id="webcam-container">
             <video id="webcam" autoplay></video>
         </div>
-        <button id="screenshot-button" class="button">Take Screenshot</button>
-        <button id="remove-screenshot-button" class="button" style="display:none;">Remove Screenshot</button>
+        <button id="screenshot-button" class="button"></button>
+        <button id="remove-screenshot-button" class="button" style="display:none;">❌</button>
         <canvas id="screenshot"></canvas>
     </div>
 </div>
-</div>
-<div id="mediaPlayerIcon" class="icon" style="top: 100px; left: 180px;" onclick="openPopup('MediaPlayerPopup')">
-    <img src="path/to/media-icon.png" alt="Media Player">
-    <div id="media-player-label">Media Player</div>
-</div>
-      <div class="popup" id="MediaPlayerPopup">
-    <header>
-        <h2>Media Player</h2>
-        <button class="close-button" onclick="closePopup('MediaPlayerPopup')">X</button>
-    </header>
+<div class="window active" id="MediaPlayerPopup">
+    <div class="title-bar">
+        <div class="appStats">
+        <img class="app-icon" src="Apps/Media-Player.png" alt="Media Player Icon">
+        <div class="title-bar-text">Media Player</div>
+        </div>
+        <div class="title-bar-controls">
+            <button aria-label="Help"></button>
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize" disabled></button>
+        <button aria-label="Close" onclick="closePopup('MediaPlayerPopup')"></button>
+        </div>
+    </div>
+    <div class="window-body has-space">
       <div class="media-player">
     <video id="media">
-        <source id="videoSource" src="/path/Videos/Clouds.mp4" type="video/mp4">
+        <source id="videoSource" src="Misc/Startup.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
     <div class="controls">
         <button onclick="backMedia()" style="border: none; background: none; padding: 0; cursor: pointer;">
-            <img src="mediaplayer/back-icon.png" alt="Back" style="width: 50px; height: 50px;">
+            <img src="Popup-Buttons/Back.png" alt="Back" style="width: 50px; height: 50px;">
         </button>
         <button id="playPauseButton" onclick="togglePlayPause()" style="border: none; background: none; padding: 0; cursor: pointer;">
-            <img id="playPauseIcon" src="mediaplayer/play-icon.png" alt="Play" style="width: 50px; height: 50px;">
+            <img id="playPauseIcon" src="Popup-Buttons/Play.png" alt="Play" style="width: 50px; height: 50px;">
         </button>
         <button onclick="forwardMedia()" style="border: none; background: none; padding: 0; cursor: pointer;">
-            <img src="mediaplayer/foward-icon.png" alt="foward" style="width: 50px; height: 50px;">
+            <img src="Popup-Buttons/Skip.png" alt="Skip" style="width: 50px; height: 50px;">
         </button>
     </div>
     <div>
         <label for="videoUpload">Upload Video: </label>
         <input type="file" id="videoUpload" accept="video/*" onchange="uploadVideo(event)">
     </div>
-</div>
-</div>
-<div class="icon" style="top: 100px; left: 20px;" onclick="openPopup('PaintPopup')">
-    <img src="path/to/paint-icon.png" alt="Paint">
-    <div id="paint-label">Paint</div>
-</div>
-<div class="popup" id="PaintPopup">
-  <header>
-    <h2>Paint</h2>
-    <button class="close-button" onclick="closePopup('PaintPopup')">X</button>
-  </header>
-  <div class="content">
-    <div id="toolbar">
-      <div class="button" onclick="changeTool('brush')">Brush</div>
-      <div class="button" onclick="clearCanvas()">Clear</div>
-      <div class="color-palette" id="colorPalette">
-      </div>
     </div>
-    <div id="canvas-container">
-      <canvas id="paintCanvas" width="200" height="200"></canvas>
+</div>
+</div>
+<div class="window active" id="PaintPopup">
+  <div class="title-bar">
+    <div class="appStats">
+    <img class="app-icon" src="Apps/Paint.png" alt="Paint Icon">
+    <div class="title-bar-text">Media Player</div>
     </div>
+    <div class="title-bar-controls">
+            <button aria-label="Help"></button>
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize" disabled></button>
+    <button aria-label="Close" onclick="closePopup('PaintPopup')"></button>
   </div>
+  </div>
+  <div class="window-body has-space">
+      <iframe src="Untitled-1.html"></iframe>
+      </div>
 </div>
-<div class="icon" style="top: 100px; left: 260px;" onclick="openPopup('NotepadPopup')">
-    <img src="path/to/note-icon.png" alt="Notepad">
-    <div id="notepad-label">Notepad</div>
+
+ <div class="window active" id="NotepadPopup">
+<div class="title-bar">
+<div class="appStats">
+<img class="app-icon" src="Apps/Notepad.png" alt="Notepad Icon">
+<div class="title-bar-text">Notepad</div>
 </div>
-  <div class="popup" id="NotepadPopup">
-    <header>
-        <h2>Notepad</h2>
-        <button class="close-button" onclick="closePopup('NotepadPopup')">X</button>
-    </header>
-    <div class="content">
+<div class="title-bar-controls">
+<button aria-label="Help"></button>
+<button aria-label="Minimize"></button>
+<button aria-label="Maximize" disabled></button>
+<button aria-label="Close" onclick="openPopup('SavePopup')"></button>
+</div>
+    </div>
+    <div class="window-body has-space">
+    <div id="controls">
+        <button onclick="saveNote()">Save</button>
+        <button onclick="loadNote()">Open</button>
+        <button onclick="clearNote()">Clear</button>
         <textarea id="notepad" placeholder="Start typing here..."></textarea>
-        <div id="controls">
-            <button onclick="saveNote()">Save</button>
-            <button onclick="loadNote()">Load</button>
-            <button onclick="clearNote()">Clear</button>
+    </div>
+    </div> 
+    </div> 
+    <div class="window active" id="SavePopup">
+    <div class="title-bar">
+        <div class="title-bar-text">Notepad</div>
+        <div class="title-bar-controls">
+        <button aria-label="Help"></button>
+<button aria-label="Minimize"></button>
+<button aria-label="Maximize" disabled></button>
+        <button aria-label="Close" onclick="closePopup('SavePopup')"></button>
         </div>
     </div>
-</div>
-<div class="taskbar">
-    <div class="start-menu" role="button" aria-label="Start Menu" onclick="toggleStartMenu()">
-        <img src="path/to/start-button-icon.png" alt="Start Menu" class="default">
-        <img src="path/to/start-button-clicked-icon.png" alt="Start Menu" class="clicked">
-    </div>
-     <div class="taskbar-buttons">
-        <div class="taskbar-button" onclick="showBrowser()">
-            <img src="path/to/browser-icon.png" alt="Browser">
-        </div>
-         <div class="taskbar-button" onclick="openPopup('myPCPopup')">
-            <img src="path/to/explorer-icon.png" alt="Files">
-        </div>
-         <div class="taskbar-button" onclick="openPopup('MediaPlayerPopup')">
-            <img src="path/to/media-icon.png" alt="Media Player">
-        </div>
-         <div class="taskbar-button" onclick="openPopup('NotepadPopup')">
-            <img src="path/to/note-icon.png" alt="Notepad">
-        </div>
-         <div class="taskbar-button" onclick="openPopup('PaintPopup')">
-            <img src="path/to/paint-icon.png" alt="Paint">
-        </div>         
-         <div class="taskbar-button" onclick="openWebcamApp()">
-            <img src="path/to/webcam-icon.png" alt="Webcam">
-         </div>
-          <div class="taskbar-button" onclick="openPopup('MazePopup')">
-            <img src="path/to/maze-icon.png" alt="Maze">
-        </div>
-    </div>
-    <div class="network-status" style="width: 30px; height: 30px">
-        <img src="path/to/signal-full.png" alt="Network Signal" id="network-icon">
-    </div>
-</div>
-        <div class="start-menu-content" id="start-menu">
-        <button class="start-menu-item"  onclick="openPopup('controlPanelPopup')" style="border: none; background: none; padding-left: 200px; padding-top: 45px; display: flex; align-items: center; cursor: pointer; ">
-  <img src="start/control.png" alt="Control Button" style="width: 75px; height: 20px; margin-right: 8px;">
-</button>
-                     <button id="startMenuBrowserLink" onclick="showBrowser()"class="start-menu-item" style="border: none; background: none; padding: 0px; display: flex; align-items: center; cursor: pointer;">
-  <img src="path/to/browser-icon.png" alt="browser Button" style="width: 30px; height: 30px; margin-right: 8px;">
-  <span id="ie-label"style="font-size: 12px; color: black;">Internet Explorer</span>
-</button>
-                     <button class="start-menu-item" onclick="openPopup('MazePopup')" style="border: none; background: none; padding: 0; display: flex; align-items: center; cursor: pointer;">
-  <img src="path/to/maze-icon.png" alt="Maze Button" style="width: 30px; height: 30px; margin-right: 8px;">
-  <span id="Maze-label"style="font-size: 12px; color: black;">Maze</span>
-</button>
-                      <button class="start-menu-item" onclick="openPopup('MediaPlayerPopup')" style="border: none; background: none; padding: 0; display: flex; align-items: center; cursor: pointer;">
-  <img src="path/to/media-icon.png" alt="Media Button" style="width: 30px; height: 30px; margin-right: 8px;">
-  <span id="media-player-label"style="font-size: 12px; color: black;">Media Player</span>
-</button>    
-                     <button class="start-menu-item" onclick="openPopup('NotepadPopup')" style="border: none; background: none; padding: 0; display: flex; align-items: center; cursor: pointer;">
-  <img src="path/to/note-icon.png" alt="Notepad Button" style="width: 30px; height: 30px; margin-right: 8px;">
-  <span id="notepad-label"style="font-size: 12px; color: black;">Notepad</span>
-</button>
-                     <button class="start-menu-item" onclick="openPopup('PaintPopup')" style="border: none; background: none; padding: 0; display: flex; align-items: center; cursor: pointer;">
-  <img src="path/to/paint-icon.png" alt="Paint Button" style="width: 30px; height: 30px; margin-right: 8px;">
-  <span id="paint-label"style="font-size: 12px; color: black;">Paint</span>
-</button>
-                     <button class="start-menu-item" onclick="openWebcamApp()" style="border: none; background: none; padding: 0; display: flex; align-items: center; cursor: pointer;">
-  <img src="path/to/webcam-icon.png" alt="Webcam Button" style="width: 30px; height: 30px; margin-right: 8px;">
-  <span id="webcam-label"style="font-size: 12px; color: black;">Webcam</span>
-</button>     
-        <form id="power-form">
-            <select id="power-option" name="power">
-                <option value="">Select an action</option>
-                <option value="shutdown">Shutdown</option>
-                <option value="logoff">Logoff</option>
-                <option value="switch-user">Switch User</option>
-            </select>
-        </form>
-    </div>
-</div>
-<div class="time-container">
-    <div class="time" id="time">23:17</div>
-    <div class="date" id="date">03/19/25</div>
-</div>
-    <div id="battery-status">
-        <img id="battery-icon" src="path/to/battery-image.png" width="20" height="25">
-        <span id="battery-level">100%</span>
-    </div>
-</div>
-<div id="tray-box">Battery: 100%</div>
-        <div class="browser" id="browser">
-            <header>
-                <button style="border: none; background: none; padding: 0; cursor: pointer;" onclick="goBack()">
-                    <img src="path/to/Back-Button.png" alt="Backwards" class="browser-buttons">
-                </button>
-                <button style="border: none; background: none; padding: 0; cursor: pointer;" onclick="goForward()">
-                    <img src="path/to/Button.png" alt="Forward" class="browser-buttons">
-                </button>
-                <input id="url-bar" type="text" placeholder="Enter URL">
-                <button onclick="loadPage()">🔎</button>
-                <button class="close-button" onclick="closeBrowser()">X</button>
-            </header>
-            <iframe id="webview" src="https://www.google.com/?igu=1"></iframe>
-        </div>
-<div class="popup" id="controlPanelPopup">
-    <header>
-        <h2 style="color: black; font-family: Arial, sans-serif;">Control Panel</h2>
-        <button class="close-button" onclick="closePopup('controlPanelPopup')">X</button>
-    </header>
+    <div class="window-body has-space">
+        <span>Do you want to save changes to Untitled?</span>
     <div class="content">
-        <img src="Personalization.png" alt="Header Image" class="header-image" style="width: 60px; height: 60px;">
-        <h3 style="color: black; font-family: Arial, sans-serif;" id="header-text">Personalization</h3>
+        <button class="Option" onclick="saveNote();closePopup('SavePopup');closePopup('NotepadPopup')">Save</button>
+        <button class="Option" onclick="closePopup('SavePopup');closePopup('NotepadPopup')">Don't Save</button>
+        <button class="Option" onclick="closePopup('SavePopup');closePopup('NotepadPopup')">Cancel</button>
     </div>
-    <div id="popup" class="controlPanelPopup">
-        <div class="popup-content">
-            <div id="wallpaper-selection" style="display: flex; gap: 10px; flex-wrap: wrap; padding-top: 10px;">
-                <button style="border: none; background: none; padding: 0; cursor: pointer;" onclick="setWallpaper('wallpapers/wallpaper1.jpg')">
-                    <img src="wallpapers/wallpaper1.jpg" alt="Wallpaper 1" class="wallpaper" data-wallpaper="wallpapers/wallpaper1.jpg">
-                </button>
-                <button style="border: none; background: none; padding: 0; cursor: pointer;" onclick="setWallpaper('wallpapers/wallpaper2.jpg')">
-                    <img src="wallpapers/wallpaper2.jpg" alt="Wallpaper 2" class="wallpaper" data-wallpaper="wallpapers/wallpaper2.jpg">
-                </button>
-                <button style="border: none; background: none; padding: 0; cursor: pointer;" onclick="setWallpaper('wallpapers/wallpaper3.jpg')">
-                    <img src="wallpapers/wallpaper3.jpg" alt="Wallpaper 3" class="wallpaper" data-wallpaper="wallpapers/wallpaper3.jpg">
-                </button>
-                <button style="border: none; background: none; padding: 0; cursor: pointer;" onclick="setWallpaper('path/to/Harmony.png')">
-                    <img src="path/to/Harmony.png" alt="Default" class="wallpaper" data-wallpaper="path/to/Harmony.png">
-                </button>
-                <button class="upload-btn" onclick="triggerUpload()">Upload</button>
-                <input type="file" id="upload-image" style="display: none;" accept="image/*" onchange="setCustomWallpaper(event)">
+</div>  
+</div>
+<div class="window active" id="CalculatorPopup">
+    <div class="title-bar">
+        <div class="appStats">
+        <img class="app-icon" src="Apps/Calculator.png" alt="Notepad Icon">
+        <div class="title-bar-text">Calculator</div>
+        </div>
+        <div class="title-bar-controls">
+            <button aria-label="Help"></button>
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize" disabled></button>
+        <button aria-label="Close" onclick="closePopup('CalculatorPopup')"></button>
+        </div>
+    </div>
+    <div class="window-body has-space">
+         <div class="screen" id="screen">0</div>
+            <div class="buttons">
+                <button class="btn" id="7" onclick="press('7')">7</button>
+                <button class="btn" id="8" onclick="press('8')">8</button>
+                <button class="btn" id="9" onclick="press('9')">9</button>
+                <button class="btn" id="/" onclick="press('/')">÷</button>
+                <button class="btn" id="4" onclick="press('4')">4</button>
+                <button class="btn" id="5" onclick="press('5')">5</button>
+                <button class="btn" id="6" onclick="press('6')">6</button>
+                <button class="btn" id="*" onclick="press('*')">×</button>
+                <button class="btn" id="1" onclick="press('1')">1</button>
+                <button class="btn" id="2" onclick="press('2')">2</button>
+                <button class="btn" id="3" onclick="press('3')">3</button>
+                <button class="btn" id="-" onclick="press('-')">−</button>
+                <button class="btn" id="0" onclick="press('0')">0</button>
+                <button class="btn" id="." onclick="press('.')">.</button>
+                <button class="btn" id="=" onclick="calculate()">=</button>
+                <button class="btn" id="+" onclick="press('+')">+</button>
+                <button class="btn" id="^" onclick="press('**')">^</button>
+                <button class="btn" id="C" onclick="clearScreen()">C</button>
+                <button class="btn" id="√" onclick="squareRoot()">√</button>
+                </div>
             </div>
         </div>
+           <div class="window active" id="browser" style="display: block; left: 0px; top: 16px; width: 800px;  display: none;">
+            <div class="title-bar">
+                 <div class="appStats">
+        <img class="app-icon" src="Apps/Internet-Explorer.png" alt="Internet-Explorer Icon">
+        <div class="title-bar-text">Internet Explorer</div>
+        </div>
+                <div class="title-bar-controls">
+                    <button aria-label="Help"></button>
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize" disabled=""></button>
+                <button aria-label="Close" onclick="closeBrowser()"></button>
+            </div>
+                    </div>
+            <div class="window-body has-space" style="height: 550px;">
+                <div class="content">
+                     <img id="favicon" src="https://www.bing.com/favicon.ico" alt="Favicon" style="width: 16px; height: 16px; margin-right: 10px; display: inline;">
+                <button style="border: none; background: none; padding: 0; cursor: pointer;" onclick="goBack()">
+                    <img src="Popup-Buttons/Backwards.png" alt="Backwards" class="browser-buttons">
+                </button>
+                <button style="border: none; background: none; padding: 0; cursor: pointer;" onclick="goForward()">
+                    <img src="Popup-Buttons/Foward.png" alt="Forward" class="browser-buttons">
+                </button>
+                <div class="searchbox">
+                <input id="url-bar" type="search" placeholder="Enter URL" style="width: 36.8189vw;"/>
+                <button aria-label="search" onclick="loadPage()"></button>
+                </div>
+                                    </div>
+            <iframe id="webview" src="https://www.bing.com/search?q="></iframe>
+                </div>
+                </div>
+                <div class="window active" id="ImageViewerPopup" style="width:33.137vw;">
+    <div class="title-bar">
+        <div class="title-bar-text" id="ImageName"></div>
+        <div class="title-bar-controls">
+            <button aria-label="Help"></button>
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize" disabled></button>
+        <button aria-label="Close" onclick="closePopup('ImageViewerPopup')"></button>
+        </div>
     </div>
-    <div class="content">
-        <img src="Clock.png" alt="Header Image" class="header-image" style="width: 60px; height: 60px;">
-        <h3 style="color: black; font-family: Arial, sans-serif;" id="header-text">Language</h3>
+    <div class="window-body has-space">
+        <img id="ImageViewer" src="" alt="Sample Image">
+</div>
+</div>
+ <div class="window active" id="ImagesPopup" style="width: 33.137vw; display: none;">
+    <div class="title-bar">
+        <div class="title-bar-text">Images</div>
+        <div class="title-bar-controls">
+            <button aria-label="Help"></button>
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize" disabled></button>
+        <button aria-label="Close" onclick="closePopup('ImagesPopup')"></button>
+        </div>
+    </div>
+    <div class="window-body has-space">
+    <div class="ImageFilesContainer">
+        <img class="ImageFiles" src="Popup-Icons/imageres_72.ico" onclick="OpenImage('Chrysanthemum')" alt="WOw" style="width: 80px; height: 80px; cursor: pointer;">
+        <img class="ImageFiles" src="Popup-Icons/imageres_70.ico" onclick="OpenImage('Hydrangeas')" alt="WOw" style="width: 80px; height: 80px; cursor: pointer; padding: 15px;">
+        <img class="ImageFiles" src="Popup-Icons/imageres_83.ico" onclick="OpenImage('Jellyfish')" alt="WOw" style="width: 80px; height: 80px; cursor: pointer; padding: 15px;">
+        <img class="ImageFiles" src="Popup-Icons/imageres_132.ico" onclick="OpenImage('Penguins')" alt="WOw" style="width: 80px; height: 80px; cursor: pointer; padding: 15px;">
+        <img id="Picture" src="Wallpapers/Metal.jpg" alt="Photo" style="width: 80px; height: 80px; display: none;">
+        </div>
+    </div>
+</div>
+<div class="window active" id="controlPanelPopup" style="width: 51.5464vw; display: none;">
+    <div class="title-bar">
+        <div class="appStats">
+        <img class="app-icon" src="Apps/Control-Panel.png" alt="Control Panel Icon">
+        <div class="title-bar-text">Control Panel</div>
+        </div>
+        <div class="title-bar-controls">
+               <button aria-label="Help"></button>
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize" disabled></button>
+        <button aria-label="Close" onclick="closePopup('controlPanelPopup')"></button>
+        </div>
+    </div>
+    <div class="window-body has-space">
+        <img src="Popup-Icons/Personalization.png" alt="Header Image" class="header-image" style="width: 60px; height: 60px;">
+        <h3 style="color: black; font-family: Arial, sans-serif;" class="header-text">Personalization</h3>
+            <div id="wallpaper-selection" style="display: flex; gap: 10px; flex-wrap: wrap; padding-top: 10px;">
+                <button style="border: none; background: none; padding: 0; cursor: pointer;" onclick="setWallpaper('Wallpapers/Metal.jpg')">
+                    <img src="Wallpapers/Metal.jpg" alt="Wallpaper 1" class="wallpaper" data-wallpaper="Wallpapers/Metal.jpg">
+                </button>
+                <button style="border: none; background: none; padding: 0; cursor: pointer;" onclick="setWallpaper('Wallpapers/Plant.jpg')">
+                    <img src="Wallpapers/Plant.jpg" alt="Wallpaper 2" class="wallpaper" data-wallpaper="Wallpapers/Plant.jpg">
+                </button>
+                <button style="border: none; background: none; padding: 0; cursor: pointer;" onclick="setWallpaper('Wallpapers/Desert.jpg')">
+                    <img src="Wallpapers/Desert.jpg" alt="Wallpaper 3" class="wallpaper" data-wallpaper="Wallpapers/Desert.jpg">
+                </button>
+                <button style="border: none; background: none; padding: 0; cursor: pointer;" onclick="setWallpaper('Wallpapers/Harmony.jpg')">
+                    <img src="Wallpapers/Harmony.jpg" alt="Default" class="wallpaper" data-wallpaper="Wallpapers/Harmony.jpg">
+                </button>
+                <button class="upload-btn" onclick="triggerUpload()">Browse...</button>
+                <input type="file" id="upload-image" style="display: none;" accept="image/*" onchange="setCustomWallpaper(event)">
+                <div class="window-body has-space">
+                <img src="Popup-Icons/Clock.png" alt="Header Image" class="header-image" style="width: 60px; height: 60px;">
+        <h3 style="color: black; font-family: Arial, sans-serif;" class="header-text">Language</h3>
         <div id="language-timezone-popup" class="controlPanelPopup">
-            <div class="popup-content">
                 <form id="language-form">
                     <select id="language" name="language">
                         <option value="en">English</option>
@@ -451,26 +550,327 @@
                         <option value="fr">French</option>
                         <option value="zh">Chinese</option>
                     </select>
+                    </form>
                 <button type="button" id="save-language-timezone">Save</button>
-                </form>
-            </div>
+                 </div>
+               </div>
+             </div>
         </div>
+        <div style="--w7-w-bg: #805ba5; height: 23.5849vh;" onclick="ChangePopupColor('rgba(24,40,52,0.4)');">violet</div>
+        </div>
+        <div class="window active" id="DocumentsPopup" style="text-shadow: none;color: black;width: 36.8189vw;height: 23.5849vh;">
+    <div class="title-bar">
+        <div class="title-bar-text">Documents</div>
+        <div class="title-bar-controls">
+             <button aria-label="Help"></button>
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize" disabled=""></button>
+        <button aria-label="Close" onclick="closePopup('DocumentsPopup')"></button>
+            </div>
+    </div>
+    <div class="window-body has-space" style="height: 100px;">
+        <span style="margin-left:35%;">This folder is empty.</span>
     </div>
 </div>
-</body>
-<script src="scripts/wallpaper.js"></script>
-<script src="scripts/redirection.js"></script>
-<script src="scripts/media.js"></script>
-<script src="scripts/language.js"></script>
-<script src="scripts/battery.js"></script>
-<script src="scripts/main.js"></script>
-<script src="scripts/notepad.js"></script>
-<script src="scripts/browser.js"></script>
-<script src="scripts/webcam.js"></script>
-<script src="scripts/paint.js"></script>
-<script src="scripts/maze.js"></script>
-<script src="scripts/network-detection.js"></script>
+<div class="window active" id="PageStatPopup" style="width: 350px; display: none;">
+    <div class="title-bar">
+        <div class="appStats">
+        <img class="app-icon" src="Apps/PageStat.ico" alt="PageStats Icon">
+        <div class="title-bar-text">PageStats</div>
+        </div>
+        <div class="title-bar-controls">
+            <button aria-label="Help"></button>
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize" disabled></button>
+        <button aria-label="Close" onclick="closePopup('PageStatPopup')"></button>
+        </div>
+    </div>
+    <div class="window-body has-space">
+        <ul>
+        <li><div id="PageStatUI" style="display: flex; gap: 10px;">
+            <input id="websiteTitle" placeholder="Website Title">
+            <input id="faviconUrl" placeholder="Favicon URL">
+            </div>
+            </li>
+            <li><div style="display: flex; gap: 10px;">
+            <button onclick="openAboutBlank()">Open</button>
+            <button onclick="setCustomSettings()">Set</button>
+            <button onclick="resetCustomSettings()">Remove Settings</button>
+            </div>
+            </li>
+            </ul>
+        </div>
+<!--after this closing div, its the desktop-->
+  </div>
+<div id="taskbar">
+    <div class="start-menu" aria-label="Start Menu" onclick="toggleStartMenu()">
+        <img src="Start-Buttons/Default.png" alt="Start Menu" class="default">
+        <img src="Start-Buttons/Hover.png" alt="Start Menu" class="clicked">
+    </div>
+     <div class="taskbar-buttons">
+        <div class="taskbar-button" onclick="showBrowser()">
+            <img src="Apps/Internet-Explorer.png" alt="Browser">
+        </div>
+         <div class="taskbar-button" onclick="openPopup('myPCPopup')">
+            <img src="Apps/Files.png" alt="Files">
+        </div>
+         <div class="taskbar-button" onclick="openPopup('MediaPlayerPopup')">
+            <img src="Apps/Media-Player.png" alt="Media Player">
+        </div>
+    </div>
+    <div class="network-status" style="width: 30px; height: 30px">
+        <img src="Signal/full.png" alt="Network Signal" id="network-icon">
+    </div>
+    <div id="BatteryStats" onclick="openBattery()">
+    <img id="BatteryTRUE" src="Misc/battery-image.png" onclick="openBattery()" alt="Battery Image">
+    </div>
+</div>
+         <div class="start-menu-content" id="start-menu">
+            <div id="Program">
+                <button class="start-menu-item" onclick="openPopup('CalculatorPopup')" style="padding: 0; display: flex; align-items: center; cursor: pointer;">
+                    <img src="Apps/Calculator.png" alt="Calculator" style="width: 7vh; height: 7vh; margin-left: 8px;">
+                    <span style="font-size: 18px; color: black;">Calculator</span>
+                </button>
+                     <button id="startMenuBrowserLink" onclick="showBrowser();" class="start-menu-item" style="padding: 0px; display: flex; align-items: center; cursor: pointer;">
+  <img src="Apps/Internet-Explorer.png" alt="browser Button" style="width: 7vh; height: 7vh; margin-right: 8px;">
+  <span id="ie-label" style="font-size: 18px; color: black;">Internet Explorer</span>
+</button>
+                     <button class="start-menu-item" onclick="openPopup('MazePopup')" style="padding: 0; display: flex; align-items: center; cursor: pointer;">
+  <img src="Apps/Maze.png" alt="Maze Button" style="width: 7vh; height: 7vh; margin-right: 8px;">
+  <span id="Maze-label" style="font-size: 18px; color: black;">Maze</span>
+</button>
+                      <button class="start-menu-item" onclick="openPopup('MediaPlayerPopup')" style="padding: 0; display: flex; align-items: center; cursor: pointer;">
+  <img src="Apps/Media-Player.png" alt="Media Button" style="width: 7vh; height: 7vh; margin-right: 8px;">
+  <span id="media-player-label" style="font-size: 18px; color: black;">Media Player</span>
+</button>    
+                     <button class="start-menu-item" onclick="openPopup('NotepadPopup')" style="padding: 0; display: flex; align-items: center; cursor: pointer;">
+  <img src="Apps/Notepad.png" alt="Notepad Button" style="width: 7vh; height: 7vh; margin-right: 8px;">
+  <span id="notepad-label" style="font-size: 18px; color: black;">Notepad</span>
+</button>
+<button class="start-menu-item" onclick="openPopup(`PaintPopup`)" style="padding: 0; display: flex; align-items: center; cursor: pointer;">
+  <img src="Apps/Paint.png" alt="Paint Button" style="width: 7vh; height: 7vh; margin-right: 8px;">
+  <span id="paint-label" style="font-size: 18px; color: black;">Paint</span>
+</button>
+                     <button class="start-menu-item" onclick="openPopup('PageStatPopup')" style="padding: 0; display: flex; align-items: center; cursor: pointer;">
+  <img src="Apps/PageStat.ico" alt="PageStat Button" style="width: 7vh; height: 7vh; margin-right: 8px;">
+  <span id="paint-label" style="font-size: 18px; color: black;">PageStat</span>
+</button>
+                     <button class="start-menu-item" onclick="openWebcamApp()" style="padding: 0; display: flex; align-items: center; cursor: pointer;">
+  <img src="Apps/Webcam.png" alt="Webcam Button" style="width: 7vh; height: 7vh; margin-right: 8px;">
+  <span id="webcam-label" style="font-size: 18px; color: black;">Webcam</span>
+</button> 
+<input type="search" placeholder="Search">
+        </div> 
+        <div id="Start-menu-Right" onclick="openPopup('controlPanelPopup')">
+            <span id="control-panel-label">Control Panel</span>
+        </div>  
+    </div>
+<div class="time-container">
+    <div class="time" id="time">23:17</div>
+    <div class="date" id="date">03/19/25</div>
+</div>
+</div>
+<div id="battery" class="window">
+    <div class="window-body has-space">🔋
+    <span id="battery-percentage">60%</span>
+    <div id="network-status" style="position: fixed;  color: white;">🟢 Online</div>
+    </div>
+</div>
+    <ul role="menu" id="customMenu" class="can-hover" style="width: 200px; position: fixed; text-shadow: none;">
+  <li role="menuitem" tabindex="0" aria-haspopup="true">View</li>
+  <li role="menuitem" tabindex="0" aria-haspopup="true">
+    Sort by
+    <ul role="menu">
+      <li role="menuitem"><a href="#menu">Name</a></li>
+      <li role="menuitem"><a href="#menu">Size</a></li>
+      <li role="menuitem"><a href="#menu">Item type</a></li>
+      <li role="menuitem"><a href="#menu">Date modified</a></li>
+    </ul>
+  </li>
+  <li role="menuitem" class="has-divider"><a href="#menu">Refresh</a></li>
+  <li role="menuitem" aria-disabled="true"><a href="#menu">Paste</a></li>
+  <li role="menuitem" aria-disabled="true" class="has-divider">
+    <a href="#menu">Paste shortcut</a>
+  </li>
+  <li role="menuitem">
+    <img src="https://img.icons8.com/color/18/000000/monitor--v1.png"/>
+    <a href="#menu">Screen resolution</a>
+  </li>
+  <li role="menuitem">
+    <img src="https://img.icons8.com/color/18/000000/virtual-machine2.png"/>
+    <a href="#menu">Gadgets</a>
+  </li>
+  <li role="menuitem">
+    <img src="https://img.icons8.com/color/18/000000/remote-desktop.png"/>
+    <a href="#menu">Personalize</a>
+  </li>
+</ul>
+<script src="Scripts/Wallpaper.js"></script>
+<script src="Scripts/Ablank.js"></script>
+<script src="Scripts/Media-Player.js"></script>
+<script src="Scripts/Language.js"></script>
+<script src="Scripts/Battery.js"></script>
+<script src="Scripts/Misc.js"></script>
+<script src="Scripts/Notepad.js"></script>
+<script src="Scripts/Internet-Explorer.js"></script>
+<script src="Scripts/Webcam.js"></script>
+<script src="Scripts/Network.js"></script>
     <script>
+        function openBattery() {
+            const Battery = document.getElementById('battery')
+            if(Battery.style.display === 'none') {
+                Battery.style.display = 'block'
+                Battery.style.opacity = 1;
+            } else {
+                Battery.style.display = 'none'
+                Battery.style.opacity = 0;
+            }
+        }
+        const Seven = document.getElementById('7');
+        const Eight = document.getElementById('8');
+        const Nine = document.getElementById('9');
+        const Four = document.getElementById('4');
+        const Five = document.getElementById('5');
+        const Six = document.getElementById('6');
+        const One = document.getElementById('1'); 
+        const Two = document.getElementById('2');
+        const Three = document.getElementById('3');
+        const Zero = document.getElementById('0');
+        const add = document.getElementById('+');
+        const subtract = document.getElementById('-');
+        const multiply = document.getElementById('*');
+        const divide = document.getElementById('/');
+        const decimal = document.getElementById('.');
+        const equals = document.getElementById('=');
+        const clear = document.getElementById('C');
+        const square = document.getElementById('^');
+        const squareRootBtn = document.getElementById('√');
+        Seven.addEventListener('keydown', function(event) {
+            if (event.key === '7') {
+                press('7');
+            }
+        });
+        Eight.addEventListener('keydown', function(event) {
+            if (event.key === '8') {
+                press('8');
+            }
+        });
+        Nine.addEventListener('keydown', function(event) {
+            if (event.key === '9') {
+                press('9');
+            }
+        });
+        Four.addEventListener('keydown', function(event) {
+            if (event.key === '4') {
+                press('4');
+            }
+        });
+        Five.addEventListener('keydown', function(event) {
+            if (event.key === '5') {    
+                press('5');
+            }
+        });
+        Six.addEventListener('keydown', function(event) {
+            if (event.key === '6') {
+                press('6');
+            }
+        });
+        One.addEventListener('keydown', function(event) {
+            if (event.key === '1') {
+                press('1');
+            } 
+        });
+        Two.addEventListener('keydown', function(event) {
+            if (event.key === '2') {
+                press('2');
+            }
+        }); 
+        Three.addEventListener('keydown', function(event) {
+            if (event.key === '3') {
+                press('3');
+            }
+        });
+        Zero.addEventListener('keydown', function(event) {
+            if (event.key === '0') {
+                press('0');
+            }
+        });
+        add.addEventListener('keydown', function(event) {
+            if (event.key === '+') {
+                press('+');
+            }
+        });
+        subtract.addEventListener('keydown', function(event) {
+            if (event.key === '-') {
+                press('-');
+            }
+        });
+        multiply.addEventListener('keydown', function(event) {
+            if (event.key === '*') {
+                press('*');
+            }
+        });
+        divide.addEventListener('keydown', function(event) {
+            if (event.key === '/') {
+                press('/');
+            }
+        });
+        decimal.addEventListener('keydown', function(event) {   
+            if (event.key === '.') {
+                press('.');
+            }
+        });
+        equals.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                calculate();
+            }
+        });
+        clear.addEventListener('keydown', function(event) {
+            if (event.key === 'c' || event.key === 'C') {   
+                clearScreen();
+            }
+        });
+        square.addEventListener('keydown', function(event) {
+            if (event.key === '^') {    
+                press('**');
+            }
+        });
+        squareRootBtn.addEventListener('keydown', function(event) {
+            if (event.key === 'r' || event.key === 'R') {    
+                squareRoot();
+            }
+        }); 
+        const urlBar = document.getElementById('url-bar');
+        urlBar.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                loadPage();
+            }
+        });
+          let screen = document.getElementById("screen");
+        function press(value) { 
+            screen.textContent = screen.textContent === "0" ? value : screen.textContent + value; 
+        }
+        function calculate() { 
+            screen.textContent = eval(screen.textContent); 
+        }
+        function squareRoot() { 
+            screen.textContent = Math.sqrt(screen.textContent)
+        }
+        function clearScreen() { 
+            screen.textContent = "0"; 
+        }
+        document.querySelector('.start-menu').addEventListener('mouseover', function() {
+    const defaultImg = this.querySelector('img.default');
+    const clickedImg = this.querySelector('img.clicked');
+    const isDefaultVisible = defaultImg.style.display !== 'none';
+    if (isDefaultVisible) {
+        defaultImg.style.display = 'none';
+        clickedImg.style.display = 'block';
+    } else {
+        defaultImg.style.display = 'block';
+        clickedImg.style.display = 'none';
+    }
+});  
         document.querySelector('.start-menu').addEventListener('click', function() {
     const defaultImg = this.querySelector('img.default');
     const clickedImg = this.querySelector('img.clicked');
@@ -485,17 +885,91 @@
 });  
 function openPopup(popupId) {
     const popup = document.getElementById(popupId);
-    if (popup) {
-        popup.classList.add('show');
-    } else {
-        alert(`Popup with ID '${popupId}' not found.`);
+    if(popup) {
+        popup.style.display = 'block';
+        popup.style.opacity = 1;
+      } else {
+        alert(`Did not find ${popup}`)
+      }
     }
-}
 
 function closePopup(popupId) {
     const popup = document.getElementById(popupId);
-    if (popup) {
-        popup.classList.remove('show');
+        popup.style.display = 'none';
+        popup.style.opacity = 0;
+         if (popupId === 'webcamPopup') {
+            const videoElement = document.getElementById('webcam');
+            if (mediaRecorder && mediaRecorder.state === 'recording') {
+                stopRecording();
+                return;
+            }
+            if (videoElement) {
+                const stream = videoElement.srcObject || currentStream;
+                if (stream) {
+                    const tracks = stream.getTracks();
+                    tracks.forEach(track => track.stop());
+                }
+                if (videoElement) videoElement.srcObject = null;
+                currentStream = null;
+            }
+        }
     }
+
+function OpenImage(ImageName) {
+    const Picture = document.getElementById('ImageViewer')
+    const FileName = document.getElementById('ImageName')
+    Picture.src = `Misc/Sample Images/${ImageName}.jpg`
+    FileName.innerHTML = `${ImageName}`
+    openPopup('ImageViewerPopup')
+    PlayNavaudio()
 }
-    </script>
+function updateNetworkStatus() {
+  const status = navigator.onLine ? '🟢 Online' : '🔴 Offline';
+  document.getElementById('network-status').textContent = status;
+}
+updateNetworkStatus();
+window.addEventListener('online', updateNetworkStatus);
+window.addEventListener('offline', updateNetworkStatus);
+function PlayNavaudio() {
+    const audio = document.getElementById('Nav');
+    audio.currentTime = 0;
+    audio.play().catch(error => {
+        console.error('Error playing audio:', error);
+    }); 
+}
+document.addEventListener("contextmenu", function(e) {
+      e.preventDefault();
+      const menu = document.getElementById("customMenu");
+      menu.style.top = `${e.pageY}px`;
+      menu.style.left = `${e.pageX}px`;
+      menu.style.display = "block";
+    });
+
+    document.addEventListener("click", function() {
+      document.getElementById("customMenu").style.display = "none";
+    });
+    let ToggleStartFunction = false
+
+    document.addEventListener("click", function() {
+        const batteryDiv = document.getElementById('battery');
+        const StartMenu = document.getElementById('start-menu')
+        if(batteryDiv.style.display === 'block' ) {
+            batteryDiv.style.display = 'none'
+        } 
+        if(StartMenu.style.display === 'block') {
+              StartMenu.style.display = 'none'
+        } 
+        if(ToggleStartFunction === true) {
+            StartMenu.style.display = 'block'
+        }
+    });
+function ChangePopupColor(color) {
+    const Popups = document.querySelectorAll('.window .active');
+    Popups.forEach(window => {
+        window.style.setProperty('--w7-w-bg', color);
+    });
+}
+ChangePopupColor('rgba(24,40,52,0.4)')
+  </script>
+  </html>
+</body>
